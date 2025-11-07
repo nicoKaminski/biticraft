@@ -11,29 +11,29 @@ export default function PaginaInicio() {
     <>
       {/* --- Sección Hero (Bienvenida) --- */}
       <section className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-4xl font-bold text-gray-800 md:text-5xl">
+        <h1 className="text-4xl font-bold text-marca-gris md:text-5xl">
           Te damos la bienvenida a BitiCraft
         </h1>
-        <p className="mt-4 text-lg text-gray-600">
+        <p className="mt-4 text-lg text-marca-gris">
           Diseños personalizados y papelería creativa para tus eventos.
         </p>
         <a
           href="/contacto"
-          className="mt-8 inline-block rounded-md bg-pink-500 px-6 py-3 font-semibold text-white shadow-md transition-colors hover:bg-pink-600"
+          className="mt-8 inline-block rounded-md bg-marca-rosa px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-marca-lila-oscuro"
         >
           ¡Quiero cotizar!
         </a>
       </section>
 
       {/* --- Sección Sobre Mí --- */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-marca-crema py-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold text-gray-800">
+            <h2 className="text-3xl font-bold text-marca-gris">
               {seccionSobreMi.titulo}
             </h2>
-            <p className="mt-6 text-gray-700">{seccionSobreMi.parrafo1}</p>
-            <p className="mt-4 text-gray-700">{seccionSobreMi.parrafo2}</p>
+            <p className="mt-6 text-marca-gris">{seccionSobreMi.parrafo1}</p>
+            <p className="mt-4 text-marca-gris">{seccionSobreMi.parrafo2}</p>
           </div>
         </div>
       </section>

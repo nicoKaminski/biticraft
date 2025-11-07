@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Diseños personalizados para eventos mágicos.",
 };
 
-export default function RootLayout({
+export default function PlantillaPrincipal({
   children,
 }: Readonly<{
   children: React.ReactNode;

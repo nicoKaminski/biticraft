@@ -2,25 +2,29 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #3c3c3b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-marca-crema: #FEFOD6;
+  --color-marca-lila: #c9cddf;
+  --color-marca-verde: #d4e7ce;
+  --color-marca-rosa: #f9cdcc;
+  --color-marca-gris: #3c3c3b;
+  --color-marca-lila-oscuro: #e7d8e9;
+  --color-marca-celeste: #cde8ec;
+  --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

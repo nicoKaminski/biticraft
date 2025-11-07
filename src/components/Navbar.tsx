@@ -30,7 +30,7 @@ export const Navbar = () => {
             <Link
               key={enlace.nombre}
               href={enlace.href}
-              className="text-gray-700 hover:text-pink-500 transition-colors"
+              className="text-marca-gris transition-colors hover:text-marca-rosa"
             >
               {enlace.nombre}
             </Link>
