@@ -1,44 +1,11 @@
-const seccionSobreMi = {
-  titulo: "¿Qué me hace única?",
-  parrafo1:
-    "En BitiCraft, no solo trabajo en la creación de papelería creativa, sino que también disfruto y me apasiona atender a cada cliente de manera especial y cercana.",
-  parrafo2:
-    "Tu satisfacción es mi mayor logro, y estoy acá para asesorarte y guiar en el proceso creativo. Los diseños son únicos porque reflejan tu estilo y personalidad.",
-};
+import { SeccionHero } from "@/components/sections/SeccionHero";
+import { SeccionSobreMi } from "@/components/sections/SeccionSobreMi";
 
 export default function PaginaInicio() {
   return (
     <>
-      {/* --- Sección Hero (Bienvenida) --- */}
-      <section className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-4xl font-bold text-marca-gris md:text-5xl">
-          Te damos la bienvenida a BitiCraft
-        </h1>
-        <p className="mt-4 text-lg text-marca-gris">
-          Diseños personalizados y papelería creativa para tus eventos.
-        </p>
-        <a
-          href="/contacto"
-          className="mt-8 inline-block rounded-md bg-marca-rosa px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-marca-lila-oscuro"
-        >
-          ¡Quiero cotizar!
-        </a>
-      </section>
-
-      {/* --- Sección Sobre Mí --- */}
-      <section className="bg-marca-crema py-20">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold text-marca-gris">
-              {seccionSobreMi.titulo}
-            </h2>
-            <p className="mt-6 text-marca-gris">{seccionSobreMi.parrafo1}</p>
-            <p className="mt-4 text-marca-gris">{seccionSobreMi.parrafo2}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Acá podemos agregar más secciones después (Galería, Servicios, etc.) */}
+      <SeccionHero />
+      <SeccionSobreMi />
     </>
   );
 }
