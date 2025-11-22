@@ -13,6 +13,21 @@
   --color-marca-gris: #3c3c3b;
   --color-marca-lila-oscuro: #e7d8e9;
   --color-marca-celeste: #cde8ec;
+  --bg-gradient-lila: linear-gradient(
+    180deg,
+    rgba(201, 205, 223, 0.3) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --bg-gradient-crema: linear-gradient(
+    180deg,
+    rgba(254, 240, 214, 0.4) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --bg-gradient-rosa: linear-gradient(
+    180deg,
+    rgba(249, 205, 204, 0.3) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 }

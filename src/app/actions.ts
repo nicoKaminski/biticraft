@@ -1,7 +1,9 @@
 "use server";
 
+type EstadoFormulario = { success: boolean; message: string } | null;
+
 export async function enviarFormularioContacto(
-  prevState: any,
+  prevState: EstadoFormulario,
   formData: FormData
 ) {
   const nombre = formData.get("nombre");

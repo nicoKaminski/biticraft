@@ -63,7 +63,7 @@ export default function PaginaServicios() {
   return (
     <div className="bg-white">
       {/* Hero Servicios */}
-      <section className="bg-marca-lila-oscuro py-20 text-center">
+      <section className="bg-[image:var(--bg-gradient-lila)] py-20 text-center">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-marca-gris md:text-5xl">
             Nuestros Servicios
@@ -92,6 +92,7 @@ export default function PaginaServicios() {
                   alt={producto.nombre}
                   fill
                   className="object-cover"
+                  unoptimized={true}
                 />
               </div>
               <div className="bg-white p-4 text-center">
@@ -105,7 +106,7 @@ export default function PaginaServicios() {
       </section>
 
       {/* Papelería Digital */}
-      <section className="py-16 bg-marca-crema">
+      <section className="py-16 bg-[image:var(--bg-gradient-crema)]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-marca-gris mb-8 border-b-4 border-marca-verde inline-block">
             Papelería Digital
@@ -122,6 +123,7 @@ export default function PaginaServicios() {
                     alt={producto.nombre}
                     fill
                     className="object-cover"
+                    unoptimized={true}
                   />
                 </div>
                 <h3 className="font-bold text-xl text-marca-gris mb-2">
@@ -148,6 +150,7 @@ export default function PaginaServicios() {
               alt={papeleriaFuncional[0].nombre}
               fill
               className="object-cover"
+              unoptimized={true}
             />
           </div>
           <div>
