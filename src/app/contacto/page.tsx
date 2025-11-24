@@ -118,9 +118,13 @@ export default function PaginaContacto() {
             </div>
 
             <div className="text-center">
-              <Boton type="submit" disabled={isPending} className="w-full">
+              <button
+                type="submit"
+                disabled={isPending}
+                className="w-full inline-block rounded-full bg-marca-rosa px-8 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
                 {isPending ? "Enviando..." : "Enviar Mensaje"}
-              </Boton>
+              </button>
             </div>
           </form>
         )}

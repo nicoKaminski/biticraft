@@ -1,17 +1,18 @@
 "use server";
 
+import nodemailer from "nodemailer";
+
 type EstadoFormulario = { success: boolean; message: string } | null;
 
 export async function enviarFormularioContacto(
   prevState: EstadoFormulario,
   formData: FormData
 ) {
-  const nombre = formData.get("nombre");
-  const email = formData.get("email");
-  const tipoEvento = formData.get("tipoEvento");
-  const mensaje = formData.get("mensaje");
+  const nombre = formData.get("nombre") as string;
+  const email = formData.get("email") as string;
+  const tipoEvento = formData.get("tipoEvento") as string;
+  const mensaje = formData.get("mensaje") as string;
 
-  // Validación simple
   if (!nombre || !email || !mensaje) {
     return {
       success: false,
@@ -19,20 +20,52 @@ export async function enviarFormularioContacto(
     };
   }
 
-  // Simulación de envío de email
-  console.log("--- NUEVO MENSAJE DE CONTACTO ---");
-  console.log("Nombre:", nombre);
-  console.log("Email:", email);
-  console.log("Evento:", tipoEvento);
-  console.log("Mensaje:", mensaje);
-  console.log("---------------------------------");
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS,
+      },
+    });
 
-  // Simular delay de red
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+    const mailOptions = {
+      from: `Web Biticraft <${process.env.GMAIL_USER}>`,
+      to: process.env.GMAIL_USER,
+      replyTo: email,
+      subject: `Nuevo Mensaje Web: ${tipoEvento || "Consulta General"}`,
+      text: `
+        Nombre: ${nombre}
+        Email: ${email}
+        Evento: ${tipoEvento}
+        
+        Mensaje:
+        ${mensaje}
+      `,
+      html: `
+        <h3>Nuevo mensaje desde la web</h3>
+        <p><strong>Nombre:</strong> ${nombre}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Evento:</strong> ${tipoEvento}</p>
+        <hr/>
+        <p><strong>Mensaje:</strong></p>
+        <p>${mensaje}</p>
+      `,
+    };
 
-  return {
-    success: true,
-    message:
-      "¡Gracias! Hemos recibido tu mensaje. Te responderemos a la brevedad.",
-  };
+    await transporter.sendMail(mailOptions);
+
+    return {
+      success: true,
+      message:
+        "¡Gracias! Hemos recibido tu mensaje. Te responderemos a la brevedad.",
+    };
+  } catch (error) {
+    console.error("Error al enviar email:", error);
+    return {
+      success: false,
+      message:
+        "Hubo un error al enviar tu mensaje. Por favor intenta más tarde o escribinos por WhatsApp.",
+    };
+  }
 }
