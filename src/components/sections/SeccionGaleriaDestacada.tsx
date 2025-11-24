@@ -20,14 +20,14 @@ export const SeccionGaleriaDestacada = () => {
   return (
     <section className="py-12 md:py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-marca-gris mb-8">
+        <h2 className="text-[length:var(--text-h2-mobile)] md:text-[length:var(--text-h2)] font-[weight:var(--font-weight-bold)] text-center text-marca-gris mb-8">
           Galería Destacada
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {imagenesDestacadas.map((imagen, index) => (
             <div
               key={index}
-              className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="overflow-hidden rounded-[var(--radius-card)] shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <Image
                 src={imagen.src}

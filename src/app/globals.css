@@ -13,6 +13,12 @@
   --color-marca-gris: #3c3c3b;
   --color-marca-lila-oscuro: #e7d8e9;
   --color-marca-celeste: #cde8ec;
+  
+  /* Radios de borde semánticos */
+  --radius-btn: 9999px;
+  --radius-card: 0.5rem;
+  --radius-container-lg: 2.5rem;
+
   --bg-gradient-lila: linear-gradient(
     180deg,
     rgba(201, 205, 223, 0.3) 0%,
@@ -28,8 +34,31 @@
     rgba(249, 205, 204, 0.3) 0%,
     rgba(255, 255, 255, 0) 100%
   );
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: var(--font-roboto), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
+
+  /* Pesos de fuente semánticos */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Tamaños de fuente semánticos */
+  --text-h1: 4.5rem; /* 72px */
+  --text-h1-mobile: 3rem; /* 48px */
+  --text-h2: 3rem; /* 48px */
+  --text-h2-mobile: 2.25rem; /* 36px */
+  --text-h3: 2.25rem; /* 36px */
+  --text-h3-mobile: 1.875rem; /* 30px */
+  --text-body-lg: 1.25rem; /* 20px */
+  --text-body: 1rem; /* 16px */
+  --text-body-sm: 0.875rem; /* 14px */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --radius-container-lg: 3.5rem;
+  }
 }
 
 /* @media (prefers-color-scheme: dark) {

@@ -2,10 +2,10 @@ export const SeccionSobreMi = () => {
   return (
     <section className="bg-marca-crema py-16">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-marca-gris mb-6">
+        <h2 className="text-[length:var(--text-h2-mobile)] md:text-[length:var(--text-h2)] font-[weight:var(--font-weight-bold)] text-marca-gris mb-6">
           ¿Quiénes somos?
         </h2>
-        <p className="text-lg text-marca-gris max-w-3xl mx-auto leading-relaxed">
+        <p className="text-[length:var(--text-body-lg)] text-marca-gris max-w-3xl mx-auto leading-relaxed">
           ¡Hola! Somos <strong>Biticraft</strong>. Nos apasiona ponerle color y
           alegría a tus celebraciones. Nuestro diferencial es la{" "}
           <strong>atención cercana y divertida</strong>: nos encanta escucharte

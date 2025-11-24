@@ -23,10 +23,10 @@ export const SeccionServicios = () => {
     <section className="bg-[image:var(--bg-gradient-lila)] py-20">
       <div className="container mx-auto px-4">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-marca-gris">
+          <h2 className="text-[length:var(--text-h2-mobile)] md:text-[length:var(--text-h2)] font-[weight:var(--font-weight-bold)] text-marca-gris">
             Nuestros Servicios
           </h2>
-          <p className="mt-4 text-marca-gris">
+          <p className="mt-4 text-marca-gris text-[length:var(--text-body)]">
             Soluciones creativas para cada una de tus necesidades.
           </p>
         </div>
@@ -34,12 +34,14 @@ export const SeccionServicios = () => {
           {listaDeServicios.map((servicio) => (
             <div
               key={servicio.nombre}
-              className="rounded-lg bg-white p-6 text-center shadow-md transition-transform duration-300 hover:scale-105"
+              className="rounded-[var(--radius-card)] bg-white p-6 text-center shadow-md transition-transform duration-300 hover:scale-105"
             >
-              <h3 className="text-xl font-bold text-marca-gris">
+              <h3 className="text-[length:var(--text-h3-mobile)] md:text-[length:var(--text-h3)] font-[weight:var(--font-weight-bold)] text-marca-gris">
                 {servicio.nombre}
               </h3>
-              <p className="mt-2 text-marca-gris">{servicio.descripcion}</p>
+              <p className="mt-2 text-marca-gris text-[length:var(--text-body)]">
+                {servicio.descripcion}
+              </p>
             </div>
           ))}
         </div>
