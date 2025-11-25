@@ -13,10 +13,12 @@
   --color-marca-gris: #3c3c3b;
   --color-marca-lila-oscuro: #e7d8e9;
   --color-marca-celeste: #cde8ec;
+  --color-marca-morado: #dcbadb;
+  --color-marca-morado-oscuro: #af7ead;
   
-  /* Radios de borde semánticos */
   --radius-btn: 9999px;
   --radius-card: 0.5rem;
+  --radius-card-lg: 2rem;
   --radius-container-lg: 2.5rem;
 
   --bg-gradient-lila: linear-gradient(
@@ -24,35 +26,106 @@
     rgba(201, 205, 223, 0.3) 0%,
     rgba(255, 255, 255, 0) 100%
   );
+  --bg-gradient-lila-inv: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(201, 205, 223, 0.3) 100%
+  );
+
   --bg-gradient-crema: linear-gradient(
     180deg,
     rgba(254, 240, 214, 0.4) 0%,
     rgba(255, 255, 255, 0) 100%
   );
+  --bg-gradient-crema-inv: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(254, 240, 214, 0.4) 100%
+  );
+
   --bg-gradient-rosa: linear-gradient(
     180deg,
     rgba(249, 205, 204, 0.3) 0%,
     rgba(255, 255, 255, 0) 100%
   );
+  --bg-gradient-rosa-inv: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(249, 205, 204, 0.3) 100%
+  );
+  
+  --bg-gradient-verde: linear-gradient(
+    180deg,
+    rgba(212, 231, 206, 0.4) 0%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+  --bg-gradient-verde-inv: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(212, 231, 206, 0.4) 100%
+  );
+  
+  --bg-gradient-celeste: linear-gradient(
+    180deg,
+    rgba(205, 232, 236, 0.4) 0%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+  --bg-gradient-celeste-inv: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(205, 232, 236, 0.4) 100%
+  );
+  
+  --bg-gradient-violeta: linear-gradient(
+    180deg,
+    rgba(231, 216, 233, 0.5) 0%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+  --bg-gradient-violeta-inv: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(231, 216, 233, 0.5) 100%
+  );
+  
+  --bg-gradient-turquesa: linear-gradient(
+    180deg,
+    rgba(178, 235, 242, 0.4) 0%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+  --bg-gradient-turquesa-inv: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(178, 235, 242, 0.4) 100%
+  );
+  
+  --bg-gradient-fresco-full: linear-gradient(
+    135deg,
+    #D4E7CE 0%,
+    #CDE8EC 100%
+  );
+  --bg-gradient-fresco-suave: linear-gradient(
+    135deg,
+    rgba(212, 231, 206, 0.3) 0%,
+    rgba(205, 232, 236, 0.3) 100%
+  );
+
   --font-sans: var(--font-roboto), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 
-  /* Pesos de fuente semánticos */
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
-  /* Tamaños de fuente semánticos */
-  --text-h1: 4.5rem; /* 72px */
-  --text-h1-mobile: 3rem; /* 48px */
-  --text-h2: 3rem; /* 48px */
-  --text-h2-mobile: 2.25rem; /* 36px */
-  --text-h3: 2.25rem; /* 36px */
-  --text-h3-mobile: 1.875rem; /* 30px */
-  --text-body-lg: 1.25rem; /* 20px */
-  --text-body: 1rem; /* 16px */
-  --text-body-sm: 0.875rem; /* 14px */
+  --text-h1: 4.5rem;
+  --text-h1-mobile: 3rem;
+  --text-h2: 3rem;
+  --text-h2-mobile: 2.25rem;
+  --text-h3: 2.25rem;
+  --text-h3-mobile: 1.875rem;
+  --text-body-lg: 1.25rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
 }
 
 @media (min-width: 768px) {
