@@ -13,7 +13,7 @@ export const Boton: React.FC<BotonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "inline-block rounded-[var(--radius-btn)] bg-marca-rosa px-8 py-3 font-[weight:var(--font-weight-bold)] text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-opacity-80 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100";
+    "inline-block rounded-[var(--radius-btn)] bg-marca-rosa px-8 py-3 font-[weight:var(--font-weight-regular)] text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-opacity-80 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100";
   const combinedClassName = `${baseStyles} ${className}`;
   if (href) {
     return (

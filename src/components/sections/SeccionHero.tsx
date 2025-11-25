@@ -7,7 +7,7 @@ export const SeccionHero = () => {
         <h1 className="text-[length:var(--text-h1-mobile)] md:text-[length:var(--text-h1)] font-[weight:var(--font-weight-light)] text-marca-gris tracking-tighter leading-[0.9]">
           ¡Celebra con{" "}
           <span className="text-marca-rosa font-[weight:var(--font-weight-medium)]">
-            estilo!
+            estilo
           </span>{" "}
           <br className="hidden md:block" /> y{" "}
           <span className="text-marca-rosa font-[weight:var(--font-weight-medium)]">

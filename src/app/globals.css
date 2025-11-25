@@ -98,24 +98,97 @@
     rgba(178, 235, 242, 0.4) 100%
   );
   
-  --bg-gradient-fresco-full: linear-gradient(
+  --bg-gradient-verde-full: linear-gradient(
     135deg,
     #D4E7CE 0%,
     #CDE8EC 100%
   );
-  --bg-gradient-fresco-suave: linear-gradient(
+  --bg-gradient-verde-suave: linear-gradient(
     135deg,
     rgba(212, 231, 206, 0.3) 0%,
     rgba(205, 232, 236, 0.3) 100%
   );
 
-  --font-sans: var(--font-roboto), system-ui, sans-serif;
+  --bg-gradient-lila-full: linear-gradient(
+    135deg,
+    #C9CDDF 0%,
+    #E7D8E9 100%
+  );
+  --bg-gradient-lila-suave: linear-gradient(
+    135deg,
+    rgba(201, 205, 223, 0.3) 0%,
+    rgba(231, 216, 233, 0.3) 100%
+  );
+
+  --bg-gradient-crema-full: linear-gradient(
+    135deg,
+    #FEFOD6 0%,
+    #F9CDCC 100%
+  );
+  --bg-gradient-crema-suave: linear-gradient(
+    135deg,
+    rgba(254, 240, 214, 0.3) 0%,
+    rgba(249, 205, 204, 0.3) 100%
+  );
+
+  --bg-gradient-rosa-full: linear-gradient(
+    135deg,
+    #F9CDCC 0%,
+    #C9CDDF 100%
+  );
+  --bg-gradient-rosa-suave: linear-gradient(
+    135deg,
+    rgba(249, 205, 204, 0.3) 0%,
+    rgba(201, 205, 223, 0.3) 100%
+  );
+
+  --bg-gradient-violeta-full: linear-gradient(
+    135deg,
+    #E7D8E9 0%,
+    #CDE8EC 100%
+  );
+  --bg-gradient-violeta-suave: linear-gradient(
+    135deg,
+    rgba(231, 216, 233, 0.3) 0%,
+    rgba(205, 232, 236, 0.3) 100%
+  );
+
+  --bg-gradient-lila-fade: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(201, 205, 223, 0.4) 50%, 
+    #ffffff 100%
+  );
+
+  --bg-gradient-crema-fade: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(254, 240, 214, 0.5) 50%,
+    #ffffff 100%
+  );
+
+  --bg-gradient-verde-fade: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(212, 231, 206, 0.4) 45%,
+    rgba(205, 232, 236, 0.4) 55%,
+    #ffffff 100%
+  );
+
+  --bg-gradient-rosa-fade: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(249, 205, 204, 0.4) 50%,
+    #ffffff 100%
+  );
+
+  --font-sans: var(--font-roboto);
   --font-mono: var(--font-geist-mono);
 
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
-  --font-weight-bold: 700;
+  --font-weight-bold: 600;
 
   --text-h1: 4.5rem;
   --text-h1-mobile: 3rem;
@@ -144,4 +217,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  font-weight: var(--font-weight-regular);
 }

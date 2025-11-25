@@ -2,7 +2,7 @@ import { Boton } from "@/components/ui/Boton";
 
 export const SeccionServicios = () => {
   return (
-    <section className="bg-[image:var(--bg-gradient-fresco-suave)] py-24">
+    <section className="bg-[image:var(--bg-gradient-rosa-fade)] py-24">
       <div className="container mx-auto px-4">
         <div className="text-center">
           <h2 className="text-[length:var(--text-h2-mobile)] md:text-[length:var(--text-h2)] font-[weight:var(--font-weight-bold)] text-marca-gris">
