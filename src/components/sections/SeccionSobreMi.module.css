@@ -1,0 +1,87 @@
+.sobreMi {
+  background-image: var(--gradient-violeta);
+  padding-block: 6rem;
+}
+
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .container {
+    max-width: 40rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .container {
+    max-width: 48rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .container {
+    max-width: 64rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .container {
+    max-width: 80rem;
+  }
+}
+
+@media (min-width: 96rem) {
+  .container {
+    max-width: 96rem;
+  }
+}
+
+.contenido {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.titulo {
+  font-size: var(--font-size-h2-mobile);
+  font-weight: var(--font-weight-bld);
+  color: var(--color-gris);
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+@media (min-width: 48rem) {
+  .titulo {
+    font-size: var(--font-size-h2);
+  }
+}
+
+.bloqueTexto {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-gris);
+  line-height: 1.625;
+}
+
+.bloqueTexto > p {
+  margin: 0;
+}
+
+.bloqueTexto > p:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.marcaRosa {
+  font-weight: 700;
+  color: var(--color-rosa);
+}
+
+.fraseFinal {
+  margin-top: 1rem;
+  color: var(--color-morado-oscuro);
+  font-weight: var(--font-weight-med);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}

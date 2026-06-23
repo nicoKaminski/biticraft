@@ -1,16 +1,18 @@
+import styles from "./SeccionSobreMi.module.css";
+
 export const SeccionSobreMi = () => {
   return (
-    <section className="bg-[image:var(--bg-gradient-violeta)] py-24">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-[length:var(--text-h2-mobile)] md:text-[length:var(--text-h2)] font-[weight:var(--font-weight-bold)] text-marca-gris mb-8">
+    <section className={styles.sobreMi}>
+      <div className={styles.container}>
+        <div className={styles.contenido}>
+          <h2 className={styles.titulo}>
             ¿Quiénes somos?
           </h2>
 
-          <div className="text-[length:var(--text-body-lg)] text-marca-gris leading-relaxed space-y-6">
+          <div className={styles.bloqueTexto}>
             <p>
               ¡Hola! Somos{" "}
-              <span className="font-bold text-marca-rosa">Biticraft</span>. Nos
+              <span className={styles.marcaRosa}>Biticraft</span>. Nos
               apasiona ponerle color y alegría a tus celebraciones.
             </p>
             <p>
@@ -20,7 +22,7 @@ export const SeccionSobreMi = () => {
               una boda, un cumple de 15, o el primer añito de tu bebé, estamos
               acá para que cada detalle cuente.
             </p>
-            <p className="mt-4 text-marca-morado-oscuro font-[weight:var(--font-weight-medium)] text-xl">
+            <p className={styles.fraseFinal}>
               ¡Todo es 100% personalizado!
             </p>
           </div>

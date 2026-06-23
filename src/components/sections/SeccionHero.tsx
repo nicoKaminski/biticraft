@@ -1,27 +1,28 @@
 import { Boton } from "../ui/Boton";
+import styles from "./SeccionHero.module.css";
 
 export const SeccionHero = () => {
   return (
-    <section className="bg-[image:var(--bg-gradient-violeta-inv)] w-full">
-      <div className="container mx-auto px-4 py-20 text-center md:py-32">
-        <h1 className="text-[length:var(--text-h1-mobile)] md:text-[length:var(--text-h1)] font-[weight:var(--font-weight-light)] text-marca-gris tracking-tighter leading-[0.9]">
+    <section className={styles.hero}>
+      <div className={styles.container}>
+        <h1 className={styles.titulo}>
           ¡Celebra con{" "}
-          <span className="text-marca-rosa font-[weight:var(--font-weight-medium)]">
+          <span className={styles.palabraDestacada}>
             estilo
           </span>{" "}
-          <br className="hidden md:block" /> y{" "}
-          <span className="text-marca-rosa font-[weight:var(--font-weight-medium)]">
+          <br className={styles.saltoLinea} /> y{" "}
+          <span className={styles.palabraDestacada}>
             creatividad!
           </span>
         </h1>
 
-        <p className="mt-6 text-[length:var(--text-body-lg)] text-marca-gris max-w-2xl mx-auto leading-relaxed">
+        <p className={styles.descripcion}>
           En <strong>Biticraft</strong> creamos papelería personalizada para
           hacer de tu evento un momento único. Desde gigantografías hasta
           souvenirs, todo diseñado a tu medida.
         </p>
 
-        <div className="mt-8">
+        <div className={styles.ctaContenedor}>
           <Boton href="/contacto">¡Quiero cotizar!</Boton>
         </div>
       </div>
