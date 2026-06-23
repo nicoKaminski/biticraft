@@ -1,4 +1,4 @@
-@import "tailwindcss";
+
 
 /* :root */
 :root {
@@ -205,85 +205,6 @@
   );
 }
 
-/* @theme inline */
-@theme inline {
-  --color-marca-crema: var(--color-crema);
-  --color-marca-lila: var(--color-lila);
-  --color-marca-verde: var(--color-verde);
-  --color-marca-rosa: var(--color-rosa);
-  --color-marca-gris: var(--color-gris);
-  --color-marca-lila-oscuro: var(--color-lila-oscuro);
-  --color-marca-celeste: var(--color-celeste);
-  --color-marca-morado: var(--color-morado);
-  --color-marca-morado-oscuro: var(--color-morado-oscuro);
-  
-  --radius-btn: var(--radius-button);
-  --radius-card: var(--radius-card-sm);
-  --radius-card-lg: var(--radius-card-md);
-  --radius-container-lg: var(--radius-container);
-
-  --bg-gradient-lila: var(--gradient-lila);
-  --bg-gradient-lila-inv: var(--gradient-lila-inv);
-
-  --bg-gradient-crema: var(--gradient-crema);
-  --bg-gradient-crema-inv: var(--gradient-crema-inv);
-
-  --bg-gradient-rosa: var(--gradient-rosa);
-  --bg-gradient-rosa-inv: var(--gradient-rosa-inv);
-  
-  --bg-gradient-verde: var(--gradient-verde);
-  --bg-gradient-verde-inv: var(--gradient-verde-inv);
-  
-  --bg-gradient-celeste: var(--gradient-celeste);
-  --bg-gradient-celeste-inv: var(--gradient-celeste-inv);
-  
-  --bg-gradient-violeta: var(--gradient-violeta);
-  --bg-gradient-violeta-inv: var(--gradient-violeta-inv);
-  
-  --bg-gradient-turquesa: var(--gradient-turquesa);
-  --bg-gradient-turquesa-inv: var(--gradient-turquesa-inv);
-  
-  --bg-gradient-verde-full: var(--gradient-verde-full);
-  --bg-gradient-verde-suave: var(--gradient-verde-suave);
-
-  --bg-gradient-lila-full: var(--gradient-lila-full);
-  --bg-gradient-lila-suave: var(--gradient-lila-suave);
-
-  --bg-gradient-crema-full: var(--gradient-crema-full);
-  --bg-gradient-crema-suave: var(--gradient-crema-suave);
-
-  --bg-gradient-rosa-full: var(--gradient-rosa-full);
-  --bg-gradient-rosa-suave: var(--gradient-rosa-suave);
-
-  --bg-gradient-violeta-full: var(--gradient-violeta-full);
-  --bg-gradient-violeta-suave: var(--gradient-violeta-suave);
-
-  --bg-gradient-lila-fade: var(--gradient-lila-fade);
-
-  --bg-gradient-crema-fade: var(--gradient-crema-fade);
-
-  --bg-gradient-verde-fade: var(--gradient-verde-fade);
-
-  --bg-gradient-rosa-fade: var(--gradient-rosa-fade);
-
-  --font-sans: var(--font-sans-family);
-  --font-mono: var(--font-mono-family);
-
-  --font-weight-light: var(--font-weight-lt);
-  --font-weight-regular: var(--font-weight-reg);
-  --font-weight-medium: var(--font-weight-med);
-  --font-weight-bold: var(--font-weight-bld);
-
-  --text-h1: var(--font-size-h1);
-  --text-h1-mobile: var(--font-size-h1-mobile);
-  --text-h2: var(--font-size-h2);
-  --text-h2-mobile: var(--font-size-h2-mobile);
-  --text-h3: var(--font-size-h3);
-  --text-h3-mobile: var(--font-size-h3-mobile);
-  --text-body-lg: var(--font-size-body-lg);
-  --text-body: var(--font-size-body);
-  --text-body-sm: var(--font-size-body-sm);
-}
 
 /* reset global */
 *,
