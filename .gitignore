@@ -10,6 +10,8 @@
 
 # testing
 /coverage
+repomix*
+reglas*
 
 # next.js
 /.next/
