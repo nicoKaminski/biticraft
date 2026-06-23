@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { enviarFormularioContacto } from "../actions";
+import { EVENT_TYPES } from "./constants";
 
 const initialState = {
   success: false,
@@ -25,7 +26,7 @@ export default function PaginaContacto() {
         </div>
 
         {state.success ? (
-          <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded relative text-center">
+          <div role="status" className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded relative text-center">
             <p className="font-bold">¡Mensaje Enviado!</p>
             <p>{state.message}</p>
             <button
@@ -38,10 +39,22 @@ export default function PaginaContacto() {
         ) : (
           <form action={formAction} className="space-y-6">
             {state.message && !state.success && (
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded relative">
+              <div role="alert" className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded relative">
                 {state.message}
               </div>
             )}
+
+            {/* Campo Honeypot para evitar bots */}
+            <div style={{ display: "none" }} aria-hidden="true">
+              <label htmlFor="website">Sitio Web</label>
+              <input
+                type="text"
+                name="website"
+                id="website"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
 
             <div>
               <label
@@ -55,6 +68,9 @@ export default function PaginaContacto() {
                 name="nombre"
                 id="nombre"
                 required
+                minLength={2}
+                maxLength={80}
+                autoComplete="name"
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-marca-rosa focus:ring-marca-rosa sm:text-sm p-2 border"
                 placeholder="Tu nombre"
               />
@@ -72,6 +88,8 @@ export default function PaginaContacto() {
                 name="email"
                 id="email"
                 required
+                maxLength={254}
+                autoComplete="email"
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-marca-rosa focus:ring-marca-rosa sm:text-sm p-2 border"
                 placeholder="tu@email.com"
               />
@@ -90,12 +108,11 @@ export default function PaginaContacto() {
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-marca-rosa focus:ring-marca-rosa sm:text-sm p-2 border"
               >
                 <option value="">Selecciona una opción</option>
-                <option value="Boda">Boda</option>
-                <option value="15 Años">15 Años</option>
-                <option value="Cumpleaños Infantil">Cumpleaños Infantil</option>
-                <option value="Bautismo">Bautismo</option>
-                <option value="Comunión">Comunión</option>
-                <option value="Otro">Otro</option>
+                {EVENT_TYPES.map((tipo) => (
+                  <option key={tipo} value={tipo}>
+                    {tipo}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -111,6 +128,8 @@ export default function PaginaContacto() {
                 id="mensaje"
                 rows={4}
                 required
+                minLength={10}
+                maxLength={3000}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-marca-rosa focus:ring-marca-rosa sm:text-sm p-2 border"
                 placeholder="Contanos qué estás buscando..."
               />
@@ -131,3 +150,4 @@ export default function PaginaContacto() {
     </div>
   );
 }
+
