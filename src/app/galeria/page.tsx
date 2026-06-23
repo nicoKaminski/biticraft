@@ -1,10 +1,12 @@
+import styles from "./page.module.css";
+
 export default function PaginaGaleria() {
   return (
-    <div className="container mx-auto px-4 py-16 text-center">
-      <h1 className="text-4xl font-bold text-marca-gris">
+    <div className={styles.container}>
+      <h1 className={styles.titulo}>
         Galería (En construcción)
       </h1>
-      <p className="mt-4 text-lg text-marca-gris">
+      <p className={styles.descripcion}>
         Próximamente verás nuestros trabajos aquí.
       </p>
     </div>
