@@ -1,0 +1,212 @@
+.pagina {
+  min-height: 100vh;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: oklch(98.5% .002 247.839); /* bg-gray-50 */
+}
+
+@media (min-width: 40rem) {
+  .pagina {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .pagina {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.tarjeta {
+  max-width: 28rem;
+  margin-inline: auto;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  padding: 2rem;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 48rem) {
+  .tarjeta {
+    max-width: 42rem;
+  }
+}
+
+.encabezado {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.titulo {
+  margin: 0;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: var(--color-gris);
+}
+
+.descripcion {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: oklch(44.6% .03 256.802); /* text-gray-600 */
+}
+
+.mensajeExito {
+  position: relative;
+  padding-inline: 1rem;
+  padding-block: 0.75rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0.25rem;
+  text-align: center;
+  background-color: oklch(98.2% .018 155.826); /* bg-green-50 */
+  border-color: oklch(92.5% .084 155.995); /* border-green-200 */
+  color: oklch(52.7% .154 150.069); /* text-green-700 */
+}
+
+.mensajeExito p {
+  margin: 0;
+}
+
+.mensajeTitulo {
+  font-weight: 700;
+}
+
+.mensajeTexto {
+  /* Inherits styles, but ensure no default paragraph margin resets */
+}
+
+.botonReiniciar {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: inherit;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .botonReiniciar:hover {
+    color: oklch(39.3% .095 152.535); /* hover:text-green-900 */
+  }
+}
+
+.formulario {
+  /* Space-y-6 equivalent */
+}
+
+.formulario > :not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.alertaError {
+  position: relative;
+  padding-inline: 1rem;
+  padding-block: 0.75rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0.25rem;
+  background-color: oklch(97.1% .013 17.38); /* bg-red-50 */
+  border-color: oklch(88.5% .062 18.334); /* border-red-200 */
+  color: oklch(50.5% .213 27.518); /* text-red-700 */
+}
+
+.honeypot {
+  display: none;
+}
+
+.etiqueta {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: oklch(37.3% .034 259.733); /* text-gray-700 */
+}
+
+.control {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: oklch(87.2% .01 258.338); /* border-gray-300 */
+  border-radius: 0.375rem;
+  background-color: transparent;
+  font-family: inherit;
+  color: inherit;
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1); /* shadow-sm */
+}
+
+@media (min-width: 40rem) {
+  .control {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+.control:focus {
+  border-color: var(--color-rosa);
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.acciones {
+  text-align: center;
+}
+
+.botonEnviar {
+  display: inline-block;
+  width: 100%;
+  border: 0;
+  border-radius: var(--radius-button);
+  background-color: var(--color-rosa);
+  padding-inline: 2rem;
+  padding-block: 0.75rem;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .botonEnviar:hover {
+    scale: 1.05;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -4px rgba(0, 0, 0, 0.1); /* shadow-lg */
+    background-color: color-mix(in srgb, var(--color-rosa) 80%, transparent); /* hover:bg-opacity-80 */
+  }
+}
+
+.botonEnviar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { enviarFormularioContacto } from "../actions";
 import { EVENT_TYPES } from "./constants";
+import styles from "./page.module.css";
 
 const initialState = {
   success: false,
@@ -16,36 +17,36 @@ export default function PaginaContacto() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-8">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-marca-gris">Contáctanos</h1>
-          <p className="mt-2 text-gray-600">
+    <div className={styles.pagina}>
+      <div className={styles.tarjeta}>
+        <div className={styles.encabezado}>
+          <h1 className={styles.titulo}>Contáctanos</h1>
+          <p className={styles.descripcion}>
             ¿Tenés una idea? ¡Escribinos y la hacemos realidad!
           </p>
         </div>
 
         {state.success ? (
-          <div role="status" className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded relative text-center">
-            <p className="font-bold">¡Mensaje Enviado!</p>
-            <p>{state.message}</p>
+          <div role="status" className={styles.mensajeExito}>
+            <p className={styles.mensajeTitulo}>¡Mensaje Enviado!</p>
+            <p className={styles.mensajeTexto}>{state.message}</p>
             <button
               onClick={() => window.location.reload()}
-              className="mt-4 text-sm underline hover:text-green-900"
+              className={styles.botonReiniciar}
             >
               Enviar otro mensaje
             </button>
           </div>
         ) : (
-          <form action={formAction} className="space-y-6">
+          <form action={formAction} className={styles.formulario}>
             {state.message && !state.success && (
-              <div role="alert" className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded relative">
+              <div role="alert" className={styles.alertaError}>
                 {state.message}
               </div>
             )}
 
             {/* Campo Honeypot para evitar bots */}
-            <div style={{ display: "none" }} aria-hidden="true">
+            <div className={styles.honeypot} aria-hidden="true">
               <label htmlFor="website">Sitio Web</label>
               <input
                 type="text"
@@ -59,7 +60,7 @@ export default function PaginaContacto() {
             <div>
               <label
                 htmlFor="nombre"
-                className="block text-sm font-medium text-gray-700"
+                className={styles.etiqueta}
               >
                 Nombre
               </label>
@@ -71,7 +72,7 @@ export default function PaginaContacto() {
                 minLength={2}
                 maxLength={80}
                 autoComplete="name"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-marca-rosa focus:ring-marca-rosa sm:text-sm p-2 border"
+                className={styles.control}
                 placeholder="Tu nombre"
               />
             </div>
@@ -79,7 +80,7 @@ export default function PaginaContacto() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className={styles.etiqueta}
               >
                 Email
               </label>
@@ -90,7 +91,7 @@ export default function PaginaContacto() {
                 required
                 maxLength={254}
                 autoComplete="email"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-marca-rosa focus:ring-marca-rosa sm:text-sm p-2 border"
+                className={styles.control}
                 placeholder="tu@email.com"
               />
             </div>
@@ -98,14 +99,14 @@ export default function PaginaContacto() {
             <div>
               <label
                 htmlFor="tipoEvento"
-                className="block text-sm font-medium text-gray-700"
+                className={styles.etiqueta}
               >
                 Tipo de Evento (Opcional)
               </label>
               <select
                 name="tipoEvento"
                 id="tipoEvento"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-marca-rosa focus:ring-marca-rosa sm:text-sm p-2 border"
+                className={styles.control}
               >
                 <option value="">Selecciona una opción</option>
                 {EVENT_TYPES.map((tipo) => (
@@ -119,7 +120,7 @@ export default function PaginaContacto() {
             <div>
               <label
                 htmlFor="mensaje"
-                className="block text-sm font-medium text-gray-700"
+                className={styles.etiqueta}
               >
                 Mensaje
               </label>
@@ -130,16 +131,16 @@ export default function PaginaContacto() {
                 required
                 minLength={10}
                 maxLength={3000}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-marca-rosa focus:ring-marca-rosa sm:text-sm p-2 border"
+                className={[styles.control, styles.textarea].join(" ")}
                 placeholder="Contanos qué estás buscando..."
               />
             </div>
 
-            <div className="text-center">
+            <div className={styles.acciones}>
               <button
                 type="submit"
                 disabled={isPending}
-                className="w-full inline-block rounded-full bg-marca-rosa px-8 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
+                className={styles.botonEnviar}
               >
                 {isPending ? "Enviando..." : "Enviar Mensaje"}
               </button>
