@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./Navbar.module.css";
 
 const enlacesNavegacion = [
   { nombre: "Inicio", href: "/" },
@@ -10,8 +11,8 @@ const enlacesNavegacion = [
 
 export const Navbar = () => {
   return (
-    <nav className="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-white/20">
-      <div className="container mx-auto px-8 py-2 flex justify-between items-center">
+    <nav className={styles.nav}>
+      <div className={styles.container}>
         {/* --- Logo --- */}
         <Link href="/">
           <Image
@@ -19,18 +20,18 @@ export const Navbar = () => {
             alt="Logo BitiCraft"
             width={150}
             height={50}
-            className="h-auto w-auto"
+            className={styles.logo}
             priority
           />
         </Link>
 
         {/* --- Links de Navegación --- */}
-        <div className="flex space-x-6">
+        <div className={styles.enlaces}>
           {enlacesNavegacion.map((enlace) => (
             <Link
               key={enlace.nombre}
               href={enlace.href}
-              className="text-marca-gris font-[weight:var(--font-weight-medium)] transition-colors hover:text-marca-rosa"
+              className={styles.enlace}
             >
               {enlace.nombre}
             </Link>

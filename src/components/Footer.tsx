@@ -1,32 +1,33 @@
 import { Instagram, Mail, MessageCircle } from "lucide-react";
+import styles from "./Footer.module.css";
 
 export const Footer = () => {
   return (
-    <footer className="mt-16 bg-marca-lila pt-10 pb-6 rounded-t-[var(--radius-container-lg)]">
-      <div className="container mx-auto px-8">
+    <footer className={styles.footer}>
+      <div className={styles.container}>
         {/* --- Sección Principal: Logo y Contacto (Horizontal) --- */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+        <div className={styles.bloquePrincipal}>
           {/* Izquierda: Marca */}
-          <div className="text-center md:text-left">
-            <h2 className="text-2xl font-[weight:var(--font-weight-bold)] text-marca-gris">
+          <div className={styles.bloqueMarca}>
+            <h2 className={styles.titulo}>
               BitiCraft
             </h2>
-            <p className="text-marca-gris text-[length:var(--text-body-sm)] mt-1">
+            <p className={styles.descripcion}>
               Papelería creativa para momentos mágicos.
             </p>
           </div>
 
           {/* Derecha: Hablemos (Iconos en línea) */}
-          <div className="flex flex-col md:flex-row items-center gap-4">
-            <span className="font-[weight:var(--font-weight-bold)] text-marca-gris text-[length:var(--text-body-sm)] uppercase tracking-wider">
+          <div className={styles.bloqueContacto}>
+            <span className={styles.etiqueta}>
               Hablemos:
             </span>
-            <div className="flex gap-4">
+            <div className={styles.iconos}>
               <a
                 href="https://www.instagram.com/biticraft/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-marca-gris hover:text-white transition-colors hover:scale-110 transform duration-200"
+                className={styles.enlaceIcono}
                 aria-label="Instagram"
               >
                 <Instagram size={24} />
@@ -35,14 +36,14 @@ export const Footer = () => {
                 href="https://api.whatsapp.com/send?phone=5492235904320"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-marca-gris hover:text-white transition-colors hover:scale-110 transform duration-200"
+                className={styles.enlaceIcono}
                 aria-label="WhatsApp"
               >
                 <MessageCircle size={24} />
               </a>
               <a
                 href="mailto:biticraft.contacto@gmail.com"
-                className="text-marca-gris hover:text-white transition-colors hover:scale-110 transform duration-200"
+                className={styles.enlaceIcono}
                 aria-label="Email"
               >
                 <Mail size={24} />
@@ -52,8 +53,8 @@ export const Footer = () => {
         </div>
 
         {/* --- Línea Divisoria y Copyright --- */}
-        <div className="border-t border-marca-gris/20 pt-6 text-center">
-          <p className="text-marca-gris text-xs md:text-[length:var(--text-body-sm)]">
+        <div className={styles.divisor}>
+          <p className={styles.copyright}>
             © {new Date().getFullYear()} BitiCraft. Hecho con ♥ en Argentina. |
             Todos los derechos reservados.
           </p>
