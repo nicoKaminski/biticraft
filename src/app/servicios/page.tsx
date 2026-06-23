@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Boton } from "@/components/ui/Boton";
+import styles from "./page.module.css";
 
 const productosFisicos = [
   {
@@ -61,14 +62,14 @@ const papeleriaFuncional = [
 
 export default function PaginaServicios() {
   return (
-    <div className="bg-white">
+    <div className={styles.pagina}>
       {/* Hero Servicios */}
-      <section className="bg-[image:var(--bg-gradient-lila)] py-20 text-center">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-marca-gris md:text-5xl">
+      <section className={styles.hero}>
+        <div className={styles.container}>
+          <h1 className={styles.heroTitulo}>
             Nuestros Servicios
           </h1>
-          <p className="mt-4 text-xl text-marca-gris max-w-2xl mx-auto">
+          <p className={styles.heroDescripcion}>
             Todo lo que necesitas para tu evento, diseñado con amor y
             creatividad.
           </p>
@@ -76,27 +77,27 @@ export default function PaginaServicios() {
       </section>
 
       {/* Productos Físicos */}
-      <section className="py-16 container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-marca-gris mb-8 border-b-4 border-marca-rosa inline-block">
+      <section className={[styles.container, styles.seccionProductos].join(" ")}>
+        <h2 className={[styles.tituloSeccion, styles.tituloRosa].join(" ")}>
           Productos Físicos
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className={styles.grillaFisicos}>
           {productosFisicos.map((producto) => (
             <div
               key={producto.nombre}
-              className="group relative overflow-hidden rounded-xl shadow-lg transition-transform hover:-translate-y-1"
+              className={styles.tarjetaFisico}
             >
-              <div className="aspect-w-3 aspect-h-2 relative h-48 w-full">
+              <div className={styles.imagenFisicoContenedor}>
                 <Image
                   src={producto.img}
                   alt={producto.nombre}
                   fill
-                  className="object-cover"
+                  className={styles.imagenFisico}
                   unoptimized={true}
                 />
               </div>
-              <div className="bg-white p-4 text-center">
-                <h3 className="font-semibold text-marca-gris text-lg">
+              <div className={styles.contenidoFisico}>
+                <h3 className={styles.nombreFisico}>
                   {producto.nombre}
                 </h3>
               </div>
@@ -106,30 +107,30 @@ export default function PaginaServicios() {
       </section>
 
       {/* Papelería Digital */}
-      <section className="py-16 bg-[image:var(--bg-gradient-crema)]">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-marca-gris mb-8 border-b-4 border-marca-verde inline-block">
+      <section className={styles.seccionDigital}>
+        <div className={styles.container}>
+          <h2 className={[styles.tituloSeccion, styles.tituloVerde].join(" ")}>
             Papelería Digital
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className={styles.grillaDigital}>
             {papeleriaDigital.map((producto) => (
               <div
                 key={producto.nombre}
-                className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center"
+                className={styles.tarjetaDigital}
               >
-                <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
+                <div className={styles.imagenDigitalContenedor}>
                   <Image
                     src={producto.img}
                     alt={producto.nombre}
                     fill
-                    className="object-cover"
+                    className={styles.imagenDigital}
                     unoptimized={true}
                   />
                 </div>
-                <h3 className="font-bold text-xl text-marca-gris mb-2">
+                <h3 className={styles.tituloDigital}>
                   {producto.nombre}
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className={styles.descripcionDigital}>
                   Soluciones modernas y ecológicas para tu evento.
                 </p>
               </div>
@@ -139,28 +140,28 @@ export default function PaginaServicios() {
       </section>
 
       {/* Papelería Funcional */}
-      <section className="py-16 container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-marca-gris mb-8 border-b-4 border-marca-celeste inline-block">
+      <section className={[styles.container, styles.seccionFuncional].join(" ")}>
+        <h2 className={[styles.tituloSeccion, styles.tituloCeleste].join(" ")}>
           Papelería Funcional
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="relative h-64 w-full rounded-xl overflow-hidden shadow-lg">
+        <div className={styles.grillaFuncional}>
+          <div className={styles.imagenFuncionalContenedor}>
             <Image
               src={papeleriaFuncional[0].img}
               alt={papeleriaFuncional[0].nombre}
               fill
-              className="object-cover"
+              className={styles.imagenFuncional}
               unoptimized={true}
             />
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-marca-gris mb-4">
+            <h3 className={styles.tituloFuncional}>
               {papeleriaFuncional[0].nombre}
             </h3>
-            <p className="text-lg text-gray-700 mb-6">
+            <p className={styles.introFuncional}>
               Organización perfecta para tu año escolar. Incluye:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-600 mb-8">
+            <ul className={styles.listaFuncional}>
               <li>Calendario Anual</li>
               <li>Planner Mensual</li>
               <li>Planillas de Asistencia</li>
@@ -172,12 +173,12 @@ export default function PaginaServicios() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 text-center bg-marca-rosa/20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-marca-gris mb-6">
+      <section className={styles.seccionCta}>
+        <div className={styles.container}>
+          <h2 className={styles.tituloCta}>
             ¿No encontrás lo que buscás?
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className={styles.descripcionCta}>
             Recordá que todo es 100% personalizado. ¡Contanos tu idea!
           </p>
           <Boton href="/contacto">Contactar ahora</Boton>
@@ -186,3 +187,4 @@ export default function PaginaServicios() {
     </div>
   );
 }
+
