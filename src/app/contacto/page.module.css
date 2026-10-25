@@ -169,6 +169,27 @@
   resize: vertical;
 }
 
+.turnstile {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.turnstile iframe {
+  max-width: 100%;
+}
+
+.verificacionError {
+  margin: 0;
+  color: oklch(50.5% .213 27.518); /* text-red-700 */
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
 .acciones {
   text-align: center;
 }
