@@ -19,6 +19,7 @@ type TurnstileOptions = {
   language: "es";
   theme: "auto";
   size: TurnstileSize;
+  "response-field": false;
   callback: (token: string) => void;
   "error-callback": () => void;
   "expired-callback": () => void;
@@ -124,6 +125,7 @@ export default function PaginaContacto() {
           language: "es",
           theme: "auto",
           size: widgetSize,
+          "response-field": false,
           callback: (token) => {
             setTurnstileToken(token);
             setVerificationMessage("");
