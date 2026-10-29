@@ -12,8 +12,13 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "BitiCraft - Papelería Creativa",
-  description: "Diseños personalizados para eventos mágicos.",
+  metadataBase: new URL("https://biticraft.com"),
+  title: {
+    default: "BitiCraft | Papelería personalizada para eventos",
+    template: "%s | BitiCraft",
+  },
+  description:
+    "Papelería personalizada para eventos, con diseños a medida para hacer única cada celebración.",
 };
 
 export default function PlantillaPrincipal({
