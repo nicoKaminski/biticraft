@@ -1,7 +1,14 @@
 "use client";
 
 import Script from "next/script";
-import { FormEvent, useActionState, useEffect, useRef, useState } from "react";
+import {
+  FormEvent,
+  useActionState,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { enviarFormularioContacto } from "../actions";
 import { EVENT_TYPES } from "./constants";
 import styles from "./page.module.css";
@@ -28,7 +35,6 @@ type TurnstileOptions = {
 declare global {
   interface Window {
     turnstile?: {
-      ready: (callback: () => void) => void;
       render: (container: HTMLElement, options: TurnstileOptions) => string;
       reset: (widgetId?: string) => void;
       remove: (widgetId: string) => void;
@@ -41,7 +47,6 @@ const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() ?? "";
 export default function PaginaContacto() {
   const [turnstileToken, setTurnstileToken] = useState("");
   const [scriptReady, setScriptReady] = useState(false);
-  const [widgetReady, setWidgetReady] = useState(false);
   const [verificationMessage, setVerificationMessage] = useState("");
   const [widgetSize, setWidgetSize] = useState<TurnstileSize>(() =>
     typeof window !== "undefined" &&
@@ -53,6 +58,21 @@ export default function PaginaContacto() {
   const widgetIdRef = useRef<string | null>(null);
   const renderRequestedRef = useRef(false);
 
+  const showWidgetInitializationError = useCallback(() => {
+    setTurnstileToken("");
+    setVerificationMessage(
+      "No se pudo cargar la verificación de seguridad. Intentá nuevamente más tarde."
+    );
+  }, []);
+
+  const resetWidget = useCallback((widgetId: string) => {
+    try {
+      window.turnstile?.reset(widgetId);
+    } catch {
+      showWidgetInitializationError();
+    }
+  }, [showWidgetInitializationError]);
+
   const [state, formAction, isPending] = useActionState(
     async (previousState: typeof initialState, formData: FormData) => {
       const result = await enviarFormularioContacto(previousState, formData);
@@ -63,7 +83,7 @@ export default function PaginaContacto() {
 
         const widgetId = widgetIdRef.current;
         if (widgetId && window.turnstile) {
-          window.turnstile.reset(widgetId);
+          resetWidget(widgetId);
         }
       }
 
@@ -78,7 +98,6 @@ export default function PaginaContacto() {
       const nextSize = mediaQuery.matches ? "compact" : "flexible";
       if (nextSize !== widgetSize) {
         setTurnstileToken("");
-        setWidgetReady(false);
         setWidgetSize(nextSize);
       }
     };
@@ -99,82 +118,88 @@ export default function PaginaContacto() {
       return;
     }
 
+    let cancelled = false;
+    const reportInitializationError = () => {
+      queueMicrotask(() => {
+        if (!cancelled) {
+          showWidgetInitializationError();
+        }
+      });
+    };
+
     const turnstile = window.turnstile;
     if (!turnstile) {
-      return;
+      reportInitializationError();
+      return () => {
+        cancelled = true;
+      };
     }
 
-    let cancelled = false;
     renderRequestedRef.current = true;
 
-    turnstile.ready(() => {
+    try {
       const container = widgetContainerRef.current;
-      if (cancelled) {
-        return;
-      }
-
       if (!container || widgetIdRef.current) {
         renderRequestedRef.current = false;
         return;
       }
 
-      try {
-        const widgetId = turnstile.render(container, {
-          sitekey: siteKey,
-          action: "biticraft_contact",
-          language: "es",
-          theme: "auto",
-          size: widgetSize,
-          "response-field": false,
-          callback: (token) => {
-            setTurnstileToken(token);
-            setVerificationMessage("");
-          },
-          "error-callback": () => {
-            setTurnstileToken("");
-            setVerificationMessage(
-              "No se pudo completar la verificación. Intentá nuevamente."
-            );
-            const currentWidgetId = widgetIdRef.current;
-            if (currentWidgetId) {
-              turnstile.reset(currentWidgetId);
-            }
-          },
-          "expired-callback": () => {
-            setTurnstileToken("");
-            setVerificationMessage(
-              "La verificación venció. Completala nuevamente."
-            );
-            const currentWidgetId = widgetIdRef.current;
-            if (currentWidgetId) {
-              turnstile.reset(currentWidgetId);
-            }
-          },
-        });
+      const widgetId = turnstile.render(container, {
+        sitekey: siteKey,
+        action: "biticraft_contact",
+        language: "es",
+        theme: "auto",
+        size: widgetSize,
+        "response-field": false,
+        callback: (token) => {
+          setTurnstileToken(token);
+          setVerificationMessage("");
+        },
+        "error-callback": () => {
+          setTurnstileToken("");
+          setVerificationMessage(
+            "No se pudo completar la verificación. Intentá nuevamente."
+          );
+          const currentWidgetId = widgetIdRef.current;
+          if (currentWidgetId) {
+            resetWidget(currentWidgetId);
+          }
+        },
+        "expired-callback": () => {
+          setTurnstileToken("");
+          setVerificationMessage(
+            "La verificación venció. Completala nuevamente."
+          );
+          const currentWidgetId = widgetIdRef.current;
+          if (currentWidgetId) {
+            resetWidget(currentWidgetId);
+          }
+        },
+      });
 
-        widgetIdRef.current = widgetId;
-        setWidgetReady(true);
-      } catch {
-        setVerificationMessage(
-          "No se pudo cargar la verificación de seguridad. Intentá nuevamente más tarde."
-        );
-      } finally {
-        renderRequestedRef.current = false;
-      }
-    });
+      widgetIdRef.current = widgetId;
+    } catch {
+      reportInitializationError();
+    } finally {
+      renderRequestedRef.current = false;
+    }
 
     return () => {
       cancelled = true;
       const widgetId = widgetIdRef.current;
       if (widgetId) {
-        turnstile.remove(widgetId);
+        try {
+          turnstile.remove(widgetId);
+        } catch {
+          // A failed teardown must not interrupt route navigation.
+        }
         widgetIdRef.current = null;
       }
       renderRequestedRef.current = false;
     };
-  }, [scriptReady, state.success, widgetSize]);
+  }, [scriptReady, state.success, widgetSize, resetWidget, showWidgetInitializationError]);
 
-  const canSubmit = Boolean(siteKey && widgetReady && turnstileToken);
+  const canSubmit = Boolean(siteKey && turnstileToken);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     if (!canSubmit || isPending) {
@@ -187,9 +212,15 @@ export default function PaginaContacto() {
       {siteKey && (
         <Script
           id="cloudflare-turnstile"
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&hl=es"
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
           strategy="afterInteractive"
-          onReady={() => setScriptReady(true)}
+          onReady={() => {
+            if (!window.turnstile) {
+              showWidgetInitializationError();
+              return;
+            }
+            setScriptReady(true);
+          }}
           onError={() => {
             setScriptReady(false);
             setVerificationMessage(
