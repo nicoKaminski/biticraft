@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BitiCraft
 
-## Getting Started
+Sitio institucional, catálogo y portafolio de BitiCraft, una marca de papelería creativa con diseños personalizados para eventos. El proyecto usa Next.js App Router, React y TypeScript. No incluye tienda, carrito ni pagos.
 
-First, run the development server:
+## Desarrollo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Requiere Node.js y npm. Instala las dependencias con `npm ci` y ejecuta `npm run dev` para iniciar el servidor local en `http://localhost:3000`.
+
+Scripts disponibles:
+
+- `npm run dev`: servidor de desarrollo de Next.js con Webpack.
+- `npm run lint`: revisa el código con ESLint.
+- `npm run typecheck`: ejecuta TypeScript sin emitir archivos.
+- `npm run build`: compila la aplicación de producción con Webpack.
+- `npm run start`: sirve la compilación de producción.
+
+## Variables de entorno
+
+Crea un archivo local `.env.local` a partir de `.env.example` y completa los valores en tu entorno. No compartas ni versionés credenciales.
+
+| Variable | Uso |
+| --- | --- |
+| `GMAIL_USER` | Cuenta de Gmail usada por Nodemailer y destinatario del formulario. |
+| `GMAIL_PASS` | Credencial de aplicación de Gmail para Nodemailer. Es secreta y solo se usa en el servidor. |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Clave pública del widget Turnstile mostrado en `/contacto`. |
+| `TURNSTILE_SECRET_KEY` | Clave privada para verificar el token Turnstile en el servidor. No debe llevar el prefijo `NEXT_PUBLIC_`. |
+| `TURNSTILE_ALLOWED_HOSTNAMES` | Hostnames autorizados para Turnstile, separados explícitamente por comas. |
+
+## Protecciones
+
+- El formulario de `/contacto` conserva la validación de sus campos, un honeypot y el envío de correo con Nodemailer.
+- Turnstile se valida en el servidor antes de enviar el correo. Se comprueban el resultado, la acción `biticraft_contact` y el hostname permitido; si falta configuración o falla la verificación, el envío se rechaza.
+- La configuración de Next.js añade los headers `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options` y `Permissions-Policy`.
+- GitHub Actions ejecuta instalación reproducible, lint, typecheck y build en `main`, `dev` y los pull requests dirigidos a esas ramas.
+- El rate limiting está **pendiente de activación** como configuración externa de Vercel Firewall: `POST` a `/contacto`, clave IP, ventana fija de 10 minutos, máximo de 5 solicitudes y respuesta HTTP 429 al superar el límite. No está implementado en la aplicación.
+
+## Validaciones locales
+
+```text
+npm run lint
+npm run typecheck
+npm run build
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
