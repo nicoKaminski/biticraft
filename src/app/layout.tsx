@@ -14,19 +14,19 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   metadataBase: new URL("https://biticraft.com"),
   title: {
-    default: "BitiCraft | Papelería personalizada para eventos",
+    default: "BitiCraft | Papelería creativa y detalles personalizados",
     template: "%s | BitiCraft",
   },
   description:
-    "Papelería personalizada para eventos, con diseños a medida para hacer única cada celebración.",
+    "Diseños a medida para eventos, bodas y celebraciones. Creamos cada detalle para que tu idea tenga una identidad única.",
   openGraph: {
     type: "website",
     url: "https://biticraft.com/",
     siteName: "BitiCraft",
     locale: "es_AR",
-    title: "BitiCraft | Papelería personalizada para eventos",
+    title: "BitiCraft | Papelería creativa y detalles personalizados",
     description:
-      "Papelería personalizada para eventos, con diseños a medida para hacer única cada celebración.",
+      "Diseños a medida para eventos, bodas y celebraciones. Creamos cada detalle para que tu idea tenga una identidad única.",
     images: [
       {
         url: "/social-preview.webp",
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BitiCraft | Papelería personalizada para eventos",
+    title: "BitiCraft | Papelería creativa y detalles personalizados",
     description:
-      "Papelería personalizada para eventos, con diseños a medida para hacer única cada celebración.",
+      "Diseños a medida para eventos, bodas y celebraciones. Creamos cada detalle para que tu idea tenga una identidad única.",
     images: ["/social-preview.webp"],
   },
 };
