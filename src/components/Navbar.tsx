@@ -4,7 +4,6 @@ import styles from "./Navbar.module.css";
 
 const enlacesNavegacion = [
   { nombre: "Inicio", href: "/" },
-  { nombre: "Galería", href: "/galeria" },
   { nombre: "Servicios", href: "/servicios" },
   { nombre: "Contacto", href: "/contacto" },
 ];

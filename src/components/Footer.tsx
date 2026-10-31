@@ -13,7 +13,7 @@ export const Footer = () => {
               BitiCraft
             </h2>
             <p className={styles.descripcion}>
-              Papelería creativa para momentos mágicos.
+              El encanto está en los detalles.
             </p>
           </div>
 
