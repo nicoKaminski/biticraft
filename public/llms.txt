@@ -1,0 +1,9 @@
+# BitiCraft
+
+> Papelería creativa y detalles personalizados para eventos y celebraciones.
+
+## Páginas principales
+
+- [Inicio](https://biticraft.com/): Presentación de BitiCraft y sus servicios.
+- [Servicios](https://biticraft.com/servicios): Productos físicos, papelería digital y papelería funcional personalizada.
+- [Contacto](https://biticraft.com/contacto): Formulario para consultar por ideas y trabajos personalizados.

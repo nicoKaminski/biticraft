@@ -40,14 +40,20 @@ const productosFisicos = [
 const papeleriaDigital = [
   {
     nombre: "Invitaciones Interactivas",
+    descripcion:
+      "Una forma práctica y dinámica de compartir los detalles de tu evento en formato digital.",
     img: "https://placehold.co/600x400/d4e7ce/3c3c3b?text=Invitaciones",
   },
   {
     nombre: "Gráfica Editable para Bodas",
+    descripcion:
+      "Piezas digitales editables para mantener una identidad visual coherente en los distintos momentos de tu boda.",
     img: "https://placehold.co/600x400/f9cdcc/3c3c3b?text=Grafica+Bodas",
   },
   {
     nombre: "Kits Imprimibles",
+    descripcion:
+      "Diseños coordinados listos para imprimir y personalizar distintos detalles de tu celebración.",
     img: "https://placehold.co/600x400/e7d8e9/3c3c3b?text=Kits+Imprimibles",
   },
 ];
@@ -131,7 +137,7 @@ export default function PaginaServicios() {
                   {producto.nombre}
                 </h3>
                 <p className={styles.descripcionDigital}>
-                  Soluciones modernas y ecológicas para tu evento.
+                  {producto.descripcion}
                 </p>
               </div>
             ))}
@@ -167,7 +173,12 @@ export default function PaginaServicios() {
               <li>Planillas de Asistencia</li>
               <li>Notas y Recordatorios</li>
             </ul>
-            <Boton href="/contacto">¡La quiero!</Boton>
+            <h3 className={styles.tituloFuncional}>Cuadernos personalizados</h3>
+            <p className={styles.introFuncional}>
+              Cuadernos diseñados a medida para acompañarte en el día a día,
+              adaptados a tu estilo y necesidad.
+            </p>
+            <Boton href="/contacto">Consultar</Boton>
           </div>
         </div>
       </section>
