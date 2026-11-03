@@ -1,9 +1,11 @@
 import { Boton } from "../ui/Boton";
+import { HeroPaperPlaneMotion } from "./HeroPaperPlaneMotion";
 import styles from "./SeccionHero.module.css";
 
 export const SeccionHero = () => {
   return (
     <section className={styles.hero}>
+      <HeroPaperPlaneMotion />
       <div className={styles.container}>
         <h1 className={styles.titulo}>
           ¡Celebra con{" "}
