@@ -1,43 +1,54 @@
 # BitiCraft
 
-Sitio institucional, catálogo y portafolio de BitiCraft, una marca de papelería creativa con diseños personalizados para eventos. El proyecto usa Next.js App Router, React y TypeScript. No incluye tienda, carrito ni pagos.
+![Logo de BitiCraft](public/logo.webp)
 
-## Desarrollo
+BitiCraft crea papelería creativa y diseños personalizados para eventos. Conocé el proyecto en [biticraft.com](https://biticraft.com).
 
-Requiere Node.js y npm. Instala las dependencias con `npm ci` y ejecuta `npm run dev` para iniciar el servidor local en `http://localhost:3000`.
+## El sitio
 
-Scripts disponibles:
+El sitio presenta la marca, sus servicios de papelería física, digital y funcional, e información para conocer el proyecto. Incluye las secciones de inicio, servicios y contacto para enviar consultas sobre ideas y trabajos personalizados.
 
-- `npm run dev`: servidor de desarrollo de Next.js con Webpack.
-- `npm run lint`: revisa el código con ESLint.
-- `npm run typecheck`: ejecuta TypeScript sin emitir archivos.
-- `npm run build`: compila la aplicación de producción con Webpack.
-- `npm run start`: sirve la compilación de producción.
+## Tecnologías
 
-## Variables de entorno
+- Next.js con App Router
+- React y TypeScript
+- CSS Modules
 
-Crea un archivo local `.env.local` a partir de `.env.example` y completa los valores en tu entorno. No compartas ni versionés credenciales.
+## Estructura
 
-| Variable | Uso |
-| --- | --- |
-| `GMAIL_USER` | Cuenta de Gmail usada por Nodemailer y destinatario del formulario. |
-| `GMAIL_PASS` | Credencial de aplicación de Gmail para Nodemailer. Es secreta y solo se usa en el servidor. |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Clave pública del widget Turnstile mostrado en `/contacto`. |
-| `TURNSTILE_SECRET_KEY` | Clave privada para verificar el token Turnstile en el servidor. No debe llevar el prefijo `NEXT_PUBLIC_`. |
-| `TURNSTILE_ALLOWED_HOSTNAMES` | Hostnames autorizados para Turnstile, separados explícitamente por comas. |
+- `.github/workflows/`: automatizaciones de calidad e integración continua.
+- `public/`: logo y otros recursos estáticos.
+- `src/app/`: páginas, layouts y acciones del sitio; incluye inicio, servicios y contacto.
+- `src/components/`: navegación, pie de página, secciones y componentes de interfaz reutilizables.
 
-## Protecciones
+## Requisitos y desarrollo local
 
-- El formulario de `/contacto` conserva la validación de sus campos, un honeypot y el envío de correo con Nodemailer.
-- Turnstile se valida en el servidor antes de enviar el correo. Se comprueban el resultado, la acción `biticraft_contact` y el hostname permitido; si falta configuración o falla la verificación, el envío se rechaza.
-- La configuración de Next.js añade los headers `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options` y `Permissions-Policy`.
-- GitHub Actions ejecuta instalación reproducible, lint, typecheck y build en `main`, `dev` y los pull requests dirigidos a esas ramas.
-- El rate limiting está **pendiente de activación** como configuración externa de Vercel Firewall: `POST` a `/contacto`, clave IP, ventana fija de 10 minutos, máximo de 5 solicitudes y respuesta HTTP 429 al superar el límite. No está implementado en la aplicación.
+Requisitos: Node.js 24 y npm.
 
-## Validaciones locales
+```bash
+npm ci
+cp .env.example .env.local
+npm run dev
+```
 
-```text
+La aplicación queda disponible en `http://localhost:3000`. Completá la configuración local en `.env.local` y no compartas ese archivo.
+
+## Validación y CI
+
+Ejecutá estos scripts para revisar el proyecto y generar la compilación:
+
+```bash
 npm run lint
 npm run typecheck
 npm run build
 ```
+
+GitHub Actions instala las dependencias y ejecuta estas tres validaciones en cambios a `main` y `dev`, incluidos los pull requests dirigidos a esas ramas.
+
+## Formulario de contacto
+
+El formulario permite enviar consultas por correo mediante Nodemailer y utiliza Cloudflare Turnstile para la verificación.
+
+## Diseño y desarrollo
+
+Sitio web diseñado y desarrollado por [Nico Kaminski](https://nicokaminski.com).
