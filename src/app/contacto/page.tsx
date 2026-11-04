@@ -1,6 +1,7 @@
 "use client";
 
 import Script from "next/script";
+import { Send } from "lucide-react";
 import {
   FormEvent,
   useActionState,
@@ -10,6 +11,7 @@ import {
   useState,
 } from "react";
 import { enviarFormularioContacto } from "../actions";
+import { Boton } from "@/components/ui/Boton";
 import { EVENT_TYPES } from "./constants";
 import styles from "./page.module.css";
 
@@ -369,13 +371,20 @@ export default function PaginaContacto() {
             </div>
 
             <div className={styles.acciones}>
-              <button
+              <Boton
                 type="submit"
                 disabled={!canSubmit || isPending}
                 className={styles.botonEnviar}
               >
-                {isPending ? "Enviando..." : "Enviar Mensaje"}
-              </button>
+                <span className={styles.contenidoBoton}>
+                  <span>{isPending ? "Enviando..." : "Enviar Mensaje"}</span>
+                  <Send
+                    className={styles.iconoAvion}
+                    aria-hidden="true"
+                    focusable="false"
+                  />
+                </span>
+              </Boton>
             </div>
           </form>
         )}

@@ -103,17 +103,24 @@
 }
 
 .contenido {
-  max-width: 48rem;
+  display: block;
+  max-width: 42rem;
   margin-inline: auto;
-  text-align: center;
+  text-align: left;
+}
+
+.columnaIntro {
+  display: flex;
+  flex-direction: column;
+  max-width: 31rem;
+  text-align: left;
 }
 
 .titulo {
   font-size: var(--font-size-h2-mobile);
   font-weight: var(--font-weight-bld);
   color: var(--color-gris);
-  margin-bottom: 2rem;
-  margin-top: 0;
+  margin: 0;
 }
 
 @media (min-width: 48rem) {
@@ -122,18 +129,34 @@
   }
 }
 
-.bloqueTexto {
-  font-size: var(--font-size-body-lg);
+.textosIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
   color: var(--color-gris);
-  line-height: 1.625;
+  font-size: var(--font-size-body-lg);
+  line-height: 1.7;
 }
 
-.bloqueTexto > p {
+.textosIntro > p {
   margin: 0;
 }
 
-.bloqueTexto > p:not(:last-child) {
-  margin-bottom: 1.5rem;
+.columnaDetalle {
+  display: flex;
+  flex-direction: column;
+  max-width: 36rem;
+  min-height: 100%;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.textoPrincipal {
+  margin: 0;
+  color: var(--color-gris);
+  font-size: var(--font-size-body-lg);
+  line-height: 1.7;
 }
 
 .marcaRosa {
@@ -142,11 +165,42 @@
 }
 
 .fraseFinal {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 0;
   color: var(--color-morado-oscuro);
   font-weight: var(--font-weight-med);
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+  font-size: 1.1rem;
+  line-height: 1.45;
+}
+
+@media (min-width: 64rem) {
+  .sobreMi {
+    padding-block: 5rem;
+  }
+
+  .contenido {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    align-items: stretch;
+    gap: clamp(4rem, 6vw, 5.5rem);
+    max-width: 74rem;
+  }
+
+  .titulo {
+    font-size: 2.75rem;
+    line-height: 1.1;
+  }
+
+  .columnaDetalle {
+    margin-top: 0;
+    padding-top: 5rem;
+  }
+
+  .fraseFinal {
+    margin-top: auto;
+    margin-bottom: 0;
+    padding-top: 2rem;
+  }
 }
 
 @media (min-width: 48rem) and (max-width: 79.999rem) {
