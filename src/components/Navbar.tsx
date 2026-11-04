@@ -13,7 +13,7 @@ export const Navbar = () => {
     <nav className={styles.nav}>
       <div className={styles.container}>
         {/* --- Logo --- */}
-        <Link href="/">
+        <Link href="/" className={styles.logoLink}>
           <Image
             src="/logo.png"
             alt="Logo BitiCraft"
