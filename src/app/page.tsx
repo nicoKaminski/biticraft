@@ -17,7 +17,7 @@ const jsonLd = {
       "@id": "https://biticraft.com/#organization",
       name: "BitiCraft",
       url: "https://biticraft.com/",
-      logo: "https://biticraft.com/logo.png",
+      logo: "https://biticraft.com/logo.webp",
       description:
         "Diseños a medida para eventos, bodas y celebraciones. Creamos cada detalle para que tu idea tenga una identidad única.",
       email: "biticraft.contacto@gmail.com",

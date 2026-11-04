@@ -1,7 +1,7 @@
 .backToTop {
   position: fixed;
   right: 2rem;
-  bottom: 2rem;
+  bottom: calc(2rem + var(--footer-offset, 0px));
   z-index: 40;
 
   display: inline-flex;
@@ -107,7 +107,7 @@
 @media (max-width: 48rem) {
   .backToTop {
     right: 1.25rem;
-    bottom: 1.25rem;
+    bottom: calc(1.25rem + var(--footer-offset, 0px));
     width: 42px;
     height: 42px;
   }

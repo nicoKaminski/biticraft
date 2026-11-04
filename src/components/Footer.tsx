@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Instagram, Mail, MessageCircle } from "lucide-react";
 import styles from "./Footer.module.css";
 
@@ -11,6 +12,16 @@ export const Footer = () => {
             <p className={styles.descripcion}>
               El encanto está en los detalles.
             </p>
+          </div>
+
+          <div className={styles.bloqueIsotipo} aria-hidden="true">
+            <Image
+              src="/iso-footer.webp"
+              alt=""
+              width={64}
+              height={64}
+              className={styles.isotipo}
+            />
           </div>
 
           <div className={styles.bloqueContacto}>
