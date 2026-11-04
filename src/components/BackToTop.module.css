@@ -1,0 +1,127 @@
+.backToTop {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 40;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+  border-radius: 50%;
+
+  background: color-mix(
+    in srgb,
+    #ffffff 78%,
+    var(--color-lila-oscuro)
+  );
+
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--color-morado-oscuro) 28%,
+      transparent
+    );
+
+  color: var(--color-gris);
+
+  box-shadow:
+    0 4px 16px
+      color-mix(
+        in srgb,
+        var(--color-gris) 10%,
+        transparent
+      );
+
+  cursor: pointer;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.25s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.backToTop:hover {
+  color: var(--color-morado-oscuro);
+
+  border-color: color-mix(
+    in srgb,
+    var(--color-morado-oscuro) 48%,
+    transparent
+  );
+
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-rosa) 32%, #ffffff) 0%,
+    color-mix(in srgb, var(--color-lila-oscuro) 32%, #ffffff) 100%
+  );
+
+  box-shadow:
+    0 5px 18px
+      color-mix(
+        in srgb,
+        var(--color-morado-oscuro) 18%,
+        transparent
+      );
+}
+
+.icon {
+  transition: transform 0.2s ease;
+}
+
+.backToTop:hover .icon {
+  transform: translateY(-2px);
+}
+
+.backToTop:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.backToTop:focus-visible {
+  outline: 2px solid var(--color-morado-oscuro);
+  outline-offset: 3px;
+}
+
+@media (max-width: 48rem) {
+  .backToTop {
+    right: 1.25rem;
+    bottom: 1.25rem;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backToTop,
+  .icon {
+    transition: none;
+    transform: none;
+  }
+
+  .backToTop:active,
+  .backToTop:hover .icon {
+    transform: none;
+  }
+}

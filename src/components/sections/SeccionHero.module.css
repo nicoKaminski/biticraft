@@ -1,9 +1,14 @@
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   width: 100%;
   background-image: var(--gradient-violeta-inv);
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   width: 100%;
   margin-inline: auto;
   padding-inline: 1rem;

@@ -4,6 +4,7 @@ import "./globals.css";
 import styles from "./layout.module.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { BackToTop } from "@/components/BackToTop";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default function PlantillaPrincipal({
         <Navbar />
         <main className={styles.main}>{children}</main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );
