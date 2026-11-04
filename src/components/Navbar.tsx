@@ -15,7 +15,7 @@ export const Navbar = () => {
         {/* --- Logo --- */}
         <Link href="/" className={styles.logoLink}>
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="Logo BitiCraft"
             width={150}
             height={50}

@@ -48,16 +48,17 @@
 }
 
 .bloquePrincipal {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   align-items: center;
-  justify-content: space-between;
+  justify-items: center;
   gap: 1.25rem;
 }
 
 @media (min-width: 48rem) {
   .bloquePrincipal {
-    flex-direction: row;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    justify-items: stretch;
     gap: 2rem;
   }
 }
@@ -92,10 +93,29 @@
   margin-bottom: 0;
 }
 
+.bloqueIsotipo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.isotipo {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+}
+
 .bloqueContacto {
   display: flex;
   align-items: center;
+  justify-self: center;
   gap: 0.75rem;
+}
+
+@media (min-width: 48rem) {
+  .bloqueContacto {
+    justify-self: end;
+  }
 }
 
 .etiqueta {
