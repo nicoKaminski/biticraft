@@ -1,6 +1,6 @@
 # BitiCraft
 
-![Logo de BitiCraft](public/logo.webp)
+<img src="public/logo.webp" alt="Logo de BitiCraft" width="200">
 
 BitiCraft crea papelería creativa y diseños personalizados para eventos. Conocé el proyecto en [biticraft.com](https://biticraft.com).
 
