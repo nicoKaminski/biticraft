@@ -13,6 +13,11 @@
   --color-morado: #dcbadb;
   --color-morado-oscuro: #af7ead;
 
+  --color-acento-texto-rosa: #C04D76;
+  --color-acento-texto-naranja: #B65B20;
+  --color-acento-texto-verde: #438061;
+  --color-acento-texto-violeta: #9360B1;
+
   --background: #ffffff;
   --foreground: var(--color-gris);
 

@@ -16,7 +16,10 @@ export const SeccionServicios = () => {
         </div>
 
         <div className={styles.grilla}>
-          <article className={styles.tarjeta} tabIndex={0}>
+          <article
+            className={`${styles.tarjeta} ${styles.tarjetaCreativa}`}
+            tabIndex={0}
+          >
             <div className={styles.visual}>
               <div className={styles.imagenContenedor}>
                 <Image
@@ -39,7 +42,10 @@ export const SeccionServicios = () => {
             </div>
           </article>
 
-          <article className={styles.tarjeta} tabIndex={0}>
+          <article
+            className={`${styles.tarjeta} ${styles.tarjetaDigital}`}
+            tabIndex={0}
+          >
             <div className={styles.visual}>
               <div className={styles.imagenContenedor}>
                 <Image
@@ -64,7 +70,10 @@ export const SeccionServicios = () => {
             </div>
           </article>
 
-          <article className={styles.tarjeta} tabIndex={0}>
+          <article
+            className={`${styles.tarjeta} ${styles.tarjetaFuncional}`}
+            tabIndex={0}
+          >
             <div className={styles.visual}>
               <div className={styles.imagenContenedor}>
                 <Image

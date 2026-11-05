@@ -106,6 +106,18 @@
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
 }
 
+.tarjetaCreativa {
+  --color-acento-card: var(--color-acento-texto-naranja);
+}
+
+.tarjetaDigital {
+  --color-acento-card: var(--color-acento-texto-verde);
+}
+
+.tarjetaFuncional {
+  --color-acento-card: var(--color-acento-texto-violeta);
+}
+
 .visual {
   position: relative;
 }
@@ -152,7 +164,7 @@
 }
 
 .palabraDestacada {
-  color: var(--color-rosa);
+  color: var(--color-acento-card);
   font-weight: var(--font-weight-medium);
 }
 

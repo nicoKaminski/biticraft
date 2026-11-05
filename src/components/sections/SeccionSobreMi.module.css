@@ -170,13 +170,13 @@
 
 .marcaRosa {
   font-weight: var(--font-weight-medium);
-  color: var(--color-rosa);
+  color: var(--color-acento-texto-rosa);
 }
 
 .fraseFinal {
   margin-top: 1.5rem;
   padding-top: 0;
-  color: var(--color-morado-oscuro);
+  color: var(--color-acento-texto-rosa);
   font-weight: var(--font-weight-medium);
   font-size: 1.1rem;
   line-height: 1.45;
