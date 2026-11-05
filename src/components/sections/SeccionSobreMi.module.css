@@ -123,6 +123,15 @@
   margin: 0;
 }
 
+.titulo::after {
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin-top: 0.75rem;
+  background-color: color-mix(in srgb, var(--color-rosa) 70%, transparent);
+  content: "";
+}
+
 @media (min-width: 48rem) {
   .titulo {
     font-size: var(--font-size-h2);

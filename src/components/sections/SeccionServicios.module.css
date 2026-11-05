@@ -50,9 +50,24 @@
   margin: 0;
 }
 
+.titulo::after {
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin: 0.75rem auto 0;
+  background-color: color-mix(in srgb, var(--color-rosa) 70%, transparent);
+  content: "";
+}
+
 @media (min-width: 48rem) {
   .titulo {
     font-size: var(--font-size-h2);
+  }
+}
+
+@media (min-width: 64rem) {
+  .titulo::after {
+    transform: translateY(-0.625rem);
   }
 }
 
