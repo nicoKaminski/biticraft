@@ -49,7 +49,7 @@
 
 .titulo {
   font-size: var(--font-size-h1-mobile);
-  font-weight: var(--font-weight-lt);
+  font-weight: var(--font-weight-light);
   color: var(--color-gris);
   letter-spacing: -0.05em;
   line-height: 0.9;
@@ -64,7 +64,7 @@
 
 .palabraDestacada {
   color: var(--color-rosa);
-  font-weight: var(--font-weight-med);
+  font-weight: var(--font-weight-medium);
 }
 
 .saltoLinea {

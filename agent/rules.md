@@ -9,3 +9,7 @@
 7. No ejecutes comandos destructivos ni operaciones Git de escritura. Esto incluye commit, push, pull, fetch, merge, rebase, reset, checkout, switch, restore, stash y clean, así como equivalentes. Inspecciones Git de solo lectura requieren autorización expresa en la tarea.
 8. Ejecuta solo las validaciones autorizadas. En el informe separa claramente las ejecutadas de las pendientes; no atribuyas un resultado a una validación no ejecutada.
 9. Audita seguridad, privacidad, credenciales accidentales, archivos modificados y diff completo antes de finalizar. No declares operativa una integración sin prueba en un entorno configurado.
+
+## Contrato tipográfico
+
+El sistema tipográfico es un contrato de diseño. Times New Roman es la única familia autorizada para headings; `Times, serif` son fallbacks técnicos de plataforma, no familias alternativas de diseño. DM Sans es la única familia autorizada para cuerpo e interfaz. Los únicos pesos permitidos son 300, 400 y 500; 600, 700, 800, 900, `bold` y `bolder` están prohibidos. Ningún agente puede incorporar otra familia, peso o archivo de fuente sin aprobación expresa del responsable. No se permiten overrides tipográficos locales que evadan el sistema global. Cualquier cambio futuro de tipografía requiere aprobación explícita. Ejecuta la validación tipográfica junto con las validaciones habituales.

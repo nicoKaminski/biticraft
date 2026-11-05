@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import styles from "./layout.module.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 
-const roboto = Roboto({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-roboto",
+  weight: ["300", "400", "500"],
+  variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {
@@ -52,8 +52,8 @@ export default function PlantillaPrincipal({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={roboto.variable}>
+    <html lang="es" className={dmSans.variable}>
+      <body>
         <Navbar />
         <main className={styles.main}>{children}</main>
         <Footer />

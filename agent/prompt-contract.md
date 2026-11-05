@@ -15,3 +15,7 @@ Todo prompt de implementación para este repositorio debe incluir:
 - No ejecutar comandos destructivos ni operaciones Git de escritura (commit, push, pull, fetch, merge, rebase, reset, checkout, switch, restore, stash, clean, ni equivalentes). Los comandos Git de lectura requieren autorización expresa.
 - Usar subagentes cuando el trabajo pueda separarse con archivos de escritura exclusivos; acordar interfaces compartidas antes de editar.
 - Auditar el diff, la seguridad y la privacidad. En la entrega, distinguir lo verificado de lo que requiere configuración, ejecución o prueba manual posterior.
+
+## Contrato tipográfico
+
+El sistema tipográfico es un contrato de diseño. Times New Roman es la única familia autorizada para headings; `Times, serif` son fallbacks técnicos de plataforma, no familias alternativas de diseño. DM Sans es la única familia autorizada para cuerpo e interfaz. Los únicos pesos permitidos son 300, 400 y 500; 600, 700, 800, 900, `bold` y `bolder` están prohibidos. Ningún agente puede incorporar otra familia, peso o archivo de fuente sin aprobación expresa del responsable. No se permiten overrides tipográficos locales que evadan el sistema global. Cualquier cambio futuro de tipografía requiere aprobación explícita. Ejecuta la validación tipográfica junto con las validaciones habituales.

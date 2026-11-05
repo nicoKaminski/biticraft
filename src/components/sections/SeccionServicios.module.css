@@ -45,7 +45,7 @@
 
 .titulo {
   font-size: var(--font-size-h2-mobile);
-  font-weight: var(--font-weight-bld);
+  font-weight: var(--font-weight-medium);
   color: var(--color-gris);
   margin: 0;
 }
@@ -130,7 +130,7 @@
 
 .tarjetaTitulo {
   font-size: var(--font-size-h3-mobile);
-  font-weight: var(--font-weight-bld);
+  font-weight: var(--font-weight-medium);
   color: var(--color-gris);
   margin: 0;
 }
@@ -155,7 +155,7 @@
 
 .palabraDestacada {
   color: var(--color-rosa);
-  font-weight: 700;
+  font-weight: var(--font-weight-medium);
 }
 
 .tarjeta:focus-visible {

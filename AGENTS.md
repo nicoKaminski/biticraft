@@ -20,3 +20,7 @@
 - Solo ejecuta inspecciones Git de lectura cuando la tarea las autorice expresamente. Una autorización de lectura no habilita escrituras.
 - Distingue en el cierre las validaciones ejecutadas de las pendientes y comunica cualquier limitación.
 - Antes de terminar, audita el diff completo, el alcance, la seguridad y la privacidad. No afirmes que una integración está operativa sin verificarla en un entorno configurado.
+
+## Contrato tipográfico
+
+El sistema tipográfico es un contrato de diseño. Times New Roman es la única familia autorizada para headings; `Times, serif` son fallbacks técnicos de plataforma, no familias alternativas de diseño. DM Sans es la única familia autorizada para cuerpo e interfaz. Los únicos pesos permitidos son 300, 400 y 500; 600, 700, 800, 900, `bold` y `bolder` están prohibidos. Ningún agente puede incorporar otra familia, peso o archivo de fuente sin aprobación expresa del responsable. No se permiten overrides tipográficos locales que evadan el sistema global. Cualquier cambio futuro de tipografía requiere aprobación explícita. Ejecuta la validación tipográfica junto con las validaciones habituales.

@@ -48,7 +48,7 @@
   margin: 0;
   font-size: 1.875rem;
   line-height: 2.25rem;
-  font-weight: 700;
+  font-weight: var(--font-weight-medium);
   color: var(--color-gris);
 }
 
@@ -78,7 +78,7 @@
 }
 
 .mensajeTitulo {
-  font-weight: 700;
+  font-weight: var(--font-weight-medium);
 }
 
 .mensajeTexto {
@@ -91,7 +91,6 @@
   padding: 0;
   border: 0;
   background: transparent;
-  font-family: inherit;
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: inherit;
@@ -133,7 +132,7 @@
   display: block;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   color: oklch(37.3% .034 259.733); /* text-gray-700 */
 }
 
@@ -147,7 +146,6 @@
   border-color: oklch(87.2% .01 258.338); /* border-gray-300 */
   border-radius: 0.375rem;
   background-color: transparent;
-  font-family: inherit;
   color: inherit;
   box-shadow:
     0 1px 3px 0 rgba(0, 0, 0, 0.1),

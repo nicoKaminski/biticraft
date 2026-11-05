@@ -118,7 +118,7 @@
 
 .titulo {
   font-size: var(--font-size-h2-mobile);
-  font-weight: var(--font-weight-bld);
+  font-weight: var(--font-weight-medium);
   color: var(--color-gris);
   margin: 0;
 }
@@ -160,7 +160,7 @@
 }
 
 .marcaRosa {
-  font-weight: 700;
+  font-weight: var(--font-weight-medium);
   color: var(--color-rosa);
 }
 
@@ -168,7 +168,7 @@
   margin-top: 1.5rem;
   padding-top: 0;
   color: var(--color-morado-oscuro);
-  font-weight: var(--font-weight-med);
+  font-weight: var(--font-weight-medium);
   font-size: 1.1rem;
   line-height: 1.45;
 }
