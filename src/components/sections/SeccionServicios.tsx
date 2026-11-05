@@ -1,4 +1,5 @@
 import { Boton } from "@/components/ui/Boton";
+import Image from "next/image";
 import styles from "./SeccionServicios.module.css";
 
 export const SeccionServicios = () => {
@@ -15,10 +16,19 @@ export const SeccionServicios = () => {
         </div>
 
         <div className={styles.grilla}>
-          <article className={styles.tarjeta} tabIndex={0}>
+          <article
+            className={`${styles.tarjeta} ${styles.tarjetaCreativa}`}
+            tabIndex={0}
+          >
             <div className={styles.visual}>
-              <div className={styles.placeholderImagen} aria-hidden="true">
-                <span>Imagen pendiente</span>
+              <div className={styles.imagenContenedor}>
+                <Image
+                  className={styles.imagen}
+                  src="/home/servicios/papeleria-creativa.webp"
+                  alt="Papelería creativa para eventos con decoración de zorrito, letra 3D, souvenir y topper"
+                  fill
+                  sizes="(min-width: 80rem) 21.6rem, (min-width: 64rem) 18.3rem, (min-width: 48rem) 20.9rem, calc(100vw - 3.1rem)"
+                />
               </div>
               <div className={styles.panel}>
                 <h3 className={styles.tarjetaTitulo}>Papelería Creativa</h3>
@@ -32,10 +42,19 @@ export const SeccionServicios = () => {
             </div>
           </article>
 
-          <article className={styles.tarjeta} tabIndex={0}>
+          <article
+            className={`${styles.tarjeta} ${styles.tarjetaDigital}`}
+            tabIndex={0}
+          >
             <div className={styles.visual}>
-              <div className={styles.placeholderImagen} aria-hidden="true">
-                <span>Imagen pendiente</span>
+              <div className={styles.imagenContenedor}>
+                <Image
+                  className={styles.imagen}
+                  src="/home/servicios/grafica-digital.webp"
+                  alt="Invitación digital de boda presentada en un celular"
+                  fill
+                  sizes="(min-width: 80rem) 21.6rem, (min-width: 64rem) 18.3rem, (min-width: 48rem) 20.9rem, calc(100vw - 3.1rem)"
+                />
               </div>
               <div className={styles.panel}>
                 <h3 className={styles.tarjetaTitulo}>Gráfica Digital</h3>
@@ -51,10 +70,19 @@ export const SeccionServicios = () => {
             </div>
           </article>
 
-          <article className={styles.tarjeta} tabIndex={0}>
+          <article
+            className={`${styles.tarjeta} ${styles.tarjetaFuncional}`}
+            tabIndex={0}
+          >
             <div className={styles.visual}>
-              <div className={styles.placeholderImagen} aria-hidden="true">
-                <span>Imagen pendiente</span>
+              <div className={styles.imagenContenedor}>
+                <Image
+                  className={styles.imagen}
+                  src="/home/servicios/papeleria-funcional.webp"
+                  alt="Agenda personalizada en tonos pastel con elementos de escritorio"
+                  fill
+                  sizes="(min-width: 80rem) 21.6rem, (min-width: 64rem) 18.3rem, (min-width: 48rem) 20.9rem, calc(100vw - 3.1rem)"
+                />
               </div>
               <div className={styles.panel}>
                 <h3 className={styles.tarjetaTitulo}>Papelería Funcional</h3>

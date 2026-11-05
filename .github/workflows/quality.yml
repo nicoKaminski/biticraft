@@ -24,6 +24,8 @@ jobs:
           node-version: 24
       - name: Install dependencies
         run: npm ci
+      - name: Check typography
+        run: npm run check:typography
       - name: Lint
         run: npm run lint
       - name: Typecheck

@@ -6,12 +6,13 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
+    "check:typography": "node scripts/check-typography.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "lucide-react": "^0.554.0",
-    "next": "16.4.2",
+    "next": "16.4.4",
     "nodemailer": "10.1.7",
     "react": "19.2.9",
     "react-dom": "19.2.9",
@@ -23,7 +24,7 @@
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.4.2",
+    "eslint-config-next": "16.4.4",
     "typescript": "^5"
   }
 }

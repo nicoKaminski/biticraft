@@ -47,10 +47,8 @@
 .errorCode {
   margin: 0;
   color: var(--error-hero-start);
-  font-family: "Iowan Old Style", "Baskerville", "Palatino Linotype", Georgia,
-    serif;
   font-size: clamp(9rem, 13vw, 12rem);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   letter-spacing: -0.055em;
   line-height: 0.75;
 }
@@ -71,10 +69,8 @@
   max-width: 35rem;
   margin: 0;
   color: var(--error-ink);
-  font-family: "Iowan Old Style", "Baskerville", "Palatino Linotype", Georgia,
-    serif;
   font-size: clamp(1.7rem, 2.8vw, 2.25rem);
-  font-weight: 400;
+  font-weight: var(--font-weight-medium);
   line-height: 1.12;
   text-wrap: balance;
 }
@@ -133,7 +129,7 @@
   min-height: 3rem;
   padding: 0.5rem 1.35rem;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 }
 
 .actionContent {
@@ -141,8 +137,6 @@
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  font-family: "Iowan Old Style", "Baskerville", "Palatino Linotype", Georgia,
-    serif;
   font-size: 1.05rem;
   white-space: nowrap;
 }

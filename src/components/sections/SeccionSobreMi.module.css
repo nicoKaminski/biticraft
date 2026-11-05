@@ -118,9 +118,18 @@
 
 .titulo {
   font-size: var(--font-size-h2-mobile);
-  font-weight: var(--font-weight-bld);
+  font-weight: var(--font-weight-medium);
   color: var(--color-gris);
   margin: 0;
+}
+
+.titulo::after {
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin-top: 0.75rem;
+  background-color: color-mix(in srgb, var(--color-rosa) 70%, transparent);
+  content: "";
 }
 
 @media (min-width: 48rem) {
@@ -160,15 +169,15 @@
 }
 
 .marcaRosa {
-  font-weight: 700;
-  color: var(--color-rosa);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-acento-texto-rosa);
 }
 
 .fraseFinal {
   margin-top: 1.5rem;
   padding-top: 0;
-  color: var(--color-morado-oscuro);
-  font-weight: var(--font-weight-med);
+  color: var(--color-acento-texto-rosa);
+  font-weight: var(--font-weight-medium);
   font-size: 1.1rem;
   line-height: 1.45;
 }

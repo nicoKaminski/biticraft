@@ -13,6 +13,11 @@
   --color-morado: #dcbadb;
   --color-morado-oscuro: #af7ead;
 
+  --color-acento-texto-rosa: #C04D76;
+  --color-acento-texto-naranja: #B65B20;
+  --color-acento-texto-verde: #438061;
+  --color-acento-texto-violeta: #9360B1;
+
   --background: #ffffff;
   --foreground: var(--color-gris);
 
@@ -22,14 +27,13 @@
   --radius-card-md: 2rem;
   --radius-container: 2.5rem;
 
-  /* Fuentes y Pesos */
-  --font-sans-family: var(--font-roboto);
-  --font-mono-family: var(--font-geist-mono);
+  /* Sistema tipográfico */
+  --font-family-heading: "Times New Roman", Times, serif;
+  --font-family-body: var(--font-dm-sans);
 
-  --font-weight-lt: 300;
-  --font-weight-reg: 400;
-  --font-weight-med: 500;
-  --font-weight-bld: 600;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
 
   /* Tamaños tipográficos */
   --font-size-h1: 4.5rem;
@@ -221,7 +225,7 @@ body {
 }
 
 html {
-  font-family: var(--font-sans-family);
+  font-family: var(--font-family-body);
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
 }
@@ -229,11 +233,26 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: inherit;
-  font-weight: var(--font-weight-reg);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-medium);
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-medium);
 }
 
 img, picture, video, canvas, svg {
@@ -243,7 +262,7 @@ img, picture, video, canvas, svg {
 }
 
 button, input, select, textarea {
-  font-family: inherit;
+  font-family: var(--font-family-body);
   font-size: inherit;
   line-height: inherit;
   color: inherit;
