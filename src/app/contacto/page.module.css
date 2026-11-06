@@ -196,16 +196,6 @@
   white-space: nowrap;
 }
 
-.acciones .botonEnviar:disabled {
-  opacity: 1;
-}
-
-@media (hover: hover) {
-  .acciones .botonEnviar:disabled:hover {
-    transform: scale(1.05);
-  }
-}
-
 .contenidoBoton {
   display: inline-flex;
   align-items: center;

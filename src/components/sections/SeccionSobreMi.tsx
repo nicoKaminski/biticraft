@@ -13,8 +13,9 @@ export const SeccionSobreMi = () => {
             <div className={styles.textosIntro}>
               <p>
                 ¡Hola! Somos{" "}
-                <span className={styles.marcaRosa}>Biticraft</span>.
-                Nos apasiona ponerle color y alegría a tus celebraciones.
+                <span className={styles.marca}>Biticraft</span>. Nos apasiona
+                ponerle color y alegría a tus
+                celebraciones.
               </p>
 
               <p>

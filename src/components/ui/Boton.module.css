@@ -1,36 +1,331 @@
 .boton {
-  /* Neutralizar estilos nativos */
+  /* Reset, estructura y tipografía compartidos */
   display: inline-block;
-  border: 0 solid;
+  box-sizing: border-box;
   text-decoration: none;
   font-size: inherit;
+  font-weight: var(--font-weight-medium);
   line-height: inherit;
   text-align: center;
   cursor: pointer;
-  box-sizing: border-box;
+  transition:
+    background-color 220ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 220ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 220ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 220ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  /* Estilos del componente */
+.boton:focus-visible {
+  outline: 3px solid color-mix(
+    in srgb,
+    var(--color-acento-texto-violeta) 65%,
+    #ffffff
+  );
+  outline-offset: 3px;
+}
+
+.primary {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--color-gris) 12%, transparent);
+  border-radius: var(--radius-button);
+  background-color: #ffffff;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.9rem;
+  color: var(--color-gris);
+  box-shadow: 0 2px 6px rgba(60, 60, 59, 0.045);
+}
+
+.primary::before {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: 0.9rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background-color: var(--color-lila-oscuro);
+  content: "";
+  transform: translateY(-50%);
+  transition:
+    top 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    right 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    width 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    height 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.primaryContent {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.primaryArrow {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  flex: 0 0 1.75rem;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--color-gris);
+}
+
+.primaryArrow svg {
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+  transform-origin: left center;
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.primaryArrowCustom svg {
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primary:not(:disabled):hover::before {
+    top: 0.25rem;
+    right: 0.25rem;
+    width: calc(100% - 0.5rem);
+    height: calc(100% - 0.5rem);
+    transform: none;
+  }
+
+  .primary:not(:disabled):hover .primaryArrow svg {
+    transform: translateX(5px) scaleX(1.04);
+  }
+
+  .primary:not(:disabled):hover .primaryArrowCustom svg {
+    transform: translate(4px, -2px);
+  }
+}
+
+.primary:active {
+  transform: scale(0.985);
+  box-shadow: 0 1px 4px rgba(60, 60, 59, 0.08);
+}
+
+.primary:active .primaryArrow svg {
+  transform: translateX(2px) scaleX(1.02);
+}
+
+.primary:active .primaryArrowCustom svg {
+  transform: translate(2px, -1px);
+}
+
+.primary:focus-visible {
+  outline: 3px solid color-mix(
+    in srgb,
+    var(--color-lila) 45%,
+    var(--color-acento-texto-violeta)
+  );
+  outline-offset: 3px;
+}
+
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0;
+  color: #7A617F;
+  font-weight: var(--font-weight-medium);
+  box-shadow: none;
+}
+
+.secondaryContent {
+  display: inline-flex;
+  align-items: center;
+}
+
+.secondaryArrow {
+  display: inline-block;
+  flex: 0 0 auto;
+  color: inherit;
+}
+
+.secondaryArrow svg {
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+  transform-origin: left center;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.secondary:active .secondaryArrow svg {
+  transform: translateX(3px) scaleX(1.04);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .secondary:hover {
+    background-color: transparent;
+    color: color-mix(in srgb, #7A617F 90%, #ffffff);
+  }
+
+  .secondary:hover .secondaryArrow svg {
+    transform: translateX(7px) scaleX(1.12);
+  }
+}
+
+.primary:disabled {
+  background-color: color-mix(in srgb, var(--color-gris) 7%, #ffffff);
+  color: color-mix(in srgb, var(--color-gris) 58%, #ffffff);
+  border-color: color-mix(in srgb, var(--color-gris) 14%, transparent);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.primary:disabled::before {
+  background-color: color-mix(
+    in srgb,
+    var(--color-lila-oscuro) 38%,
+    #ffffff
+  );
+}
+
+.primary:disabled::before,
+.primary:disabled .primaryArrow svg {
+  transition: none;
+}
+
+.primary:disabled .primaryArrow {
+  color: color-mix(in srgb, var(--color-gris) 58%, #ffffff);
+}
+
+.primary:disabled:hover,
+.primary:disabled:active {
+  background-color: color-mix(in srgb, var(--color-gris) 7%, #ffffff);
+  color: color-mix(in srgb, var(--color-gris) 58%, #ffffff);
+  border-color: color-mix(in srgb, var(--color-gris) 14%, transparent);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.primary:disabled:hover::before,
+.primary:disabled:active::before {
+  top: 50%;
+  right: 0.9rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: color-mix(
+    in srgb,
+    var(--color-lila-oscuro) 38%,
+    #ffffff
+  );
+  transform: translateY(-50%);
+}
+
+.primary:disabled:hover .primaryArrow svg,
+.primary:disabled:active .primaryArrow svg {
+  transform: none;
+}
+
+/* Conserva los estilos personalizados de usos antiguos sin variant (404). */
+.boton:where(:not(.primary):not(.secondary)) {
+  border: 1px solid color-mix(
+    in srgb,
+    var(--color-acento-texto-rosa) 18%,
+    transparent
+  );
   border-radius: var(--radius-button);
   background-color: var(--color-rosa);
   padding-inline: 2rem;
   padding-block: 0.75rem;
-  font-weight: var(--font-weight-regular);
-  color: #ffffff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--color-gris);
+  box-shadow:
+    0 3px 8px rgba(60, 60, 59, 0.08),
+    0 1px 2px rgba(60, 60, 59, 0.06);
 }
 
-.boton:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  background-color: color-mix(in srgb, var(--color-rosa) 80%, transparent);
+@media (hover: hover) and (pointer: fine) {
+  .boton:where(:not(.primary):not(.secondary)):hover {
+    transform: translateY(-2px);
+    background-color: color-mix(
+      in srgb,
+      var(--color-rosa) 84%,
+      var(--color-acento-texto-rosa)
+    );
+    border-color: color-mix(
+      in srgb,
+      var(--color-acento-texto-rosa) 32%,
+      transparent
+    );
+    box-shadow:
+      0 7px 16px rgba(60, 60, 59, 0.12),
+      0 2px 4px rgba(60, 60, 59, 0.07);
+  }
 }
 
-button.boton:disabled {
+.boton:where(:not(.primary):not(.secondary)):active {
+  transform: translateY(0) scale(0.985);
+  box-shadow:
+    0 1px 3px rgba(60, 60, 59, 0.1),
+    0 1px 2px rgba(60, 60, 59, 0.06);
+}
+
+button.boton:where(:not(.primary):not(.secondary)):disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-button.boton:disabled:hover {
-  transform: scale(1);
+button.boton:where(:not(.primary):not(.secondary)):disabled:hover,
+button.boton:where(:not(.primary):not(.secondary)):disabled:active {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boton {
+    transition: none;
+  }
+
+  .primary:hover,
+  .primary:active,
+  .boton:where(:not(.primary):not(.secondary)):hover,
+  .boton:where(:not(.primary):not(.secondary)):active {
+    transform: none;
+  }
+
+  .primary::before,
+  .primaryArrow svg {
+    transition: none;
+  }
+
+  .primary:not(:disabled):hover::before {
+    top: 50%;
+    right: 0.9rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    transform: translateY(-50%);
+  }
+
+  .primary:hover .primaryArrow svg,
+  .primary:active .primaryArrow svg {
+    transform: none;
+  }
+
+  .primary:not(:disabled):hover .primaryArrowCustom svg,
+  .primary:active .primaryArrowCustom svg {
+    transform: none;
+  }
+
+  .secondaryArrow svg {
+    transition: none;
+  }
+
+  .secondary:hover .secondaryArrow svg,
+  .secondary:active .secondaryArrow svg {
+    transform: none;
+  }
 }

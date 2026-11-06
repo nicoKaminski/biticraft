@@ -1,4 +1,6 @@
 .sobreMi {
+  --color-acento-sobre-mi: #8A728F;
+
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -168,18 +170,30 @@
   line-height: 1.7;
 }
 
-.marcaRosa {
+.marca {
+  color: var(--color-acento-sobre-mi);
   font-weight: var(--font-weight-medium);
-  color: var(--color-acento-texto-rosa);
 }
 
 .fraseFinal {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   margin-top: 1.5rem;
   padding-top: 0;
-  color: var(--color-acento-texto-rosa);
+  color: var(--color-gris);
   font-weight: var(--font-weight-medium);
   font-size: 1.1rem;
   line-height: 1.45;
+}
+
+.fraseFinal::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--color-acento-sobre-mi);
 }
 
 @media (min-width: 64rem) {

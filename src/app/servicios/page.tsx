@@ -178,7 +178,9 @@ export default function PaginaServicios() {
               Cuadernos diseñados a medida para acompañarte en el día a día,
               adaptados a tu estilo y necesidad.
             </p>
-            <Boton href="/contacto">Consultar</Boton>
+            <Boton variant="secondary" href="/contacto">
+              Consultar
+            </Boton>
           </div>
         </div>
       </section>
@@ -192,7 +194,9 @@ export default function PaginaServicios() {
           <p className={styles.descripcionCta}>
             Recordá que todo es 100% personalizado. ¡Contanos tu idea!
           </p>
-          <Boton href="/contacto">Contactar ahora</Boton>
+          <Boton variant="primary" href="/contacto">
+            Contactar ahora
+          </Boton>
         </div>
       </section>
     </div>

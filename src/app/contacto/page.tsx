@@ -372,17 +372,20 @@ export default function PaginaContacto() {
 
             <div className={styles.acciones}>
               <Boton
+                variant="primary"
+                endIcon={
+                  <Send
+                    className={styles.iconoAvion}
+                    aria-hidden="true"
+                    focusable="false"
+                  />
+                }
                 type="submit"
                 disabled={!canSubmit || isPending}
                 className={styles.botonEnviar}
               >
                 <span className={styles.contenidoBoton}>
                   <span>{isPending ? "Enviando..." : "Enviar Mensaje"}</span>
-                  <Send
-                    className={styles.iconoAvion}
-                    aria-hidden="true"
-                    focusable="false"
-                  />
                 </span>
               </Boton>
             </div>
