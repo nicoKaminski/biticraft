@@ -17,7 +17,7 @@ export default function NotFound() {
       <div className={styles.stage}>
         <div className={styles.content}>
           <h1 id="not-found-title" className={styles.errorCode}>
-            <span className={styles.errorNumber} aria-hidden="true">
+            <span aria-hidden="true">
               404
             </span>
             <span className={styles.visuallyHidden}>
@@ -45,17 +45,14 @@ export default function NotFound() {
           <div className={styles.actions}>
             <Boton
               href="/"
-              className={`${styles.action} ${styles.primary}`}
-            >
-              <span className={styles.actionContent}>
+              variant="primary"
+              endIcon={
                 <Home size={20} aria-hidden="true" focusable="false" />
-                <span>Volver al inicio</span>
-              </span>
-            </Boton>
-            <Boton
-              href="/contacto"
-              className={`${styles.action} ${styles.secondary}`}
+              }
             >
+              Volver al inicio
+            </Boton>
+            <Boton href="/contacto" variant="secondary">
               <span className={styles.actionContent}>
                 <Mail size={20} aria-hidden="true" focusable="false" />
                 <span>Ir a contacto</span>

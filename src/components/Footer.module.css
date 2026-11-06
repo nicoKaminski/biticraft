@@ -1,5 +1,9 @@
 .footer {
-  margin-top: 4rem;
+  --footer-overlap: 1rem;
+
+  position: relative;
+  z-index: 1;
+  margin-top: calc(0rem - var(--footer-overlap));
   background: linear-gradient(
     135deg,
     color-mix(in srgb, var(--color-lila) 82%, var(--background)) 0%,
@@ -8,6 +12,18 @@
   padding-block: 2rem;
   border-top-left-radius: var(--radius-container);
   border-top-right-radius: var(--radius-container);
+}
+
+@media (min-width: 48rem) {
+  .footer {
+    --footer-overlap: 1.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .footer {
+    --footer-overlap: 2rem;
+  }
 }
 
 .container {
@@ -153,10 +169,12 @@
     transform 0.2s ease;
 }
 
-.enlaceIcono:hover {
-  color: var(--color-morado-oscuro);
-  background: color-mix(in srgb, var(--color-rosa) 30%, var(--background));
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  .enlaceIcono:hover {
+    color: var(--color-morado-oscuro);
+    background: color-mix(in srgb, var(--color-rosa) 30%, var(--background));
+    transform: translateY(-1px);
+  }
 }
 
 .enlaceIcono:active {
@@ -166,6 +184,34 @@
 .enlaceIcono:focus-visible {
   outline: 2px solid var(--color-morado-oscuro);
   outline-offset: 2px;
+}
+
+@media (width < 768px) {
+  .footer {
+    padding-block: 1.25rem;
+  }
+
+  .bloquePrincipal {
+    gap: 0.5rem;
+  }
+
+  .bloqueIsotipo {
+    order: -1;
+  }
+
+  .isotipo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nombreMarca,
+  .etiqueta {
+    display: none;
+  }
+
+  .descripcion {
+    margin-top: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

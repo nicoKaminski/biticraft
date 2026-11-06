@@ -1,7 +1,9 @@
 .backToTop {
   position: fixed;
   right: 2rem;
+  right: calc(2rem + env(safe-area-inset-right, 0px));
   bottom: calc(2rem + var(--footer-offset, 0px));
+  bottom: calc(2rem + env(safe-area-inset-bottom, 0px) + var(--footer-offset, 0px));
   z-index: 40;
 
   display: inline-flex;
@@ -63,36 +65,38 @@
   transform: translateY(0);
 }
 
-.backToTop:hover {
-  color: var(--color-morado-oscuro);
+@media (hover: hover) and (pointer: fine) {
+  .backToTop:hover {
+    color: var(--color-morado-oscuro);
 
-  border-color: color-mix(
-    in srgb,
-    var(--color-morado-oscuro) 48%,
-    transparent
-  );
+    border-color: color-mix(
+      in srgb,
+      var(--color-morado-oscuro) 48%,
+      transparent
+    );
 
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-rosa) 32%, #ffffff) 0%,
-    color-mix(in srgb, var(--color-lila-oscuro) 32%, #ffffff) 100%
-  );
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-rosa) 32%, #ffffff) 0%,
+      color-mix(in srgb, var(--color-lila-oscuro) 32%, #ffffff) 100%
+    );
 
-  box-shadow:
-    0 5px 18px
-      color-mix(
-        in srgb,
-        var(--color-morado-oscuro) 18%,
-        transparent
-      );
+    box-shadow:
+      0 5px 18px
+        color-mix(
+          in srgb,
+          var(--color-morado-oscuro) 18%,
+          transparent
+        );
+  }
+
+  .backToTop:hover .icon {
+    transform: translateY(-2px);
+  }
 }
 
 .icon {
   transition: transform 0.2s ease;
-}
-
-.backToTop:hover .icon {
-  transform: translateY(-2px);
 }
 
 .backToTop:active {
@@ -107,9 +111,11 @@
 @media (max-width: 48rem) {
   .backToTop {
     right: 1.25rem;
+    right: calc(1.25rem + env(safe-area-inset-right, 0px));
     bottom: calc(1.25rem + var(--footer-offset, 0px));
-    width: 42px;
-    height: 42px;
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px) + var(--footer-offset, 0px));
+    width: 48px;
+    height: 48px;
   }
 }
 

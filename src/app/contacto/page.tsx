@@ -26,7 +26,7 @@ type TurnstileOptions = {
   sitekey: string;
   action: "biticraft_contact";
   language: "es";
-  theme: "auto";
+  theme: "light";
   size: TurnstileSize;
   "response-field": false;
   callback: (token: string) => void;
@@ -150,7 +150,7 @@ export default function PaginaContacto() {
         sitekey: siteKey,
         action: "biticraft_contact",
         language: "es",
-        theme: "auto",
+        theme: "light",
         size: widgetSize,
         "response-field": false,
         callback: (token) => {
@@ -275,71 +275,76 @@ export default function PaginaContacto() {
               />
             </div>
 
-            <div>
-              <label htmlFor="nombre" className={styles.etiqueta}>
-                Nombre
-              </label>
-              <input
-                type="text"
-                name="nombre"
-                id="nombre"
-                required
-                minLength={2}
-                maxLength={80}
-                autoComplete="name"
-                className={styles.control}
-                placeholder="Tu nombre"
-              />
-            </div>
+            <div className={styles.contenidoPrincipal}>
+              <div className={styles.columnaDatos}>
+                <div className={styles.campo}>
+                  <label htmlFor="nombre" className={styles.etiqueta}>
+                    Nombre
+                  </label>
+                  <input
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+                    required
+                    minLength={2}
+                    maxLength={80}
+                    autoComplete="name"
+                    className={styles.control}
+                    placeholder="Tu nombre"
+                  />
+                </div>
 
-            <div>
-              <label htmlFor="email" className={styles.etiqueta}>
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                required
-                maxLength={254}
-                autoComplete="email"
-                className={styles.control}
-                placeholder="tu@email.com"
-              />
-            </div>
+                <div className={styles.campo}>
+                  <label htmlFor="email" className={styles.etiqueta}>
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    maxLength={254}
+                    autoComplete="email"
+                    className={styles.control}
+                    placeholder="tu@email.com"
+                  />
+                </div>
 
-            <div>
-              <label htmlFor="tipoEvento" className={styles.etiqueta}>
-                Tipo de Evento (Opcional)
-              </label>
-              <select
-                name="tipoEvento"
-                id="tipoEvento"
-                className={styles.control}
-              >
-                <option value="">Selecciona una opción</option>
-                {EVENT_TYPES.map((tipo) => (
-                  <option key={tipo} value={tipo}>
-                    {tipo}
-                  </option>
-                ))}
-              </select>
-            </div>
+                <div className={styles.campo}>
+                  <label htmlFor="tipoEvento" className={styles.etiqueta}>
+                    Tipo de evento
+                    <span className={styles.indicadorOpcional}>Opcional</span>
+                  </label>
+                  <select
+                    name="tipoEvento"
+                    id="tipoEvento"
+                    className={styles.control}
+                  >
+                    <option value="">Selecciona una opción</option>
+                    {EVENT_TYPES.map((tipo) => (
+                      <option key={tipo} value={tipo}>
+                        {tipo}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
 
-            <div>
-              <label htmlFor="mensaje" className={styles.etiqueta}>
-                Mensaje
-              </label>
-              <textarea
-                name="mensaje"
-                id="mensaje"
-                rows={4}
-                required
-                minLength={10}
-                maxLength={3000}
-                className={[styles.control, styles.textarea].join(" ")}
-                placeholder="Contanos qué estás buscando..."
-              />
+              <div className={[styles.campo, styles.campoMensaje].join(" ")}>
+                <label htmlFor="mensaje" className={styles.etiqueta}>
+                  Mensaje
+                </label>
+                <textarea
+                  name="mensaje"
+                  id="mensaje"
+                  rows={4}
+                  required
+                  minLength={10}
+                  maxLength={3000}
+                  className={[styles.control, styles.textarea].join(" ")}
+                  placeholder="Contanos qué estás buscando..."
+                />
+              </div>
             </div>
 
             <input
@@ -349,45 +354,47 @@ export default function PaginaContacto() {
               readOnly
             />
 
-            <div>
-              {siteKey ? (
-                <div
-                  ref={widgetContainerRef}
-                  className={styles.turnstile}
-                  role="group"
-                  aria-label="Verificación de seguridad"
-                />
-              ) : (
-                <p role="alert" className={styles.verificacionError}>
-                  La verificación de seguridad no está disponible en este
-                  momento.
-                </p>
-              )}
-              {siteKey && verificationMessage && (
-                <p role="alert" className={styles.verificacionError}>
-                  {verificationMessage}
-                </p>
-              )}
-            </div>
-
-            <div className={styles.acciones}>
-              <Boton
-                variant="primary"
-                endIcon={
-                  <Send
-                    className={styles.iconoAvion}
-                    aria-hidden="true"
-                    focusable="false"
+            <div className={styles.pieFormulario}>
+              <div className={styles.zonaVerificacion}>
+                {siteKey ? (
+                  <div
+                    ref={widgetContainerRef}
+                    className={styles.turnstile}
+                    role="group"
+                    aria-label="Verificación de seguridad"
                   />
-                }
-                type="submit"
-                disabled={!canSubmit || isPending}
-                className={styles.botonEnviar}
-              >
-                <span className={styles.contenidoBoton}>
-                  <span>{isPending ? "Enviando..." : "Enviar Mensaje"}</span>
-                </span>
-              </Boton>
+                ) : (
+                  <p role="alert" className={styles.verificacionError}>
+                    La verificación de seguridad no está disponible en este
+                    momento.
+                  </p>
+                )}
+                {siteKey && verificationMessage && (
+                  <p role="alert" className={styles.verificacionError}>
+                    {verificationMessage}
+                  </p>
+                )}
+              </div>
+
+              <div className={styles.acciones}>
+                <Boton
+                  variant="primary"
+                  endIcon={
+                    <Send
+                      className={styles.iconoAvion}
+                      aria-hidden="true"
+                      focusable="false"
+                    />
+                  }
+                  type="submit"
+                  disabled={!canSubmit || isPending}
+                  className={styles.botonEnviar}
+                >
+                  <span className={styles.contenidoBoton}>
+                    <span>{isPending ? "Enviando..." : "Enviar Mensaje"}</span>
+                  </span>
+                </Boton>
+              </div>
             </div>
           </form>
         )}
