@@ -1,5 +1,5 @@
 .pagina {
-  padding: clamp(4.25rem, 6vw, 5.25rem) 1.25rem 3rem;
+  padding: clamp(3.5rem, 5vw, 4.5rem) 1.25rem 4.5rem;
   background-color: #ffffff;
   background-image: var(--gradient-rosa), var(--gradient-lila-inv);
   background-repeat: no-repeat;
@@ -9,12 +9,6 @@
 @media (min-width: 40rem) {
   .pagina {
     padding-inline: 1.5rem;
-  }
-}
-
-@media (min-width: 64rem) {
-  .pagina {
-    padding-inline: 2rem;
   }
 }
 
@@ -366,6 +360,10 @@ select.control option:checked {
 }
 
 @media (min-width: 48rem) {
+  .pagina {
+    padding-bottom: 5rem;
+  }
+
   .contenidoPrincipal {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
@@ -391,6 +389,13 @@ select.control option:checked {
 
   .acciones {
     justify-content: flex-end;
+  }
+}
+
+@media (min-width: 64rem) {
+  .pagina {
+    padding-inline: 2rem;
+    padding-bottom: calc(clamp(3.5rem, 5vw, 4.5rem) + 2rem);
   }
 }
 
