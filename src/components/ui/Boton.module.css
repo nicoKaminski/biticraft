@@ -17,11 +17,7 @@
 }
 
 .boton:focus-visible {
-  outline: 3px solid color-mix(
-    in srgb,
-    var(--color-acento-texto-violeta) 65%,
-    #ffffff
-  );
+  outline: 3px solid #7A617F;
   outline-offset: 3px;
 }
 
@@ -122,11 +118,7 @@
 }
 
 .primary:focus-visible {
-  outline: 3px solid color-mix(
-    in srgb,
-    var(--color-lila) 45%,
-    var(--color-acento-texto-violeta)
-  );
+  outline: 3px solid #7A617F;
   outline-offset: 3px;
 }
 
@@ -169,7 +161,7 @@
 @media (hover: hover) and (pointer: fine) {
   .secondary:hover {
     background-color: transparent;
-    color: color-mix(in srgb, #7A617F 90%, #ffffff);
+    color: #7A617F;
   }
 
   .secondary:hover .secondaryArrow svg {
