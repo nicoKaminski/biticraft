@@ -1,4 +1,6 @@
 .pagina {
+  position: relative;
+  isolation: isolate;
   flex: 1;
   padding: clamp(3.5rem, 5vw, 4.5rem) 1.25rem 4.5rem;
   background-color: #ffffff;
@@ -27,6 +29,8 @@
 }
 
 .tarjeta {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 64rem;
   margin-inline: auto;
@@ -36,6 +40,103 @@
 .encabezado {
   margin: 0 auto 2rem;
   text-align: center;
+}
+
+.pagina::before,
+.pagina::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-size: 24px 24px;
+}
+
+.pagina::before {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-morado-oscuro) 12%, transparent) 0.85px,
+    transparent 1.1px
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.04) 22%,
+    rgba(0, 0, 0, 0.45) 42%,
+    rgba(0, 0, 0, 0.25) 72%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.04) 22%,
+    rgba(0, 0, 0, 0.45) 42%,
+    rgba(0, 0, 0, 0.25) 72%,
+    transparent 100%
+  );
+}
+
+.pagina::after {
+  --ambient-dot-mask:
+    radial-gradient(
+      ellipse 32% 25% at 18% 48%,
+      #000 0%,
+      rgba(0, 0, 0, 0.9) 18%,
+      rgba(0, 0, 0, 0.45) 48%,
+      transparent 82%
+    ),
+    radial-gradient(
+      ellipse 30% 26% at 82% 55%,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.55) 32%,
+      transparent 78%
+    ),
+    radial-gradient(
+      ellipse 32% 23% at 74% 77%,
+      #000 0%,
+      rgba(0, 0, 0, 0.8) 26%,
+      rgba(0, 0, 0, 0.4) 52%,
+      transparent 84%
+    ),
+    radial-gradient(
+      ellipse 28% 22% at 32% 72%,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.42) 38%,
+      transparent 80%
+    );
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-morado-oscuro) 24%, transparent) 0.85px,
+    transparent 1.1px
+  );
+  -webkit-mask-image: var(--ambient-dot-mask);
+  mask-image: var(--ambient-dot-mask);
+}
+
+@media (max-width: 47.999rem) {
+  .pagina::after {
+    --ambient-dot-mask:
+      radial-gradient(
+        ellipse 60% 22% at 15% 42%,
+        #000 0%,
+        rgba(0, 0, 0, 0.9) 18%,
+        rgba(0, 0, 0, 0.45) 48%,
+        transparent 82%
+      ),
+      radial-gradient(
+        ellipse 60% 22% at 85% 60%,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.55) 32%,
+        transparent 78%
+      ),
+      radial-gradient(
+        ellipse 64% 20% at 22% 80%,
+        #000 0%,
+        rgba(0, 0, 0, 0.8) 26%,
+        rgba(0, 0, 0, 0.4) 52%,
+        transparent 84%
+      );
+  }
 }
 
 .pagina ::selection {
@@ -53,6 +154,15 @@
   font-size: 1.875rem;
   font-weight: var(--font-weight-medium);
   line-height: 2.25rem;
+}
+
+.titulo::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin: 0 auto;
+  background-color: color-mix(in srgb, var(--color-rosa) 70%, transparent);
 }
 
 .descripcion {
