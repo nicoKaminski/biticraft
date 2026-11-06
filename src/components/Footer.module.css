@@ -169,10 +169,12 @@
     transform 0.2s ease;
 }
 
-.enlaceIcono:hover {
-  color: var(--color-morado-oscuro);
-  background: color-mix(in srgb, var(--color-rosa) 30%, var(--background));
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  .enlaceIcono:hover {
+    color: var(--color-morado-oscuro);
+    background: color-mix(in srgb, var(--color-rosa) 30%, var(--background));
+    transform: translateY(-1px);
+  }
 }
 
 .enlaceIcono:active {
@@ -182,6 +184,34 @@
 .enlaceIcono:focus-visible {
   outline: 2px solid var(--color-morado-oscuro);
   outline-offset: 2px;
+}
+
+@media (width < 768px) {
+  .footer {
+    padding-block: 1.25rem;
+  }
+
+  .bloquePrincipal {
+    gap: 0.5rem;
+  }
+
+  .bloqueIsotipo {
+    order: -1;
+  }
+
+  .isotipo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nombreMarca,
+  .etiqueta {
+    display: none;
+  }
+
+  .descripcion {
+    margin-top: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
