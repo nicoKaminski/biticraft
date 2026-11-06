@@ -4,6 +4,7 @@ import { House, LayoutGrid, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ScrollProgress } from "./ScrollProgress";
 import styles from "./Navbar.module.css";
 
 const enlacesNavegacion = [
@@ -51,6 +52,7 @@ export const Navbar = () => {
           ))}
         </div>
       </div>
+      <ScrollProgress />
     </nav>
   );
 };
