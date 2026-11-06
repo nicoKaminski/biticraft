@@ -4,8 +4,7 @@
 
 .stage {
   position: relative;
-  width: min(100%, 104.5rem);
-  margin-inline: auto;
+  width: 100%;
   aspect-ratio: 1672 / 941;
   background-image: url("/404-desktop.webp");
   background-position: center;
