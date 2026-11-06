@@ -1,5 +1,9 @@
 .footer {
-  margin-top: 4rem;
+  --footer-overlap: 1rem;
+
+  position: relative;
+  z-index: 1;
+  margin-top: calc(0rem - var(--footer-overlap));
   background: linear-gradient(
     135deg,
     color-mix(in srgb, var(--color-lila) 82%, var(--background)) 0%,
@@ -8,6 +12,18 @@
   padding-block: 2rem;
   border-top-left-radius: var(--radius-container);
   border-top-right-radius: var(--radius-container);
+}
+
+@media (min-width: 48rem) {
+  .footer {
+    --footer-overlap: 1.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .footer {
+    --footer-overlap: 2rem;
+  }
 }
 
 .container {
