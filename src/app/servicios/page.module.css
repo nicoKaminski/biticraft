@@ -135,8 +135,18 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.tarjetaFisico:hover {
-  translate: 0 -0.25rem;
+@media (hover: hover) and (pointer: fine) {
+  .tarjetaFisico:hover {
+    translate: 0 -0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tarjetaFisico,
+  .tarjetaFisico:hover {
+    translate: none;
+    transition: none;
+  }
 }
 
 .imagenFisicoContenedor {
