@@ -1,14 +1,20 @@
+"use client";
+
+import { House, LayoutGrid, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
 
 const enlacesNavegacion = [
-  { nombre: "Inicio", href: "/" },
-  { nombre: "Servicios", href: "/servicios" },
-  { nombre: "Contacto", href: "/contacto" },
+  { nombre: "Inicio", href: "/", Icono: House },
+  { nombre: "Servicios", href: "/servicios", Icono: LayoutGrid },
+  { nombre: "Contacto", href: "/contacto", Icono: Mail },
 ];
 
 export const Navbar = () => {
+  const pathname = usePathname();
+
   return (
     <nav className={styles.nav}>
       <div className={styles.container}>
@@ -31,8 +37,16 @@ export const Navbar = () => {
               key={enlace.nombre}
               href={enlace.href}
               className={styles.enlace}
+              aria-label={enlace.nombre}
+              aria-current={pathname === enlace.href ? "page" : undefined}
             >
-              {enlace.nombre}
+              <enlace.Icono
+                className={styles.icono}
+                size={18}
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
+              <span className={styles.texto}>{enlace.nombre}</span>
             </Link>
           ))}
         </div>

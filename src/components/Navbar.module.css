@@ -105,6 +105,7 @@
 }
 
 .enlace {
+  position: relative;
   color: var(--color-gris);
   font-size: 0.95rem;
   font-weight: var(--font-weight-regular);
@@ -113,11 +114,40 @@
   text-decoration: none;
 }
 
-.enlace:hover {
-  color: var(--color-rosa);
+.enlace[aria-current="page"] {
+  color: var(--color-morado-oscuro);
 }
 
-@media (max-width: 39.999rem) {
+.enlace[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -5px;
+  width: 18px;
+  height: 1px;
+  margin-inline: auto;
+  background: var(--color-morado-oscuro);
+}
+
+.icono {
+  display: none;
+}
+
+.logoLink:focus-visible,
+.enlace:focus-visible {
+  outline: 2px solid var(--color-acento-texto-violeta);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .enlace:not([aria-current="page"]):hover {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 4px;
+  }
+}
+
+@media (width < 640px) {
   .container {
     padding-inline: 1rem;
   }
@@ -127,10 +157,39 @@
   }
 
   .enlaces {
-    gap: 1rem;
+    gap: 0.25rem;
   }
 
   .enlace {
-    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+  }
+
+  .enlace[aria-current="page"]::after {
+    bottom: 10px;
+    width: 12px;
+  }
+
+  .icono {
+    display: block;
+  }
+
+  .texto {
+    display: none;
+  }
+}
+
+@media (hover: hover) and (width < 640px) {
+  .enlace:not([aria-current="page"]):hover {
+    color: var(--color-acento-texto-violeta);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enlace {
+    transition: none;
   }
 }
