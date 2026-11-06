@@ -25,7 +25,9 @@ export const SeccionHero = () => {
         </p>
 
         <div className={styles.ctaContenedor}>
-          <Boton href="/contacto">¡Quiero cotizar!</Boton>
+          <Boton variant="primary" href="/contacto">
+            ¡Quiero cotizar!
+          </Boton>
         </div>
       </div>
     </section>

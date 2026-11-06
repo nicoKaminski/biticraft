@@ -97,7 +97,9 @@ export const SeccionServicios = () => {
         </div>
 
         <div className={styles.ctaContenedor}>
-          <Boton href="/servicios">Ver todos los servicios</Boton>
+          <Boton variant="secondary" href="/servicios">
+            Ver todos los servicios
+          </Boton>
         </div>
       </div>
     </section>
