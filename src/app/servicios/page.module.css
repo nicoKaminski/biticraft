@@ -105,6 +105,13 @@
   gap: 2rem;
 }
 
+@media (min-width: 360px) and (width < 640px) {
+  .grillaFisicos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
 @media (min-width: 40rem) {
   .grillaFisicos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -171,6 +178,17 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
   margin: 0;
+}
+
+@media (min-width: 360px) and (width < 640px) {
+  .imagenFisicoContenedor {
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  .nombreFisico {
+    overflow-wrap: anywhere;
+  }
 }
 
 /* Papeleria Digital */
