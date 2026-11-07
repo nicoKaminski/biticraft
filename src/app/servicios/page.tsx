@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { Boton } from "@/components/ui/Boton";
+import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
 import styles from "./page.module.css";
 
-const productosFisicos = [
+const papeleriaCreativa = [
   {
     nombre: "Gigantografías",
     img: "https://placehold.co/600x400/FEFOD6/3c3c3b?text=Gigantografias",
@@ -37,7 +38,7 @@ const productosFisicos = [
   },
 ];
 
-const papeleriaDigital = [
+const graficaDigital = [
   {
     nombre: "Invitaciones Interactivas",
     descripcion:
@@ -74,52 +75,64 @@ export default function PaginaServicios() {
         <div className={styles.container}>
           <h1 className={styles.heroTitulo}>
             Nuestros Servicios
+            <SubrayadoTitulo />
           </h1>
-          <p className={styles.heroDescripcion}>
-            Todo lo que necesitas para tu evento, diseñado con amor y
-            creatividad.
-          </p>
+          <div className={styles.heroDescripciones}>
+            <p className={styles.heroDescripcion}>
+              En Biticraft diseñamos y creamos piezas personalizadas para
+              eventos, celebraciones, el día a día y marcas.
+            </p>
+            <p className={styles.heroDescripcion}>
+              Combinamos papelería creativa, gráfica digital y soluciones
+              funcionales para que cada propuesta tenga identidad propia y cada
+              detalle acompañe lo que querés comunicar.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Productos Físicos */}
-      <section className={[styles.container, styles.seccionProductos].join(" ")}>
-        <h2 className={[styles.tituloSeccion, styles.tituloRosa].join(" ")}>
-          Productos Físicos
-        </h2>
-        <div className={styles.grillaFisicos}>
-          {productosFisicos.map((producto) => (
-            <div
-              key={producto.nombre}
-              className={styles.tarjetaFisico}
-            >
-              <div className={styles.imagenFisicoContenedor}>
-                <Image
-                  src={producto.img}
-                  alt={producto.nombre}
-                  fill
-                  className={styles.imagenFisico}
-                  unoptimized={true}
-                />
+      {/* Papelería Creativa */}
+      <section className={styles.seccionCreativa}>
+        <div className={styles.container}>
+          <h2 className={styles.tituloSeccion}>
+            Papelería Creativa
+            <SubrayadoTitulo />
+          </h2>
+          <div className={styles.grillaCreativa}>
+            {papeleriaCreativa.map((producto) => (
+              <div
+                key={producto.nombre}
+                className={styles.tarjetaCreativa}
+              >
+                <div className={styles.imagenCreativaContenedor}>
+                  <Image
+                    src={producto.img}
+                    alt={producto.nombre}
+                    fill
+                    className={styles.imagenCreativa}
+                    unoptimized={true}
+                  />
+                </div>
+                <div className={styles.contenidoCreativa}>
+                  <h3 className={styles.nombreCreativa}>
+                    {producto.nombre}
+                  </h3>
+                </div>
               </div>
-              <div className={styles.contenidoFisico}>
-                <h3 className={styles.nombreFisico}>
-                  {producto.nombre}
-                </h3>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Papelería Digital */}
+      {/* Gráfica Digital */}
       <section className={styles.seccionDigital}>
         <div className={styles.container}>
-          <h2 className={[styles.tituloSeccion, styles.tituloVerde].join(" ")}>
-            Papelería Digital
+          <h2 className={styles.tituloSeccion}>
+            Gráfica Digital
+            <SubrayadoTitulo />
           </h2>
           <div className={styles.grillaDigital}>
-            {papeleriaDigital.map((producto) => (
+            {graficaDigital.map((producto) => (
               <div
                 key={producto.nombre}
                 className={styles.tarjetaDigital}
@@ -146,41 +159,44 @@ export default function PaginaServicios() {
       </section>
 
       {/* Papelería Funcional */}
-      <section className={[styles.container, styles.seccionFuncional].join(" ")}>
-        <h2 className={[styles.tituloSeccion, styles.tituloCeleste].join(" ")}>
-          Papelería Funcional
-        </h2>
-        <div className={styles.grillaFuncional}>
-          <div className={styles.imagenFuncionalContenedor}>
-            <Image
-              src={papeleriaFuncional[0].img}
-              alt={papeleriaFuncional[0].nombre}
-              fill
-              className={styles.imagenFuncional}
-              unoptimized={true}
-            />
-          </div>
-          <div>
-            <h3 className={styles.tituloFuncional}>
-              {papeleriaFuncional[0].nombre}
-            </h3>
-            <p className={styles.introFuncional}>
-              Organización perfecta para tu año escolar. Incluye:
-            </p>
-            <ul className={styles.listaFuncional}>
-              <li>Calendario Anual</li>
-              <li>Planner Mensual</li>
-              <li>Planillas de Asistencia</li>
-              <li>Notas y Recordatorios</li>
-            </ul>
-            <h3 className={styles.tituloFuncional}>Cuadernos personalizados</h3>
-            <p className={styles.introFuncional}>
-              Cuadernos diseñados a medida para acompañarte en el día a día,
-              adaptados a tu estilo y necesidad.
-            </p>
-            <Boton variant="secondary" href="/contacto">
-              Consultar
-            </Boton>
+      <section className={styles.seccionFuncional}>
+        <div className={styles.container}>
+          <h2 className={styles.tituloSeccion}>
+            Papelería Funcional
+            <SubrayadoTitulo />
+          </h2>
+          <div className={styles.grillaFuncional}>
+            <div className={styles.imagenFuncionalContenedor}>
+              <Image
+                src={papeleriaFuncional[0].img}
+                alt={papeleriaFuncional[0].nombre}
+                fill
+                className={styles.imagenFuncional}
+                unoptimized={true}
+              />
+            </div>
+            <div>
+              <h3 className={styles.tituloFuncional}>
+                {papeleriaFuncional[0].nombre}
+              </h3>
+              <p className={styles.introFuncional}>
+                Organización perfecta para tu año escolar. Incluye:
+              </p>
+              <ul className={styles.listaFuncional}>
+                <li>Calendario Anual</li>
+                <li>Planner Mensual</li>
+                <li>Planillas de Asistencia</li>
+                <li>Notas y Recordatorios</li>
+              </ul>
+              <h3 className={styles.tituloFuncional}>Cuadernos personalizados</h3>
+              <p className={styles.introFuncional}>
+                Cuadernos diseñados a medida para acompañarte en el día a día,
+                adaptados a tu estilo y necesidad.
+              </p>
+              <Boton variant="secondary" href="/contacto">
+                Consultar
+              </Boton>
+            </div>
           </div>
         </div>
       </section>
@@ -190,6 +206,7 @@ export default function PaginaServicios() {
         <div className={styles.container}>
           <h2 className={styles.tituloCta}>
             ¿No encontrás lo que buscás?
+            <SubrayadoTitulo align="center" />
           </h2>
           <p className={styles.descripcionCta}>
             Recordá que todo es 100% personalizado. ¡Contanos tu idea!

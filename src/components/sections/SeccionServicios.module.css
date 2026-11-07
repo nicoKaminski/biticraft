@@ -1,6 +1,6 @@
 .servicios {
   background-image: var(--gradient-rosa-fade);
-  padding-block: 6rem;
+  padding-block: 3rem 6rem;
 }
 
 .container {
@@ -44,37 +44,32 @@
 }
 
 .titulo {
-  font-size: var(--font-size-h2-mobile);
+  font-size: var(--font-size-section-title-mobile);
   font-weight: var(--font-weight-medium);
+  line-height: 1.1;
   color: var(--color-gris);
   margin: 0;
 }
 
 .titulo::after {
   display: block;
-  width: 44px;
-  height: 2px;
-  margin: 0.75rem auto 0;
-  background-color: color-mix(in srgb, var(--color-rosa) 70%, transparent);
+  width: var(--ancho-subrayado-titulo);
+  height: var(--alto-subrayado-titulo);
+  margin: calc(0.75rem - 0.2em) auto 0;
+  background-color: var(--color-subrayado-titulo);
   content: "";
 }
 
 @media (min-width: 48rem) {
   .titulo {
-    font-size: var(--font-size-h2);
-  }
-}
-
-@media (min-width: 64rem) {
-  .titulo::after {
-    transform: translateY(-0.625rem);
+    font-size: var(--font-size-section-title);
   }
 }
 
 .subtitulo {
   margin-top: 1rem;
   color: var(--color-gris);
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-body-lg);
   margin-bottom: 0;
 }
 
@@ -139,15 +134,16 @@
 }
 
 .tarjetaTitulo {
-  font-size: var(--font-size-h3-mobile);
+  font-size: var(--font-size-card-title-mobile);
   font-weight: var(--font-weight-medium);
+  line-height: 1.1;
   color: var(--color-gris);
   margin: 0;
 }
 
 @media (min-width: 48rem) {
   .tarjetaTitulo {
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-card-title);
   }
 }
 
