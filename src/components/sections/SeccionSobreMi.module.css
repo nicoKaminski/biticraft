@@ -5,7 +5,7 @@
   isolation: isolate;
   overflow: hidden;
   background-image: var(--gradient-violeta);
-  padding-block: 6rem;
+  padding-block: 3rem;
 }
 
 .sobreMi::before,
@@ -119,24 +119,25 @@
 }
 
 .titulo {
-  font-size: var(--font-size-h2-mobile);
+  font-size: var(--font-size-section-title-mobile);
   font-weight: var(--font-weight-medium);
+  line-height: 1.1;
   color: var(--color-gris);
   margin: 0;
 }
 
 .titulo::after {
   display: block;
-  width: 44px;
-  height: 2px;
+  width: var(--ancho-subrayado-titulo);
+  height: var(--alto-subrayado-titulo);
   margin-top: 0.75rem;
-  background-color: color-mix(in srgb, var(--color-rosa) 70%, transparent);
+  background-color: var(--color-subrayado-titulo);
   content: "";
 }
 
 @media (min-width: 48rem) {
   .titulo {
-    font-size: var(--font-size-h2);
+    font-size: var(--font-size-section-title);
   }
 }
 
@@ -147,7 +148,7 @@
   margin-top: 2rem;
   color: var(--color-gris);
   font-size: var(--font-size-body-lg);
-  line-height: 1.7;
+  line-height: 1.625;
 }
 
 .textosIntro > p {
@@ -167,7 +168,7 @@
   margin: 0;
   color: var(--color-gris);
   font-size: var(--font-size-body-lg);
-  line-height: 1.7;
+  line-height: 1.625;
 }
 
 .marca {
@@ -181,10 +182,10 @@
   gap: 0.6rem;
   margin-top: 1.5rem;
   padding-top: 0;
-  color: var(--color-gris);
+  color: var(--color-acento-sobre-mi);
   font-weight: var(--font-weight-medium);
-  font-size: 1.1rem;
-  line-height: 1.45;
+  font-size: var(--font-size-body-lg);
+  line-height: 1.5;
 }
 
 .fraseFinal::before {
@@ -197,10 +198,6 @@
 }
 
 @media (min-width: 64rem) {
-  .sobreMi {
-    padding-block: 5rem;
-  }
-
   .contenido {
     display: grid;
     grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
@@ -209,20 +206,15 @@
     max-width: 74rem;
   }
 
-  .titulo {
-    font-size: 2.75rem;
-    line-height: 1.1;
-  }
-
   .columnaDetalle {
     margin-top: 0;
-    padding-top: 5rem;
+    padding-top: 5.9rem;
   }
 
   .fraseFinal {
-    margin-top: auto;
+    margin-top: 1.5rem;
     margin-bottom: 0;
-    padding-top: 2rem;
+    padding-top: 0;
   }
 }
 

@@ -92,6 +92,18 @@ const tokenDefinitions = new Map([
   ["font-weight-light", "300"],
   ["font-weight-regular", "400"],
   ["font-weight-medium", "500"],
+  ["font-size-body-lg", "1.25rem"],
+  ["font-size-body", "1rem"],
+  ["font-size-body-sm", "0.875rem"],
+  ["font-size-display", "4.5rem"],
+  ["font-size-display-mobile", "3rem"],
+  ["font-size-page-title", "3rem"],
+  ["font-size-page-title-mobile", "2.5rem"],
+  ["font-size-section-title", "2.75rem"],
+  ["font-size-section-title-mobile", "2.25rem"],
+  ["font-size-card-title", "2.25rem"],
+  ["font-size-card-title-mobile", "1.875rem"],
+  ["font-size-product-title", "1.5rem"],
 ]);
 const tokenCounts = new Map([...tokenDefinitions.keys()].map((name) => [name, 0]));
 
@@ -102,12 +114,23 @@ let nextFontReferenceCount = 0;
 for (const filePath of files) {
   const relativePath = path.relative(ROOT, filePath).replaceAll(path.sep, "/");
   const rawSource = await readFile(filePath, "utf8");
+  const legacySizes = new RegExp(`--font-size-h[1-3](?:-mobile)?(?![\\w-])`, "g");
+  for (const match of rawSource.matchAll(legacySizes)) {
+    report(relativePath, rawSource, match.index, `el token anterior ${match[0]} ya no está autorizado.`);
+  }
   const source = filePath.endsWith(".css") || filePath.endsWith(".scss") || filePath.endsWith(".sass") || filePath.endsWith(".less")
     ? stripCssComments(rawSource)
     : rawSource;
   const isCss = /\.(css|scss|sass|less)$/i.test(filePath);
 
   if (isCss) {
+    const typographyTokenDeclarations = /--font-(?:family|weight|size)-[\w-]+\s*:/gi;
+    for (const match of source.matchAll(typographyTokenDeclarations)) {
+      if (relativePath !== GLOBALS_PATH || !isInsideRootBlock(source, match.index)) {
+        report(relativePath, source, match.index, "los tokens tipográficos centrales solo pueden declararse en :root de src/app/globals.css.");
+      }
+    }
+
     for (const [tokenName, expectedValue] of tokenDefinitions) {
       const declaration = new RegExp(`--${tokenName}\\s*:\\s*([^;{}]+);`, "gi");
       for (const match of source.matchAll(declaration)) {
@@ -217,5 +240,5 @@ if (issues.length > 0) {
   for (const issue of issues) console.error(`- ${issue}`);
   process.exitCode = 1;
 } else {
-  console.log("Validación tipográfica correcta: familias, pesos, imports y uso de tokens cumplen el contrato.");
+  console.log("Validación tipográfica correcta: familias, pesos, imports y tokens de tamaño cumplen el contrato.");
 }

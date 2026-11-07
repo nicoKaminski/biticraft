@@ -29,7 +29,7 @@ export const SeccionSobreMi = () => {
           <div className={styles.columnaDetalle}>
             <p className={styles.textoPrincipal}>
               Nuestro diferencial está en la{" "}
-              <strong>atención cercana y en cada detalle</strong>: nos encanta
+              atención cercana y en cada detalle: nos encanta
               escucharte y crear juntos esa idea loca que tenés en mente. Ya sea
               una boda, un cumple de 15, o el primer añito de tu bebé, estamos
               acá para que cada detalle cuente.

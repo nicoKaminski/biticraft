@@ -139,11 +139,9 @@
   outline-offset: 3px;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (min-width: 640px) {
   .enlace:not([aria-current="page"]):hover {
-    text-decoration: underline;
-    text-decoration-style: dotted;
-    text-underline-offset: 4px;
+    color: var(--color-rosa);
   }
 }
 
@@ -179,12 +177,6 @@
 
   .texto {
     display: none;
-  }
-}
-
-@media (hover: hover) and (width < 640px) {
-  .enlace:not([aria-current="page"]):hover {
-    color: var(--color-acento-texto-violeta);
   }
 }
 

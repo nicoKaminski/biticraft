@@ -18,6 +18,10 @@
   --color-acento-texto-verde: #438061;
   --color-acento-texto-violeta: #9360B1;
 
+  --ancho-subrayado-titulo: 44px;
+  --alto-subrayado-titulo: 2px;
+  --color-subrayado-titulo: var(--color-rosa);
+
   --background: #ffffff;
   --foreground: var(--color-gris);
 
@@ -36,12 +40,15 @@
   --font-weight-medium: 500;
 
   /* Tamaños tipográficos */
-  --font-size-h1: 4.5rem;
-  --font-size-h1-mobile: 3rem;
-  --font-size-h2: 3rem;
-  --font-size-h2-mobile: 2.25rem;
-  --font-size-h3: 2.25rem;
-  --font-size-h3-mobile: 1.875rem;
+  --font-size-display: 4.5rem;
+  --font-size-display-mobile: 3rem;
+  --font-size-page-title: 3rem;
+  --font-size-page-title-mobile: 2.5rem;
+  --font-size-section-title: 2.75rem;
+  --font-size-section-title-mobile: 2.25rem;
+  --font-size-card-title: 2.25rem;
+  --font-size-card-title-mobile: 1.875rem;
+  --font-size-product-title: 1.5rem;
   --font-size-body-lg: 1.25rem;
   --font-size-body: 1rem;
   --font-size-body-sm: 0.875rem;

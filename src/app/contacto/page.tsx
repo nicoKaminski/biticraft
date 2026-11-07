@@ -12,6 +12,7 @@ import {
 } from "react";
 import { enviarFormularioContacto } from "../actions";
 import { Boton } from "@/components/ui/Boton";
+import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
 import { EVENT_TYPES } from "./constants";
 import styles from "./page.module.css";
 
@@ -234,7 +235,10 @@ export default function PaginaContacto() {
 
       <div className={styles.tarjeta}>
         <div className={styles.encabezado}>
-          <h1 className={styles.titulo}>Contáctanos</h1>
+          <h1 className={styles.titulo}>
+            Contáctanos
+            <SubrayadoTitulo align="center" compact />
+          </h1>
           <p className={styles.descripcion}>
             ¿Tenés una idea? ¡Escribinos y la hacemos realidad!
           </p>
