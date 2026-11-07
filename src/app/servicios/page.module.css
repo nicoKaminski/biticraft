@@ -1,348 +1,202 @@
-.container {
-  width: 100%;
-  margin-inline: auto;
-  padding-inline: 1.25rem;
-}
-
-@media (min-width: 40rem) {
-  .container {
-    max-width: 40rem;
-  }
-}
-
-@media (min-width: 48rem) {
-  .container {
-    max-width: 48rem;
-    padding-inline: 1.5rem;
-  }
-}
-
-@media (min-width: 64rem) {
-  .container {
-    max-width: 64rem;
-  }
-}
-
-@media (min-width: 80rem) {
-  .container {
-    max-width: 80rem;
-  }
-}
-
-@media (min-width: 96rem) {
-  .container {
-    max-width: 96rem;
-  }
-}
-
 .pagina {
   background-color: #ffffff;
+  color: var(--color-gris);
 }
 
-/* Hero */
+.container {
+  width: min(100% - 2rem, 76rem);
+  margin-inline: auto;
+}
+
 .hero {
-  background-image: var(--gradient-lila-fade);
-  padding-block: clamp(2.5rem, 5vw, 4rem);
-  text-align: left;
+  padding-block: clamp(4rem, 10vw, 7.5rem);
+  text-align: center;
+  background-image:
+    radial-gradient(ellipse at 78% 34%, rgba(249, 205, 204, 0.3), transparent 44%),
+    radial-gradient(ellipse at 18% 70%, rgba(201, 205, 223, 0.32), transparent 46%),
+    linear-gradient(180deg, #ffffff 0%, rgba(231, 216, 233, 0.18) 52%, #ffffff 100%);
+}
+
+.heroContenido {
+  max-width: 52rem;
+  margin-inline: auto;
 }
 
 .heroTitulo {
+  max-width: 16ch;
+  margin: 0 auto;
+  color: var(--color-gris);
   font-size: var(--font-size-page-title-mobile);
   font-weight: var(--font-weight-medium);
-  line-height: 1.1;
-  color: var(--color-gris);
-  margin: 0;
-}
-
-.heroDescripciones {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0.75rem;
-  margin-top: 1rem;
+  line-height: 1.05;
+  text-wrap: balance;
 }
 
 .heroDescripcion {
-  margin: 0;
+  max-width: 42rem;
+  margin: 1.25rem auto 0;
   color: var(--color-gris);
   font-size: var(--font-size-body-lg);
   font-weight: var(--font-weight-regular);
-  line-height: 1.75rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.seccionCreativa,
+.seccionDigital,
+.seccionFuncional {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+.seccionCreativa {
+  background-image: var(--gradient-rosa-fade);
+}
+
+.seccionDigital {
+  background-image: var(--gradient-verde-fade);
+}
+
+.seccionFuncional {
+  background-image: var(--gradient-lila-fade);
+}
+
+.tituloSeccion {
+  margin: 0 0 clamp(1.75rem, 4vw, 2.75rem);
+  color: var(--color-gris);
+  font-size: var(--font-size-section-title-mobile);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.grillaProductos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.875rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.producto {
+  display: flex;
+  min-width: 0;
+  min-height: 4rem;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(60, 60, 59, 0.07);
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.76);
+}
+
+.nombreProducto {
+  min-width: 0;
+  color: var(--color-gris);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.seccionMarcas {
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+  background-image: var(--gradient-crema-fade);
+}
+
+.introduccionMarcas {
+  max-width: 42rem;
+  margin: -0.75rem 0 1.75rem;
+  color: var(--color-gris);
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.listaMarcas {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.875rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aplicacionMarca {
+  display: flex;
+  min-width: 0;
+  min-height: 4rem;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(60, 60, 59, 0.07);
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--color-gris);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.seccionCta {
+  padding-block: clamp(4rem, 9vw, 6.5rem);
+  text-align: center;
+  background-image: var(--gradient-rosa-fade);
+}
+
+.tituloCta {
+  max-width: 22ch;
+  margin: 0 auto;
+  color: var(--color-gris);
+  font-size: var(--font-size-section-title-mobile);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.descripcionCta {
+  max-width: 42rem;
+  margin: 1.25rem auto 2rem;
+  color: var(--color-gris);
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+@media (min-width: 36rem) {
+  .container {
+    width: min(100% - 3rem, 76rem);
+  }
+
+  .grillaProductos,
+  .listaMarcas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 48rem) {
   .heroTitulo {
     font-size: var(--font-size-page-title);
   }
-}
 
-/* Titulos de seccion base */
-.tituloSeccion {
-  font-size: var(--font-size-section-title-mobile);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.1;
-  color: var(--color-gris);
-  margin-top: 0;
-  margin-bottom: 2rem;
-}
-
-@media (min-width: 48rem) {
-  .tituloSeccion {
+  .tituloSeccion,
+  .tituloCta {
     font-size: var(--font-size-section-title);
   }
-}
 
-/* Papeleria Creativa */
-.seccionCreativa {
-  padding-block: 4rem;
-  background-image: var(--gradient-rosa-fade);
-}
-
-.grillaCreativa {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2rem;
-}
-
-@media (min-width: 360px) and (width < 640px) {
-  .grillaCreativa {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .grillaProductos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
   }
 }
 
-@media (min-width: 40rem) {
-  .grillaCreativa {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 48rem) {
-  .grillaCreativa {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 64rem) {
-  .grillaCreativa {
+@media (min-width: 72rem) {
+  .grillaProductos {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-}
 
-.tarjetaCreativa {
-  position: relative;
-  overflow: hidden;
-  border-radius: 0.75rem;
-  box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  transition-property: transform, translate, scale, rotate;
-  transition-duration: 150ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .tarjetaCreativa:hover {
-    translate: 0 -0.25rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .tarjetaCreativa,
-  .tarjetaCreativa:hover {
-    translate: none;
-    transition: none;
-  }
-}
-
-.imagenCreativaContenedor {
-  position: relative;
-  height: 12rem;
-  width: 100%;
-}
-
-.imagenCreativa {
-  object-fit: cover;
-}
-
-.contenidoCreativa {
-  background-color: #ffffff;
-  padding: 1rem;
-  text-align: center;
-}
-
-.nombreCreativa {
-  font-weight: var(--font-weight-medium);
-  color: var(--color-gris);
-  font-size: var(--font-size-product-title);
-  line-height: 1.25;
-  margin: 0;
-}
-
-@media (min-width: 360px) and (width < 640px) {
-  .imagenCreativaContenedor {
-    height: auto;
-    aspect-ratio: 3 / 2;
-  }
-
-  .nombreCreativa {
-    overflow-wrap: anywhere;
-  }
-}
-
-/* Grafica Digital */
-.seccionDigital {
-  padding-block: 4rem;
-  background-image: var(--gradient-verde-fade);
-}
-
-.grillaDigital {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2rem;
-}
-
-@media (min-width: 48rem) {
-  .grillaDigital {
+  .listaMarcas {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-}
-
-.tarjetaDigital {
-  background-color: #ffffff;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1);
-}
-
-.imagenDigitalContenedor {
-  position: relative;
-  height: 10rem;
-  width: 100%;
-  margin-bottom: 1rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-.imagenDigital {
-  object-fit: cover;
-}
-
-.tituloDigital {
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-product-title);
-  line-height: 1.25;
-  color: var(--color-gris);
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-.descripcionDigital {
-  font-size: var(--font-size-body);
-  line-height: 1.5;
-  color: var(--color-gris);
-  margin: 0;
-}
-
-/* Papeleria Funcional */
-.seccionFuncional {
-  padding-block: 4rem;
-  background-image: var(--gradient-lila-fade);
-}
-
-.grillaFuncional {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 3rem;
-  align-items: center;
-}
-
-@media (min-width: 48rem) {
-  .grillaFuncional {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.imagenFuncionalContenedor {
-  position: relative;
-  height: 16rem;
-  width: 100%;
-  border-radius: 0.75rem;
-  overflow: hidden;
-  box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
-}
-
-.imagenFuncional {
-  object-fit: cover;
-}
-
-.tituloFuncional {
-  font-size: var(--font-size-product-title);
-  line-height: 1.25;
-  font-weight: var(--font-weight-medium);
-  color: var(--color-gris);
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-.introFuncional {
-  font-size: var(--font-size-body-lg);
-  line-height: 1.75rem;
-  color: var(--color-gris);
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-}
-
-.listaFuncional {
-  list-style-type: disc;
-  list-style-position: inside;
-  color: var(--color-gris);
-  margin-top: 0;
-  margin-bottom: 2rem;
-  padding-left: 0;
-}
-
-.listaFuncional > li {
-  margin: 0;
-}
-
-.listaFuncional > li:not(:last-child) {
-  margin-bottom: 0.5rem;
-}
-
-/* CTA Final */
-.seccionCta {
-  padding-block: 5rem;
-  text-align: center;
-  background-image: var(--gradient-crema-fade);
-}
-
-.tituloCta {
-  font-size: var(--font-size-section-title-mobile);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.1;
-  color: var(--color-gris);
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-}
-
-@media (min-width: 48rem) {
-  .tituloCta {
-    font-size: var(--font-size-section-title);
-  }
-}
-
-.descripcionCta {
-  font-size: var(--font-size-body-lg);
-  line-height: 1.75rem;
-  color: var(--color-gris);
-  margin-top: 0;
-  margin-bottom: 2rem;
 }

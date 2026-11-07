@@ -1,210 +1,154 @@
-import Image from "next/image";
 import { Boton } from "@/components/ui/Boton";
 import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
 import styles from "./page.module.css";
 
 const papeleriaCreativa = [
-  {
-    nombre: "Gigantografías",
-    img: "https://placehold.co/600x400/FEFOD6/3c3c3b?text=Gigantografias",
-  },
-  {
-    nombre: "Letras 3D",
-    img: "https://placehold.co/600x400/c9cddf/3c3c3b?text=Letras+3D",
-  },
-  {
-    nombre: "Toppers para Torta",
-    img: "https://placehold.co/600x400/d4e7ce/3c3c3b?text=Toppers",
-  },
-  {
-    nombre: "Piñatas",
-    img: "https://placehold.co/600x400/f9cdcc/3c3c3b?text=Piñatas",
-  },
-  {
-    nombre: "Carteles de Bienvenida",
-    img: "https://placehold.co/600x400/e7d8e9/3c3c3b?text=Carteles",
-  },
-  {
-    nombre: "Centros de Mesa",
-    img: "https://placehold.co/600x400/cde8ec/3c3c3b?text=Centros+de+Mesa",
-  },
-  {
-    nombre: "Kits de Emergencia/Baño",
-    img: "https://placehold.co/600x400/FEFOD6/3c3c3b?text=Kits+Emergencia",
-  },
-  {
-    nombre: "Souvenirs",
-    img: "https://placehold.co/600x400/c9cddf/3c3c3b?text=Souvenirs",
-  },
+  "Gigantografías",
+  "Letras 3D",
+  "Toppers para torta",
+  "Piñatas",
+  "Carteles de bienvenida",
+  "Centros de mesa",
+  "Kits de emergencia/baño",
+  "Souvenirs",
+  "Stickers/calcos personalizados",
+  "Banderines",
+  "Toppers para cupcakes y toppers decorativos",
+  "Cajitas y packaging personalizado",
+  "Bolsitas golosineras",
+  "Tags",
+  "Golosinas personalizadas",
+  "Tarjetas/tarjetitas personalizadas",
 ];
 
 const graficaDigital = [
-  {
-    nombre: "Invitaciones Interactivas",
-    descripcion:
-      "Una forma práctica y dinámica de compartir los detalles de tu evento en formato digital.",
-    img: "https://placehold.co/600x400/d4e7ce/3c3c3b?text=Invitaciones",
-  },
-  {
-    nombre: "Gráfica Editable para Bodas",
-    descripcion:
-      "Piezas digitales editables para mantener una identidad visual coherente en los distintos momentos de tu boda.",
-    img: "https://placehold.co/600x400/f9cdcc/3c3c3b?text=Grafica+Bodas",
-  },
-  {
-    nombre: "Kits Imprimibles",
-    descripcion:
-      "Diseños coordinados listos para imprimir y personalizar distintos detalles de tu celebración.",
-    img: "https://placehold.co/600x400/e7d8e9/3c3c3b?text=Kits+Imprimibles",
-  },
+  "Invitaciones interactivas",
+  "Invitaciones digitales estáticas o animadas",
+  "Gráfica editable para bodas",
+  "Kits gráficos/imprimibles",
 ];
 
 const papeleriaFuncional = [
-  {
-    nombre: "Agendas Docentes",
-    descripcion: "Calendario anual, planner mensual, asistencia.",
-    img: "https://placehold.co/600x400/cde8ec/3c3c3b?text=Agendas+Docentes",
-  },
+  "Agendas docentes",
+  "Planners mensuales",
+  "Cuadernos personalizados",
+  "Calendarios",
+  "Planillas de asistencia",
+  "Organización y recordatorios",
+];
+
+const aplicacionesMarca = [
+  "Stickers y etiquetas",
+  "Packaging y cajitas",
+  "Tags",
+  "Tarjetas promocionales",
+  "Cartelería",
+  "Kits gráficos/físicos coordinados",
 ];
 
 export default function PaginaServicios() {
   return (
     <div className={styles.pagina}>
-      {/* Hero Servicios */}
-      <section className={styles.hero}>
+      <section className={styles.hero} aria-labelledby="titulo-servicios">
         <div className={styles.container}>
-          <h1 className={styles.heroTitulo}>
-            Nuestros Servicios
-            <SubrayadoTitulo />
-          </h1>
-          <div className={styles.heroDescripciones}>
+          <div className={styles.heroContenido}>
+            <h1 className={styles.heroTitulo} id="titulo-servicios">
+              Nuestros Servicios
+            </h1>
             <p className={styles.heroDescripcion}>
-              En Biticraft diseñamos y creamos piezas personalizadas para
-              eventos, celebraciones, el día a día y marcas.
-            </p>
-            <p className={styles.heroDescripcion}>
-              Combinamos papelería creativa, gráfica digital y soluciones
-              funcionales para que cada propuesta tenga identidad propia y cada
-              detalle acompañe lo que querés comunicar.
+              Papelería creativa, gráfica digital y papelería funcional.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Papelería Creativa */}
-      <section className={styles.seccionCreativa}>
+      <section
+        className={styles.seccionCreativa}
+        aria-labelledby="titulo-papeleria-creativa"
+      >
         <div className={styles.container}>
-          <h2 className={styles.tituloSeccion}>
+          <h2 className={styles.tituloSeccion} id="titulo-papeleria-creativa">
             Papelería Creativa
             <SubrayadoTitulo />
           </h2>
-          <div className={styles.grillaCreativa}>
+          <ul className={styles.grillaProductos}>
             {papeleriaCreativa.map((producto) => (
-              <div
-                key={producto.nombre}
-                className={styles.tarjetaCreativa}
-              >
-                <div className={styles.imagenCreativaContenedor}>
-                  <Image
-                    src={producto.img}
-                    alt={producto.nombre}
-                    fill
-                    className={styles.imagenCreativa}
-                    unoptimized={true}
-                  />
-                </div>
-                <div className={styles.contenidoCreativa}>
-                  <h3 className={styles.nombreCreativa}>
-                    {producto.nombre}
-                  </h3>
-                </div>
-              </div>
+              <li className={styles.producto} key={producto}>
+                <span className={styles.nombreProducto}>{producto}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* Gráfica Digital */}
-      <section className={styles.seccionDigital}>
+      <section
+        className={styles.seccionDigital}
+        aria-labelledby="titulo-grafica-digital"
+      >
         <div className={styles.container}>
-          <h2 className={styles.tituloSeccion}>
+          <h2 className={styles.tituloSeccion} id="titulo-grafica-digital">
             Gráfica Digital
             <SubrayadoTitulo />
           </h2>
-          <div className={styles.grillaDigital}>
+          <ul className={styles.grillaProductos}>
             {graficaDigital.map((producto) => (
-              <div
-                key={producto.nombre}
-                className={styles.tarjetaDigital}
-              >
-                <div className={styles.imagenDigitalContenedor}>
-                  <Image
-                    src={producto.img}
-                    alt={producto.nombre}
-                    fill
-                    className={styles.imagenDigital}
-                    unoptimized={true}
-                  />
-                </div>
-                <h3 className={styles.tituloDigital}>
-                  {producto.nombre}
-                </h3>
-                <p className={styles.descripcionDigital}>
-                  {producto.descripcion}
-                </p>
-              </div>
+              <li className={styles.producto} key={producto}>
+                <span className={styles.nombreProducto}>{producto}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* Papelería Funcional */}
-      <section className={styles.seccionFuncional}>
+      <section
+        className={styles.seccionFuncional}
+        aria-labelledby="titulo-papeleria-funcional"
+      >
         <div className={styles.container}>
-          <h2 className={styles.tituloSeccion}>
+          <h2 className={styles.tituloSeccion} id="titulo-papeleria-funcional">
             Papelería Funcional
             <SubrayadoTitulo />
           </h2>
-          <div className={styles.grillaFuncional}>
-            <div className={styles.imagenFuncionalContenedor}>
-              <Image
-                src={papeleriaFuncional[0].img}
-                alt={papeleriaFuncional[0].nombre}
-                fill
-                className={styles.imagenFuncional}
-                unoptimized={true}
-              />
-            </div>
-            <div>
-              <h3 className={styles.tituloFuncional}>
-                {papeleriaFuncional[0].nombre}
-              </h3>
-              <p className={styles.introFuncional}>
-                Organización perfecta para tu año escolar. Incluye:
-              </p>
-              <ul className={styles.listaFuncional}>
-                <li>Calendario Anual</li>
-                <li>Planner Mensual</li>
-                <li>Planillas de Asistencia</li>
-                <li>Notas y Recordatorios</li>
-              </ul>
-              <h3 className={styles.tituloFuncional}>Cuadernos personalizados</h3>
-              <p className={styles.introFuncional}>
-                Cuadernos diseñados a medida para acompañarte en el día a día,
-                adaptados a tu estilo y necesidad.
-              </p>
-              <Boton variant="secondary" href="/contacto">
-                Consultar
-              </Boton>
-            </div>
-          </div>
+          <ul className={styles.grillaProductos}>
+            {papeleriaFuncional.map((producto) => (
+              <li className={styles.producto} key={producto}>
+                <span className={styles.nombreProducto}>{producto}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section className={styles.seccionCta}>
+      <section
+        className={styles.seccionMarcas}
+        aria-labelledby="titulo-marcas-emprendimientos"
+      >
         <div className={styles.container}>
-          <h2 className={styles.tituloCta}>
+          <div>
+            <h2
+              className={styles.tituloSeccion}
+              id="titulo-marcas-emprendimientos"
+            >
+              Marcas y emprendimientos
+              <SubrayadoTitulo />
+            </h2>
+            <p className={styles.introduccionMarcas}>
+              Aplicaciones de papelería y gráfica para marcas y emprendimientos.
+            </p>
+          </div>
+          <ul className={styles.listaMarcas}>
+            {aplicacionesMarca.map((aplicacion) => (
+              <li className={styles.aplicacionMarca} key={aplicacion}>
+                {aplicacion}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className={styles.seccionCta} aria-labelledby="titulo-cta">
+        <div className={styles.container}>
+          <h2 className={styles.tituloCta} id="titulo-cta">
             ¿No encontrás lo que buscás?
             <SubrayadoTitulo align="center" />
           </h2>
@@ -219,4 +163,3 @@ export default function PaginaServicios() {
     </div>
   );
 }
-
