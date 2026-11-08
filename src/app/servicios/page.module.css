@@ -1,6 +1,17 @@
 .pagina {
   overflow: clip;
   background-color: #ffffff;
+  background-image:
+    radial-gradient(ellipse 92% 12% at 40% 2%, rgba(220, 205, 235, 0.28), transparent 100%),
+    radial-gradient(ellipse 105% 15% at 68% 6%, rgba(201, 205, 223, 0.22), transparent 100%),
+    radial-gradient(ellipse 102% 22% at 56% 21%, rgba(249, 205, 204, 0.4), transparent 100%),
+    radial-gradient(ellipse 70% 18% at 17% 23%, rgba(249, 205, 204, 0.24), transparent 100%),
+    radial-gradient(ellipse 90% 20% at 34% 40%, rgba(212, 231, 206, 0.32), transparent 100%),
+    radial-gradient(ellipse 90% 18% at 72% 51%, rgba(205, 232, 236, 0.28), transparent 100%),
+    radial-gradient(ellipse 100% 21% at 28% 68%, rgba(201, 205, 223, 0.33), transparent 100%),
+    radial-gradient(ellipse 85% 14% at 72% 84%, rgba(249, 205, 204, 0.25), transparent 100%),
+    radial-gradient(ellipse 95% 18% at 48% 94%, rgba(254, 240, 214, 0.48), transparent 100%),
+    radial-gradient(ellipse 100% 10% at 50% 101%, rgba(201, 205, 223, 0.22), transparent 100%);
   color: var(--color-gris);
 }
 
@@ -15,11 +26,6 @@
   align-items: center;
   padding-block: clamp(2.5rem, 4vw, 3.5rem);
   text-align: center;
-  background-color: rgba(249, 205, 204, 0.025);
-  background-image:
-    radial-gradient(ellipse at 78% 30%, rgba(249, 205, 204, 0.28), transparent 54%),
-    radial-gradient(ellipse at 19% 72%, rgba(201, 205, 223, 0.26), transparent 56%),
-    var(--gradient-rosa-fade);
 }
 
 .heroContenido {
@@ -77,27 +83,6 @@
   padding-block: clamp(2.5rem, 2.8vw, 2.75rem);
 }
 
-.seccionCreativa {
-  background-color: rgba(249, 205, 204, 0.04);
-  background-image:
-    radial-gradient(ellipse at 67% 52%, rgba(249, 205, 204, 0.24), transparent 64%),
-    var(--gradient-rosa-fade);
-}
-
-.seccionDigital {
-  background-color: rgba(212, 231, 206, 0.035);
-  background-image:
-    radial-gradient(ellipse at 46% 50%, rgba(212, 231, 206, 0.24), transparent 62%),
-    var(--gradient-verde-fade);
-}
-
-.seccionFuncional {
-  background-color: rgba(201, 205, 223, 0.04);
-  background-image:
-    radial-gradient(ellipse at 70% 50%, rgba(201, 205, 223, 0.2), transparent 62%),
-    var(--gradient-lila-fade);
-}
-
 .encabezadoCategoria {
   max-width: 54rem;
   margin-bottom: clamp(1.2rem, 2vw, 1.5rem);
@@ -127,7 +112,7 @@
   display: grid;
   position: relative;
   isolation: isolate;
-  max-width: 66rem;
+  max-width: 68rem;
   margin-inline: auto;
   grid-template-columns: minmax(0, 1fr);
   align-items: center;
@@ -153,7 +138,8 @@
   grid-template-columns: minmax(0, 1.15fr) minmax(6.5rem, 0.78fr);
   grid-template-rows: repeat(2, minmax(0, auto));
   align-items: center;
-  gap: clamp(0.55rem, 1.2vw, 0.9rem);
+  column-gap: clamp(1rem, 1.8vw, 1.45rem);
+  row-gap: clamp(0.85rem, 1.5vw, 1.2rem);
 }
 
 .polaroidCreativa {
@@ -163,46 +149,49 @@
   grid-column: 1;
   grid-row: 1 / span 2;
   margin: 0;
-  padding: clamp(0.45rem, 0.85vw, 0.65rem) clamp(0.45rem, 0.85vw, 0.65rem) 1.65rem;
+  padding: clamp(0.35rem, 0.7vw, 0.55rem) clamp(0.35rem, 0.7vw, 0.55rem) 1.8rem;
   border: 1px solid rgba(60, 60, 59, 0.055);
   background-color: #ffffff;
   box-shadow:
-    0 1rem 2rem rgba(60, 60, 59, 0.09),
-    0 0.15rem 0.45rem rgba(60, 60, 59, 0.045);
+    0 0.7rem 1.5rem rgba(60, 60, 59, 0.075),
+    0 0.12rem 0.35rem rgba(60, 60, 59, 0.035);
   transform: rotate(-0.8deg);
 }
 
 .polaroidCreativa::before {
   position: absolute;
-  z-index: 1;
-  top: -0.48rem;
-  left: 40%;
-  width: 3.6rem;
+  z-index: 2;
+  top: -0.42rem;
+  left: 50%;
+  width: clamp(4.25rem, 5vw, 5rem);
   height: 0.9rem;
-  background-color: rgba(254, 224, 188, 0.83);
+  background-color: rgba(249, 205, 204, 0.9);
   box-shadow: 0 0.08rem 0.22rem rgba(60, 60, 59, 0.04);
   content: "";
-  transform: rotate(-4deg);
-}
-
-.polaroidCreativa::after {
-  position: absolute;
-  z-index: -1;
-  inset: 0.3rem -0.38rem -0.3rem 0.35rem;
-  border: 1px solid rgba(60, 60, 59, 0.055);
-  background-color: rgba(254, 240, 214, 0.76);
-  content: "";
-  transform: rotate(1.25deg);
+  transform: translateX(-50%) rotate(-4deg);
 }
 
 .piezaSecundaria {
   position: relative;
   min-width: 0;
   margin: 0;
-  padding: 0.35rem 0.35rem 1.15rem;
-  border: 1px solid rgba(60, 60, 59, 0.055);
+  padding: 0.3rem 0.3rem 1.35rem;
+  border: 1px solid rgba(60, 60, 59, 0.045);
   background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0.55rem 1.3rem rgba(60, 60, 59, 0.075);
+  box-shadow: 0 0.45rem 1.1rem rgba(60, 60, 59, 0.065);
+}
+
+.piezaSecundaria::before {
+  position: absolute;
+  z-index: 2;
+  top: -0.32rem;
+  left: 50%;
+  width: clamp(3.25rem, 4vw, 3.75rem);
+  height: 0.68rem;
+  background-color: rgba(254, 224, 188, 0.84);
+  box-shadow: 0 0.05rem 0.14rem rgba(60, 60, 59, 0.035);
+  content: "";
+  transform: translateX(-50%) rotate(-4deg);
 }
 
 .piezaSecundariaVertical {
@@ -214,7 +203,13 @@
 .piezaSecundariaCompacta {
   grid-column: 2;
   grid-row: 2;
-  transform: rotate(-1deg) translateX(-0.15rem);
+  transform: rotate(-2.5deg) translateX(-0.15rem);
+}
+
+.piezaSecundariaCompacta::before {
+  left: 50%;
+  background-color: rgba(205, 232, 236, 0.86);
+  transform: translateX(-50%) rotate(3deg);
 }
 
 .placeholderPieza {
@@ -307,7 +302,20 @@
 }
 
 .captionManuscrito {
-  font-family: "Gabriola", "Comic Sans MS", cursive;
+  font-size: var(--font-size-product-title);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.pieDigital.captionManuscrito {
+  display: block;
+  width: 100%;
+  padding-block: 0.75rem 0.35rem;
+  color: rgba(60, 60, 59, 0.68);
+  font-size: var(--font-size-card-title-mobile);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.15;
+  text-align: center;
 }
 
 .fotografiaFuncional .pieFuncional {
@@ -366,16 +374,36 @@
   stroke-width: 1.55;
 }
 
-.productoCreativo:nth-child(4n + 2) .iconoProducto {
-  background-color: rgba(212, 231, 206, 0.62);
+.productoCreativo:nth-child(8n + 1) .iconoProducto {
+  background-color: rgba(249, 205, 204, 0.58);
 }
 
-.productoCreativo:nth-child(4n + 3) .iconoProducto {
-  background-color: rgba(231, 216, 233, 0.62);
+.productoCreativo:nth-child(8n + 2) .iconoProducto {
+  background-color: rgba(212, 231, 206, 0.66);
 }
 
-.productoCreativo:nth-child(4n) .iconoProducto {
-  background-color: rgba(205, 232, 236, 0.62);
+.productoCreativo:nth-child(8n + 3) .iconoProducto {
+  background-color: rgba(231, 216, 233, 0.68);
+}
+
+.productoCreativo:nth-child(8n + 4) .iconoProducto {
+  background-color: rgba(205, 232, 236, 0.68);
+}
+
+.productoCreativo:nth-child(8n + 5) .iconoProducto {
+  background-color: rgba(254, 240, 214, 0.86);
+}
+
+.productoCreativo:nth-child(8n + 6) .iconoProducto {
+  background-color: rgba(220, 186, 219, 0.58);
+}
+
+.productoCreativo:nth-child(8n + 7) .iconoProducto {
+  background-color: rgba(201, 205, 223, 0.66);
+}
+
+.productoCreativo:nth-child(8n) .iconoProducto {
+  background-color: rgba(220, 186, 219, 0.42);
 }
 
 /* Digital se organiza como pieza visual y una secuencia de servicios. */
@@ -404,15 +432,15 @@
 
 .fotografiaDigital::before {
   position: absolute;
-  z-index: 1;
-  top: -0.42rem;
-  left: 42%;
-  width: 3.6rem;
-  height: 0.82rem;
-  background-color: rgba(249, 205, 204, 0.72);
-  box-shadow: 0 0.08rem 0.22rem rgba(60, 60, 59, 0.035);
+  z-index: 2;
+  top: -0.4rem;
+  left: 50%;
+  width: clamp(7rem, 7.5vw, 7.75rem);
+  height: 0.95rem;
+  background-color: rgba(249, 205, 204, 0.9);
+  box-shadow: 0 0.1rem 0.24rem rgba(60, 60, 59, 0.045);
   content: "";
-  transform: rotate(-3deg);
+  transform: translateX(-50%) rotate(-3deg);
 }
 
 .marcoDigital {
@@ -510,6 +538,13 @@
   font-weight: var(--font-weight-regular);
   line-height: 1.5;
   text-wrap: pretty;
+}
+
+.descripcionFuncional {
+  margin-top: 0.2rem;
+  color: rgba(60, 60, 59, 0.8);
+  font-size: var(--font-size-body-sm);
+  font-style: italic;
 }
 
 /* Funcional usa un panel continuo con divisiones, no una colección de cajas. */
@@ -620,19 +655,17 @@
   background-color: var(--color-celeste);
 }
 
-/* Marcas funciona como anexo de aplicaciones, con menor peso que las categorías. */
+.filaFuncional:nth-child(5) .iconoFuncional {
+  background-color: var(--color-crema);
+}
+
+.filaFuncional:nth-child(6) .iconoFuncional {
+  background-color: var(--color-morado);
+}
+
+/* Cada aplicación de marca tendrá su propio marco visual y caption. */
 .seccionMarcas {
   padding-block: clamp(2.25rem, 3vw, 3rem);
-  background-color: rgba(254, 240, 214, 0.035);
-  background-image:
-    linear-gradient(
-      180deg,
-      transparent 58%,
-      rgba(249, 205, 204, 0.15) 100%
-    ),
-    radial-gradient(ellipse at 66% 40%, rgba(254, 240, 214, 0.32), transparent 62%),
-    radial-gradient(ellipse at 50% 100%, rgba(249, 205, 204, 0.085), transparent 55%),
-    var(--gradient-crema-fade);
 }
 
 .dossierMarcas {
@@ -650,7 +683,7 @@
 }
 
 .introduccionMarcas {
-  max-width: 25rem;
+  max-width: 24rem;
   margin: 0.65rem 0 0;
   color: var(--color-gris);
   font-size: var(--font-size-body);
@@ -659,150 +692,95 @@
   text-wrap: pretty;
 }
 
-.listaMarcas,
-.aplicacionesMarca {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.45rem 0.75rem;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  border: 0;
-  background-color: transparent;
-  list-style: none;
-}
-
 .detalleMarcas {
-  display: grid;
   min-width: 0;
-  gap: clamp(0.8rem, 1.25vw, 1.1rem);
 }
 
 .galeriaMarcas {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: end;
-  gap: clamp(0.45rem, 0.9vw, 0.75rem);
+  align-items: stretch;
+  gap: clamp(0.55rem, 1.15vw, 0.95rem);
 }
 
-.galeriaMarcas .placeholderPieza {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: auto;
-}
-
-.placeholderMarca {
-  position: relative;
+.piezaMarca {
   display: grid;
   min-width: 0;
+  grid-template-rows: minmax(0, 1fr) auto;
   margin: 0;
-  padding: 0.3rem;
-  aspect-ratio: 1.55 / 1;
-  place-items: stretch;
   overflow: hidden;
-  border: 1px solid rgba(60, 60, 59, 0.06);
-  border-radius: 0.38rem;
+  border: 1px solid rgba(60, 60, 59, 0.065);
+  border-radius: 0.62rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0.4rem 0.95rem rgba(60, 60, 59, 0.065);
+}
+
+.visualMarca {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
   background-color: rgba(254, 240, 214, 0.48);
   background-image:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.78), transparent 62%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.73), transparent 62%),
     repeating-linear-gradient(
       0deg,
       transparent 0,
       transparent 1rem,
-      rgba(157, 137, 152, 0.06) 1rem,
-      rgba(157, 137, 152, 0.06) 1.05rem
+      rgba(157, 137, 152, 0.055) 1rem,
+      rgba(157, 137, 152, 0.055) 1.05rem
     );
 }
 
-.placeholderMarca::before {
+.visualMarca::before {
   position: absolute;
-  inset: 15% 18%;
-  border: 1px solid rgba(124, 111, 126, 0.16);
+  inset: 13% 14%;
+  border: 1px solid rgba(124, 111, 126, 0.17);
   background-image: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.65),
-    rgba(249, 205, 204, 0.13)
+    rgba(255, 255, 255, 0.7),
+    rgba(249, 205, 204, 0.16)
   );
   content: "";
-  transform: rotate(-2deg);
+  transform: rotate(-1.5deg);
 }
 
-.placeholderMarca::after {
+.visualMarca::after {
   position: absolute;
-  top: 26%;
-  right: 23%;
-  width: 0.72rem;
-  height: 0.72rem;
-  border: 1px solid rgba(145, 119, 142, 0.2);
+  top: 24%;
+  right: 20%;
+  width: 0.65rem;
+  height: 0.65rem;
+  border: 1px solid rgba(145, 119, 142, 0.19);
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.52);
   content: "";
 }
 
-.placeholderMarca:nth-child(2) {
-  aspect-ratio: 1.2 / 1;
-  background-color: rgba(249, 205, 204, 0.25);
-  transform: translateY(0.35rem);
+.piezaMarca:nth-child(3n + 2) .visualMarca {
+  background-color: rgba(249, 205, 204, 0.28);
 }
 
-.placeholderMarca:nth-child(3) {
-  aspect-ratio: 1.45 / 1;
-  background-color: rgba(205, 232, 236, 0.32);
-  transform: translateY(-0.15rem);
+.piezaMarca:nth-child(3n) .visualMarca {
+  background-color: rgba(205, 232, 236, 0.36);
 }
 
-.aplicacionMarca,
-.aplicacionesMarca {
+.captionMarca {
   display: grid;
-  min-width: 0;
-  grid-template-columns: 2.6rem minmax(0, 1fr);
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.55rem 0.35rem;
-  border: 0;
-  border-radius: 0;
-  background-color: transparent;
+  min-height: 2.75rem;
+  place-items: center;
+  padding: 0.4rem 0.3rem 0.5rem;
   color: var(--color-gris);
-}
-
-.iconoMarca {
-  display: block;
-  width: 2.35rem;
-  height: 2.35rem;
-  padding: 0.55rem;
-  stroke-width: 1.5;
-  border-radius: 50%;
-  background-color: rgba(254, 240, 214, 0.78);
-}
-
-.aplicacionMarca:nth-child(3n + 2) .iconoMarca {
-  background-color: rgba(249, 205, 204, 0.68);
-}
-
-.aplicacionMarca:nth-child(3n) .iconoMarca {
-  background-color: rgba(205, 232, 236, 0.72);
-}
-
-.nombreMarca {
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-body-sm);
   font-weight: var(--font-weight-regular);
-  line-height: 1.35;
+  line-height: 1.25;
+  text-align: center;
   overflow-wrap: anywhere;
 }
 
 .seccionCta {
   padding-block: clamp(2.65rem, 3.4vw, 3.5rem);
   text-align: center;
-  background-color: rgba(249, 205, 204, 0.08);
-  background-image:
-    linear-gradient(
-      180deg,
-      rgba(249, 205, 204, 0.15) 0%,
-      transparent 48%
-    ),
-    radial-gradient(ellipse at 50% 0%, rgba(249, 205, 204, 0.13), transparent 54%),
-    radial-gradient(ellipse at 50% 58%, rgba(249, 205, 204, 0.24), transparent 66%),
-    var(--gradient-rosa-fade);
 }
 
 .tituloCta {
@@ -853,10 +831,6 @@
     font-size: var(--font-size-section-title);
   }
 
-  .listaMarcas,
-  .aplicacionesMarca {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 @media (min-width: 64rem) {
@@ -865,20 +839,31 @@
   }
 
   .composicionCreativa {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-    gap: clamp(1.5rem, 2.3vw, 2.25rem);
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+    gap: clamp(2rem, 2.8vw, 2.8rem);
+  }
+
+  .seccionCreativa .introduccionSeccion {
+    max-width: 34rem;
   }
 
   .composicionDigital {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    max-width: 68rem;
+    grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
     align-items: stretch;
-    gap: clamp(2.25rem, 3.5vw, 3.5rem);
+    gap: clamp(2.5rem, 3.5vw, 3.5rem);
+  }
+
+  .seccionDigital .introduccionSeccion,
+  .seccionFuncional .introduccionSeccion {
+    max-width: 31rem;
   }
 
   .composicionFuncional {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    max-width: 68rem;
+    grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
     align-items: start;
-    gap: clamp(2.25rem, 3.5vw, 3.5rem);
+    gap: clamp(2.75rem, 3.8vw, 3.75rem);
   }
 
   .listaFuncional {
@@ -892,6 +877,11 @@
     width: 100%;
   }
 
+  .fotografiaDigital {
+    max-width: 24rem;
+    justify-self: center;
+  }
+
   .composicionFuncional .fotografiaFuncional {
     order: 0;
   }
@@ -901,11 +891,13 @@
   }
 
   .dossierMarcas {
-    grid-template-columns: minmax(14rem, 0.78fr) minmax(0, 2.22fr);
-    align-items: start;
+    max-width: 70rem;
+    grid-template-columns: minmax(14rem, 0.72fr) minmax(0, 2.28fr);
+    align-items: center;
+    gap: clamp(2rem, 3vw, 3rem);
   }
 
-  .aplicacionesMarca {
+  .galeriaMarcas {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -933,21 +925,11 @@
     gap: 0.8rem;
   }
 
-  .listaMarcas,
-  .aplicacionesMarca {
-    gap: 0.3rem 0.45rem;
-  }
+}
 
-  .aplicacionMarca {
-    grid-template-columns: 1.7rem minmax(0, 1fr);
-    gap: 0.35rem;
-    padding: 0.45rem;
-  }
-
-  .iconoMarca {
-    width: 1.55rem;
-    height: 1.55rem;
-    padding: 0.35rem;
+@media (min-width: 80rem) {
+  .galeriaMarcas {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 

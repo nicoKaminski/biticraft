@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Caveat } from "next/font/google";
 import {
   Bell,
   CalendarCheck,
@@ -6,7 +7,6 @@ import {
   CreditCard,
   Gift,
   Heart,
-  Layers3,
   ListChecks,
   MonitorSmartphone,
   NotebookPen,
@@ -16,33 +16,37 @@ import {
   Scissors,
   Send,
   Sparkles,
-  Tag,
   Tags,
 } from "lucide-react";
 import { Boton } from "@/components/ui/Boton";
 import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
 import styles from "./page.module.css";
 
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+const captionClass = `${styles.captionManuscrito} ${caveat.className}`;
+
 const papeleriaCreativa = [
-  { nombre: "Gigantografías", Icono: Sparkles },
-  { nombre: "Letras 3D", Icono: Sparkles },
-  { nombre: "Toppers para torta", Icono: Gift },
-  { nombre: "Piñatas", Icono: Gift },
+  { nombre: "Banderines", Icono: Scissors },
+  { nombre: "Bolsitas golosineras", Icono: Package },
   { nombre: "Carteles de bienvenida", Icono: Sparkles },
   { nombre: "Centros de mesa", Icono: Gift },
-  { nombre: "Kits de emergencia/baño", Icono: Package },
-  { nombre: "Souvenirs", Icono: Gift },
-  { nombre: "Stickers/calcos personalizados", Icono: Tags },
-  { nombre: "Banderines", Icono: Scissors },
-  {
-    nombre: "Toppers para cupcakes y toppers decorativos",
-    Icono: Gift,
-  },
-  { nombre: "Cajitas y packaging personalizado", Icono: Package },
-  { nombre: "Bolsitas golosineras", Icono: Package },
-  { nombre: "Tags", Icono: Tags },
+  { nombre: "Gigantografías", Icono: Sparkles },
   { nombre: "Golosinas personalizadas", Icono: Gift },
-  { nombre: "Tarjetas/tarjetitas personalizadas", Icono: CreditCard },
+  { nombre: "Kits de emergencia/baño", Icono: Package },
+  { nombre: "Letras 3D", Icono: Sparkles },
+  { nombre: "Packaging personalizado", Icono: Package },
+  { nombre: "Piñatas", Icono: Gift },
+  { nombre: "Souvenirs", Icono: Gift },
+  { nombre: "Stickers personalizados", Icono: Tags },
+  { nombre: "Tags", Icono: Tags },
+  { nombre: "Tarjetas personalizadas", Icono: CreditCard },
+  { nombre: "Toppers decorativos", Icono: Gift },
+  { nombre: "Toppers para torta", Icono: Gift },
 ];
 
 const graficaDigital = [
@@ -106,12 +110,12 @@ const papeleriaFuncional = [
 ];
 
 const aplicacionesMarca = [
-  { nombre: "Stickers y etiquetas", Icono: Tags },
-  { nombre: "Packaging y cajitas", Icono: Package },
-  { nombre: "Tags", Icono: Tag },
-  { nombre: "Tarjetas promocionales", Icono: CreditCard },
-  { nombre: "Cartelería", Icono: PanelsTopLeft },
-  { nombre: "Kits gráficos/físicos coordinados", Icono: Layers3 },
+  "Stickers / Etiquetas",
+  "Packaging",
+  "Tags",
+  "Tarjetas promocionales",
+  "Cartelería",
+  "Kits coordinados",
 ];
 
 export default function PaginaServicios() {
@@ -179,7 +183,7 @@ export default function PaginaServicios() {
                   />
                 </div>
                 <figcaption
-                  className={`${styles.pieCreativo} ${styles.captionManuscrito}`}
+                  className={`${styles.pieCreativo} ${captionClass}`}
                 >
                   Papelería para eventos
                 </figcaption>
@@ -194,7 +198,7 @@ export default function PaginaServicios() {
                   aria-label="Espacio visual reservado para una futura fotografía de piñatas"
                 />
                 <figcaption
-                  className={`${styles.pieCreativo} ${styles.captionManuscrito}`}
+                  className={`${styles.pieCreativo} ${captionClass}`}
                 >
                   Piñatas
                 </figcaption>
@@ -209,7 +213,7 @@ export default function PaginaServicios() {
                   aria-label="Espacio visual reservado para una futura fotografía de toppers decorativos"
                 />
                 <figcaption
-                  className={`${styles.pieCreativo} ${styles.captionManuscrito}`}
+                  className={`${styles.pieCreativo} ${captionClass}`}
                 >
                   Toppers decorativos
                 </figcaption>
@@ -246,7 +250,7 @@ export default function PaginaServicios() {
                 />
               </div>
               <figcaption
-                className={`${styles.pieDigital} ${styles.captionManuscrito}`}
+                className={`${styles.pieDigital} ${captionClass}`}
               >
                 Invitaciones digitales
               </figcaption>
@@ -340,37 +344,19 @@ export default function PaginaServicios() {
 
             <div className={styles.detalleMarcas}>
               <div className={styles.galeriaMarcas}>
-                <figure className={styles.placeholderMarca}>
-                  <div
-                    className={styles.placeholderPieza}
-                    role="img"
-                    aria-label="Espacio reservado para una futura fotografía de productos de marca"
-                  />
-                </figure>
-                <figure className={styles.placeholderMarca}>
-                  <div
-                    className={styles.placeholderPieza}
-                    role="img"
-                    aria-label="Espacio reservado para una futura fotografía de packaging de marca"
-                  />
-                </figure>
-                <figure className={styles.placeholderMarca}>
-                  <div
-                    className={styles.placeholderPieza}
-                    role="img"
-                    aria-label="Espacio reservado para una futura fotografía de papelería promocional"
-                  />
-                </figure>
-              </div>
-
-              <ul className={styles.aplicacionesMarca}>
-                {aplicacionesMarca.map(({ nombre, Icono }) => (
-                  <li className={styles.aplicacionMarca} key={nombre}>
-                    <Icono className={styles.iconoMarca} aria-hidden="true" />
-                    <span className={styles.nombreMarca}>{nombre}</span>
-                  </li>
+                {aplicacionesMarca.map((nombre) => (
+                  <figure className={styles.piezaMarca} key={nombre}>
+                    <div
+                      className={`${styles.visualMarca} ${styles.placeholderPieza}`}
+                      role="img"
+                      aria-label={`Espacio visual reservado para una futura fotografía de ${nombre}`}
+                    />
+                    <figcaption className={styles.captionMarca}>
+                      {nombre}
+                    </figcaption>
+                  </figure>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
