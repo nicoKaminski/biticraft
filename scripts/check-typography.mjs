@@ -25,6 +25,8 @@ const IGNORED_DIRECTORIES = new Set([
   "out",
 ]);
 const GLOBALS_PATH = "src/app/globals.css";
+const SERVICES_CSS_PATH = "src/app/servicios/page.module.css";
+const ALLOWED_HANDWRITTEN_FAMILY = '"gabriola", "comic sans ms", cursive';
 const ALLOWED_WEIGHT_TOKENS = new Set([
   "var(--font-weight-light)",
   "var(--font-weight-regular)",
@@ -86,6 +88,16 @@ function isInsideRootBlock(source, offset) {
   return false;
 }
 
+function isAllowedServicesCaptionFamily(source, relativePath, match) {
+  if (relativePath !== SERVICES_CSS_PATH) return false;
+
+  const beforeDeclaration = source.slice(0, match.index);
+  const openingBrace = beforeDeclaration.lastIndexOf("{");
+  const closingBrace = beforeDeclaration.lastIndexOf("}");
+  const selector = beforeDeclaration.slice(closingBrace + 1, openingBrace).trim();
+  return selector === ".captionManuscrito" && normalizedValue(match[1]) === ALLOWED_HANDWRITTEN_FAMILY;
+}
+
 const tokenDefinitions = new Map([
   ["font-family-heading", '"times new roman", times, serif'],
   ["font-family-body", "var(--font-dm-sans)"],
@@ -110,6 +122,7 @@ const tokenCounts = new Map([...tokenDefinitions.keys()].map((name) => [name, 0]
 const files = (await collectSourceFiles(SOURCE_ROOT)).sort();
 let expectedDMSansImportCount = 0;
 let nextFontReferenceCount = 0;
+let handwrittenCaptionFamilyCount = 0;
 
 for (const filePath of files) {
   const relativePath = path.relative(ROOT, filePath).replaceAll(path.sep, "/");
@@ -148,7 +161,9 @@ for (const filePath of files) {
     const familyDeclarations = /(?<![-\w])font-family\s*:\s*([^;}]+)(?=;|})/gi;
     for (const match of source.matchAll(familyDeclarations)) {
       const value = normalizedValue(match[1]);
-      if (relativePath !== GLOBALS_PATH) {
+      if (isAllowedServicesCaptionFamily(source, relativePath, match)) {
+        handwrittenCaptionFamilyCount += 1;
+      } else if (relativePath !== GLOBALS_PATH) {
         report(relativePath, source, match.index, "font-family local está prohibido; el texto debe heredar del sistema global.");
       } else if (!ALLOWED_FAMILY_TOKENS.has(value)) {
         report(relativePath, source, match.index, "font-family global debe consumir var(--font-family-heading) o var(--font-family-body).");
@@ -233,6 +248,10 @@ for (const [tokenName, count] of tokenCounts) {
 
 if (nextFontReferenceCount !== 1 || expectedDMSansImportCount !== 1) {
   issues.push(`src/app/layout.tsx: se esperaba una única importación de DM Sans desde next/font/google; referencias=${nextFontReferenceCount}, importaciones DM Sans válidas=${expectedDMSansImportCount}.`);
+}
+
+if (handwrittenCaptionFamilyCount !== 1) {
+  issues.push(SERVICES_CSS_PATH + ": se esperaba una única familia manuscrita local, limitada al selector .captionManuscrito; declaraciones válidas=" + handwrittenCaptionFamilyCount + ".");
 }
 
 if (issues.length > 0) {

@@ -14,6 +14,7 @@ import {
   PanelsTopLeft,
   Printer,
   Scissors,
+  Send,
   Sparkles,
   Tag,
   Tags,
@@ -46,28 +47,28 @@ const papeleriaCreativa = [
 
 const graficaDigital = [
   {
-    nombre: "Invitaciones interactivas",
+    nombre: "Invitaciones digitales",
     descripcion:
-      "Una invitación dinámica para compartir cada detalle de tu evento.",
+      "Invitaciones interactivas, estáticas o animadas para compartir cada detalle de tu evento.",
     Icono: MonitorSmartphone,
   },
   {
-    nombre: "Invitaciones digitales estáticas o animadas",
+    nombre: "Gráfica para bodas",
     descripcion:
-      "Diseños listos para enviar, con movimiento o en una pieza única.",
-    Icono: Sparkles,
-  },
-  {
-    nombre: "Gráfica editable para bodas",
-    descripcion:
-      "Piezas digitales pensadas para acompañar una misma identidad visual.",
+      "Piezas digitales especiales para bodas con una identidad visual coherente.",
     Icono: Heart,
   },
   {
-    nombre: "Kits gráficos/imprimibles",
+    nombre: "Kits imprimibles",
     descripcion:
-      "Recursos coordinados para imprimir y personalizar tu celebración.",
+      "Diseños coordinados listos para imprimir y personalizar tu celebración.",
     Icono: Printer,
+  },
+  {
+    nombre: "Productos digitales",
+    descripcion:
+      "Agendas, planners y piezas digitales para organizar tus días y proyectos.",
+    Icono: CalendarDays,
   },
 ];
 
@@ -126,6 +127,11 @@ export default function PaginaServicios() {
               Papelería creativa, gráfica digital y papelería funcional para
               acompañar tus ideas, proyectos y momentos más especiales.
             </p>
+            <div className={styles.heroDivider} aria-hidden="true">
+              <span className={styles.heroDividerLine} />
+              <Send className={styles.heroPlane} />
+              <span className={styles.heroDividerLine} />
+            </div>
           </div>
         </div>
       </section>
@@ -150,21 +156,6 @@ export default function PaginaServicios() {
           </header>
 
           <div className={styles.composicionCreativa}>
-            <figure className={styles.polaroidCreativa}>
-              <div className={styles.fotografiaCreativa}>
-                <Image
-                  src="/home/servicios/papeleria-creativa.webp"
-                  alt="Papelería para eventos con una letra 3D, un cartel de bienvenida, una cajita y un topper."
-                  fill
-                  sizes="(min-width: 72rem) 31rem, (min-width: 48rem) 42vw, calc(100vw - 2rem)"
-                  priority
-                />
-              </div>
-              <figcaption className={styles.pieCreativo}>
-                Papelería para eventos
-              </figcaption>
-            </figure>
-
             <ul className={styles.listaCreativa}>
               {papeleriaCreativa.map(({ nombre, Icono }) => (
                 <li className={styles.productoCreativo} key={nombre}>
@@ -175,6 +166,55 @@ export default function PaginaServicios() {
                 </li>
               ))}
             </ul>
+
+            <div className={styles.galeriaCreativa}>
+              <figure className={styles.polaroidCreativa}>
+                <div className={styles.fotografiaCreativa}>
+                  <Image
+                    src="/home/servicios/papeleria-creativa.webp"
+                    alt="Papelería para eventos con una letra 3D, un cartel de bienvenida, una cajita y un topper."
+                    fill
+                    sizes="(min-width: 72rem) 31rem, (min-width: 48rem) 42vw, calc(100vw - 2rem)"
+                    priority
+                  />
+                </div>
+                <figcaption
+                  className={`${styles.pieCreativo} ${styles.captionManuscrito}`}
+                >
+                  Papelería para eventos
+                </figcaption>
+              </figure>
+
+              <figure
+                className={`${styles.piezaSecundaria} ${styles.piezaSecundariaVertical}`}
+              >
+                <div
+                  className={styles.placeholderPieza}
+                  role="img"
+                  aria-label="Espacio visual reservado para una futura fotografía de piñatas"
+                />
+                <figcaption
+                  className={`${styles.pieCreativo} ${styles.captionManuscrito}`}
+                >
+                  Piñatas
+                </figcaption>
+              </figure>
+
+              <figure
+                className={`${styles.piezaSecundaria} ${styles.piezaSecundariaCompacta}`}
+              >
+                <div
+                  className={styles.placeholderPieza}
+                  role="img"
+                  aria-label="Espacio visual reservado para una futura fotografía de toppers decorativos"
+                />
+                <figcaption
+                  className={`${styles.pieCreativo} ${styles.captionManuscrito}`}
+                >
+                  Toppers decorativos
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
@@ -205,7 +245,9 @@ export default function PaginaServicios() {
                   sizes="(min-width: 72rem) 34rem, (min-width: 48rem) 44vw, calc(100vw - 2rem)"
                 />
               </div>
-              <figcaption className={styles.pieDigital}>
+              <figcaption
+                className={`${styles.pieDigital} ${styles.captionManuscrito}`}
+              >
                 Invitaciones digitales
               </figcaption>
             </figure>
@@ -259,27 +301,19 @@ export default function PaginaServicios() {
               </figcaption>
             </figure>
 
-            <div className={styles.panelAgenda}>
-              <div className={styles.encabezadoAgenda}>
-                <h3 className={styles.tituloAgenda}>Un espacio para cada plan</h3>
-                <span className={styles.notaAgenda}>Organización cotidiana</span>
-              </div>
-              <ul className={styles.listaFuncional}>
-                {papeleriaFuncional.map(({ nombre, descripcion, Icono }) => (
-                  <li className={styles.filaFuncional} key={nombre}>
-                    <span className={styles.iconoFuncional} aria-hidden="true">
-                      <Icono />
-                    </span>
-                    <div className={styles.contenidoFuncional}>
-                      <h4 className={styles.nombreFuncional}>{nombre}</h4>
-                      <p className={styles.descripcionFuncional}>
-                        {descripcion}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className={styles.listaFuncional}>
+              {papeleriaFuncional.map(({ nombre, descripcion, Icono }) => (
+                <li className={styles.filaFuncional} key={nombre}>
+                  <span className={styles.iconoFuncional} aria-hidden="true">
+                    <Icono />
+                  </span>
+                  <div className={styles.contenidoFuncional}>
+                    <h3 className={styles.nombreFuncional}>{nombre}</h3>
+                    <p className={styles.descripcionFuncional}>{descripcion}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -299,19 +333,45 @@ export default function PaginaServicios() {
                 <SubrayadoTitulo />
               </h2>
               <p className={styles.introduccionMarcas}>
-                Aplicaciones de papelería y gráfica para dar unidad a tu marca,
+                Papelería personalizada para potenciar la identidad de tu marca,
                 negocio o emprendimiento.
               </p>
             </header>
 
-            <ul className={styles.listaMarcas}>
-              {aplicacionesMarca.map(({ nombre, Icono }) => (
-                <li className={styles.aplicacionMarca} key={nombre}>
-                  <Icono className={styles.iconoMarca} aria-hidden="true" />
-                  <span className={styles.nombreMarca}>{nombre}</span>
-                </li>
-              ))}
-            </ul>
+            <div className={styles.detalleMarcas}>
+              <div className={styles.galeriaMarcas}>
+                <figure className={styles.placeholderMarca}>
+                  <div
+                    className={styles.placeholderPieza}
+                    role="img"
+                    aria-label="Espacio reservado para una futura fotografía de productos de marca"
+                  />
+                </figure>
+                <figure className={styles.placeholderMarca}>
+                  <div
+                    className={styles.placeholderPieza}
+                    role="img"
+                    aria-label="Espacio reservado para una futura fotografía de packaging de marca"
+                  />
+                </figure>
+                <figure className={styles.placeholderMarca}>
+                  <div
+                    className={styles.placeholderPieza}
+                    role="img"
+                    aria-label="Espacio reservado para una futura fotografía de papelería promocional"
+                  />
+                </figure>
+              </div>
+
+              <ul className={styles.aplicacionesMarca}>
+                {aplicacionesMarca.map(({ nombre, Icono }) => (
+                  <li className={styles.aplicacionMarca} key={nombre}>
+                    <Icono className={styles.iconoMarca} aria-hidden="true" />
+                    <span className={styles.nombreMarca}>{nombre}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
