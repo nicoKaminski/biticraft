@@ -177,7 +177,7 @@
 @media (min-width: 64rem) {
   .grilla {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    max-width: 72rem;
+    max-width: 66rem;
     margin-inline: auto;
   }
 

@@ -197,12 +197,14 @@ export default function PaginaServicios() {
 
           <div className={styles.composicionDigital}>
             <figure className={styles.fotografiaDigital}>
-              <Image
-                src="/home/servicios/grafica-digital.webp"
-                alt="Invitación digital de boda presentada en un dispositivo."
-                fill
-                sizes="(min-width: 72rem) 34rem, (min-width: 48rem) 44vw, calc(100vw - 2rem)"
-              />
+              <div className={styles.marcoDigital}>
+                <Image
+                  src="/home/servicios/grafica-digital.webp"
+                  alt="Invitación digital de boda presentada en un dispositivo."
+                  fill
+                  sizes="(min-width: 72rem) 34rem, (min-width: 48rem) 44vw, calc(100vw - 2rem)"
+                />
+              </div>
               <figcaption className={styles.pieDigital}>
                 Invitaciones digitales
               </figcaption>
