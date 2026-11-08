@@ -1,22 +1,31 @@
 import Image from "next/image";
 import { Caveat } from "next/font/google";
 import {
+  Bandage,
   Bell,
+  Cake,
   CalendarCheck,
   CalendarDays,
+  Candy,
   CreditCard,
+  Flag,
+  Flower2,
   Gift,
   Heart,
+  Images,
   ListChecks,
   MonitorSmartphone,
   NotebookPen,
-  Package,
+  PackageOpen,
   PanelsTopLeft,
+  PartyPopper,
   Printer,
-  Scissors,
   Send,
-  Sparkles,
-  Tags,
+  ShoppingBag,
+  Sticker,
+  Tag,
+  Type,
+  WandSparkles,
 } from "lucide-react";
 import { Boton } from "@/components/ui/Boton";
 import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
@@ -31,22 +40,22 @@ const caveat = Caveat({
 const captionClass = `${styles.captionManuscrito} ${caveat.className}`;
 
 const papeleriaCreativa = [
-  { nombre: "Banderines", Icono: Scissors },
-  { nombre: "Bolsitas golosineras", Icono: Package },
-  { nombre: "Carteles de bienvenida", Icono: Sparkles },
-  { nombre: "Centros de mesa", Icono: Gift },
-  { nombre: "Gigantografías", Icono: Sparkles },
-  { nombre: "Golosinas personalizadas", Icono: Gift },
-  { nombre: "Kits de emergencia/baño", Icono: Package },
-  { nombre: "Letras 3D", Icono: Sparkles },
-  { nombre: "Packaging personalizado", Icono: Package },
-  { nombre: "Piñatas", Icono: Gift },
+  { nombre: "Banderines", Icono: Flag },
+  { nombre: "Bolsitas golosineras", Icono: ShoppingBag },
+  { nombre: "Carteles de bienvenida", Icono: PanelsTopLeft },
+  { nombre: "Centros de mesa", Icono: Flower2 },
+  { nombre: "Gigantografías", Icono: Images },
+  { nombre: "Golosinas personalizadas", Icono: Candy },
+  { nombre: "Kits de emergencia/baño", Icono: Bandage },
+  { nombre: "Letras 3D", Icono: Type },
+  { nombre: "Packaging personalizado", Icono: PackageOpen },
+  { nombre: "Piñatas", Icono: PartyPopper },
   { nombre: "Souvenirs", Icono: Gift },
-  { nombre: "Stickers personalizados", Icono: Tags },
-  { nombre: "Tags", Icono: Tags },
+  { nombre: "Stickers personalizados", Icono: Sticker },
+  { nombre: "Tags", Icono: Tag },
   { nombre: "Tarjetas personalizadas", Icono: CreditCard },
-  { nombre: "Toppers decorativos", Icono: Gift },
-  { nombre: "Toppers para torta", Icono: Gift },
+  { nombre: "Toppers decorativos", Icono: WandSparkles },
+  { nombre: "Toppers para torta", Icono: Cake },
 ];
 
 const graficaDigital = [

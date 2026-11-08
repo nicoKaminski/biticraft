@@ -2,6 +2,15 @@
   overflow: clip;
   background-color: #ffffff;
   background-image:
+    linear-gradient(
+      to bottom,
+      #ffffff 0,
+      rgba(255, 255, 255, 0.98) 5rem,
+      rgba(255, 255, 255, 0.86) 12rem,
+      rgba(255, 255, 255, 0.58) 21rem,
+      rgba(255, 255, 255, 0.2) 30rem,
+      transparent 36rem
+    ),
     radial-gradient(ellipse 92% 12% at 40% 2%, rgba(220, 205, 235, 0.28), transparent 100%),
     radial-gradient(ellipse 105% 15% at 68% 6%, rgba(201, 205, 223, 0.22), transparent 100%),
     radial-gradient(ellipse 102% 22% at 56% 21%, rgba(249, 205, 204, 0.4), transparent 100%),
@@ -25,6 +34,12 @@
   min-height: 16.5rem;
   align-items: center;
   padding-block: clamp(2.5rem, 4vw, 3.5rem);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 42%,
+    rgba(231, 216, 233, 0.14) 100%
+  );
   text-align: center;
 }
 
@@ -81,6 +96,17 @@
 .seccionDigital,
 .seccionFuncional {
   padding-block: clamp(2.5rem, 2.8vw, 2.75rem);
+}
+
+.seccionCreativa {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(231, 216, 233, 0.14) 0%,
+    rgba(231, 216, 233, 0.1) 36%,
+    rgba(231, 216, 233, 0) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 18rem;
 }
 
 .encabezadoCategoria {
@@ -271,7 +297,6 @@
 }
 
 .fotografiaCreativa,
-.fotografiaDigital,
 .fotografiaFuncional {
   position: relative;
   min-width: 0;
@@ -307,13 +332,25 @@
   text-align: center;
 }
 
+.pieCreativo.captionManuscrito,
+.pieDigital.captionManuscrito {
+  color: rgba(60, 60, 59, 0.68);
+  font-weight: var(--font-weight-regular);
+}
+
+.polaroidCreativa .pieCreativo.captionManuscrito {
+  font-size: calc(var(--font-size-product-title) + 0.125rem);
+}
+
 .pieDigital.captionManuscrito {
   display: block;
+  grid-row: 2;
+  grid-column: 1;
+  align-self: center;
   width: 100%;
-  padding-block: 0.75rem 0.35rem;
-  color: rgba(60, 60, 59, 0.68);
+  margin: 0;
+  padding: 0;
   font-size: var(--font-size-card-title-mobile);
-  font-weight: var(--font-weight-regular);
   line-height: 1.15;
   text-align: center;
 }
@@ -374,36 +411,34 @@
   stroke-width: 1.55;
 }
 
-.productoCreativo:nth-child(8n + 1) .iconoProducto {
+.productoCreativo:nth-child(12n + 1) .iconoProducto,
+.productoCreativo:nth-child(12n + 6) .iconoProducto {
   background-color: rgba(249, 205, 204, 0.58);
 }
 
-.productoCreativo:nth-child(8n + 2) .iconoProducto {
+.productoCreativo:nth-child(12n + 3) .iconoProducto,
+.productoCreativo:nth-child(12n + 8) .iconoProducto {
   background-color: rgba(212, 231, 206, 0.66);
 }
 
-.productoCreativo:nth-child(8n + 3) .iconoProducto {
+.productoCreativo:nth-child(12n + 5) .iconoProducto,
+.productoCreativo:nth-child(12n + 10) .iconoProducto {
   background-color: rgba(231, 216, 233, 0.68);
 }
 
-.productoCreativo:nth-child(8n + 4) .iconoProducto {
+.productoCreativo:nth-child(12n + 7) .iconoProducto,
+.productoCreativo:nth-child(12n + 12) .iconoProducto {
   background-color: rgba(205, 232, 236, 0.68);
 }
 
-.productoCreativo:nth-child(8n + 5) .iconoProducto {
+.productoCreativo:nth-child(12n + 4) .iconoProducto,
+.productoCreativo:nth-child(12n + 9) .iconoProducto {
   background-color: rgba(254, 240, 214, 0.86);
 }
 
-.productoCreativo:nth-child(8n + 6) .iconoProducto {
-  background-color: rgba(220, 186, 219, 0.58);
-}
-
-.productoCreativo:nth-child(8n + 7) .iconoProducto {
+.productoCreativo:nth-child(12n + 2) .iconoProducto,
+.productoCreativo:nth-child(12n + 11) .iconoProducto {
   background-color: rgba(201, 205, 223, 0.66);
-}
-
-.productoCreativo:nth-child(8n) .iconoProducto {
-  background-color: rgba(220, 186, 219, 0.42);
 }
 
 /* Digital se organiza como pieza visual y una secuencia de servicios. */
@@ -420,14 +455,14 @@
 .fotografiaDigital {
   position: relative;
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(3.15rem, 1fr);
   margin: 0;
   padding: 0.6rem 0.6rem 0.2rem;
   border: 1px solid rgba(60, 60, 59, 0.055);
   border-radius: 0.35rem;
   background-color: #ffffff;
   box-shadow: 0 0.8rem 1.8rem rgba(60, 60, 59, 0.075);
-  transform: rotate(-0.75deg);
+  transform: rotate(-1.25deg);
 }
 
 .fotografiaDigital::before {
