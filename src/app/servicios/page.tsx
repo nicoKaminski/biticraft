@@ -46,7 +46,7 @@ const papeleriaCreativa = [
   { nombre: "Centros de mesa", Icono: Flower2 },
   { nombre: "Gigantografías", Icono: Images },
   { nombre: "Golosinas personalizadas", Icono: Candy },
-  { nombre: "Kits de emergencia/baño", Icono: Bandage },
+  { nombre: "Kits de emergencia", Icono: Bandage },
   { nombre: "Letras 3D", Icono: Type },
   { nombre: "Packaging personalizado", Icono: PackageOpen },
   { nombre: "Piñatas", Icono: PartyPopper },
@@ -120,7 +120,7 @@ const papeleriaFuncional = [
 
 const aplicacionesMarca = [
   {
-    nombre: "Stickers / Etiquetas",
+    nombre: "Stickers y etiquetas",
     imagen: "/servicios/marcas-emprendimientos/marcas-stickers-etiquetas.webp",
     alt: "Stickers y etiquetas personalizados para una marca",
   },
@@ -173,6 +173,48 @@ export default function PaginaServicios() {
         </div>
       </section>
 
+      <nav
+        className={styles.navegacionCategorias}
+        aria-label="Categorías de servicios"
+      >
+        <div className={styles.container}>
+          <ul className={styles.listaNavegacionCategorias}>
+            <li>
+              <a
+                className={styles.enlaceCategoria}
+                href="#titulo-papeleria-creativa"
+              >
+                Papelería Creativa
+              </a>
+            </li>
+            <li>
+              <a
+                className={styles.enlaceCategoria}
+                href="#titulo-grafica-digital"
+              >
+                Gráfica Digital
+              </a>
+            </li>
+            <li>
+              <a
+                className={styles.enlaceCategoria}
+                href="#titulo-papeleria-funcional"
+              >
+                Papelería Funcional
+              </a>
+            </li>
+            <li>
+              <a
+                className={styles.enlaceCategoria}
+                href="#titulo-marcas-emprendimientos"
+              >
+                Marcas y emprendimientos
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
       <section
         className={styles.seccionCreativa}
         aria-labelledby="titulo-papeleria-creativa"
@@ -180,7 +222,7 @@ export default function PaginaServicios() {
         <div className={styles.container}>
           <header className={styles.encabezadoCategoria}>
             <h2
-              className={styles.tituloSeccion}
+              className={`${styles.tituloSeccion} ${styles.destinoAnchor}`}
               id="titulo-papeleria-creativa"
             >
               Papelería Creativa
@@ -211,8 +253,7 @@ export default function PaginaServicios() {
                     src="/servicios/papeleria-creativa/creativa-kit-emergencia.webp"
                     alt="Kit de emergencia para eventos con artículos de higiene y primeros auxilios."
                     fill
-                    sizes="(min-width: 72rem) 31rem, (min-width: 48rem) 42vw, calc(100vw - 2rem)"
-                    priority
+                    sizes="(min-width: 72rem) 18rem, (min-width: 64rem) calc(40vw - 10.75rem), (min-width: 36rem) calc(60vw - 3rem), calc(60vw - 3rem)"
                   />
                 </div>
                 <figcaption
@@ -230,7 +271,7 @@ export default function PaginaServicios() {
                     src="/servicios/papeleria-creativa/creativa-pinata.webp"
                     alt="Piñatas decorativas de tonos pastel en una mesa de celebración."
                     fill
-                    sizes="(min-width: 64rem) 12rem, (min-width: 48rem) 16rem, 34vw"
+                    sizes="(min-width: 72rem) 12rem, (min-width: 64rem) 10rem, (min-width: 48rem) 38vw, 34vw"
                   />
                 </div>
                 <figcaption
@@ -248,7 +289,7 @@ export default function PaginaServicios() {
                     src="/servicios/papeleria-creativa/creativa-toppers-decorativos.webp"
                     alt="Toppers decorativos de flores, mariposa, moño y estrella en tonos pastel."
                     fill
-                    sizes="(min-width: 64rem) 12rem, (min-width: 48rem) 16rem, 34vw"
+                    sizes="(min-width: 72rem) 12rem, (min-width: 64rem) 10rem, (min-width: 48rem) 38vw, 34vw"
                   />
                 </div>
                 <figcaption
@@ -268,7 +309,10 @@ export default function PaginaServicios() {
       >
         <div className={styles.container}>
           <header className={styles.encabezadoCategoria}>
-            <h2 className={styles.tituloSeccion} id="titulo-grafica-digital">
+            <h2
+              className={`${styles.tituloSeccion} ${styles.destinoAnchor}`}
+              id="titulo-grafica-digital"
+            >
               Gráfica Digital
               <SubrayadoTitulo />
             </h2>
@@ -285,7 +329,7 @@ export default function PaginaServicios() {
                   src="/servicios/grafica-digital/digital-servicios.webp"
                   alt="Invitaciones digitales para quince años y boda presentadas en dos dispositivos."
                   fill
-                  sizes="(min-width: 72rem) 34rem, (min-width: 48rem) 44vw, calc(100vw - 2rem)"
+                  sizes="(min-width: 64rem) 23rem, (min-width: 36rem) calc(100vw - 3rem), calc(100vw - 2rem)"
                 />
               </div>
               <figcaption
@@ -319,7 +363,7 @@ export default function PaginaServicios() {
         <div className={styles.container}>
           <header className={styles.encabezadoCategoria}>
             <h2
-              className={styles.tituloSeccion}
+              className={`${styles.tituloSeccion} ${styles.destinoAnchor}`}
               id="titulo-papeleria-funcional"
             >
               Papelería Funcional
@@ -337,7 +381,7 @@ export default function PaginaServicios() {
                 src="/servicios/papeleria-funcional/funcional-servicios.webp"
                 alt="Agenda docente personalizada acompañada de elementos de escritorio."
                 fill
-                sizes="(min-width: 72rem) 35rem, (min-width: 48rem) 46vw, calc(100vw - 2rem)"
+                sizes="(min-width: 72rem) 33rem, (min-width: 64rem) 46vw, (min-width: 36rem) calc(100vw - 3rem), calc(100vw - 2rem)"
               />
               <figcaption className={styles.pieFuncional}>
                 Herramientas para organizarte
@@ -369,7 +413,7 @@ export default function PaginaServicios() {
           <div className={styles.dossierMarcas}>
             <header className={styles.encabezadoMarcas}>
               <h2
-                className={styles.tituloSeccion}
+                className={`${styles.tituloSeccion} ${styles.destinoAnchor}`}
                 id="titulo-marcas-emprendimientos"
               >
                 Marcas y emprendimientos
@@ -390,7 +434,7 @@ export default function PaginaServicios() {
                         src={imagen}
                         alt={alt}
                         fill
-                        sizes="(min-width: 80rem) 11rem, (min-width: 64rem) 17rem, (min-width: 36rem) 16vw, 29vw"
+                        sizes="(min-width: 80rem) 8rem, (min-width: 64rem) calc(16vw + 3.5rem), (min-width: 36rem) calc((100vw - 4rem) / 3), (min-width: 22rem) calc((100vw - 3.5rem) / 3), calc((100vw - 2.5rem) / 2)"
                       />
                     </div>
                     <figcaption className={styles.captionMarca}>

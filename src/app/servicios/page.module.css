@@ -92,6 +92,52 @@
   transform: rotate(-12deg);
 }
 
+.navegacionCategorias {
+  padding-block: 0.5rem 1rem;
+}
+
+.listaNavegacionCategorias {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.enlaceCategoria {
+  display: flex;
+  min-width: 0;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid rgba(60, 60, 59, 0.1);
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.78);
+  color: var(--color-gris);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  text-align: center;
+  text-decoration: none;
+}
+
+.enlaceCategoria:active {
+  border-color: rgba(124, 111, 126, 0.35);
+  background-color: rgba(231, 216, 233, 0.42);
+}
+
+.enlaceCategoria:focus-visible {
+  outline: 2px solid var(--color-acento-texto-violeta);
+  outline-offset: 2px;
+}
+
+.destinoAnchor {
+  scroll-margin-top: 5.5rem;
+}
+
 .seccionCreativa,
 .seccionDigital,
 .seccionFuncional {
@@ -145,6 +191,11 @@
   gap: clamp(1.5rem, 2.6vw, 2.6rem);
 }
 
+.listaCreativa {
+  grid-column: 1;
+  grid-row: 2;
+}
+
 .composicionCreativa::before {
   position: absolute;
   z-index: -1;
@@ -161,6 +212,8 @@
 .galeriaCreativa {
   display: grid;
   min-width: 0;
+  grid-column: 1;
+  grid-row: 1;
   grid-template-columns: minmax(0, 1.15fr) minmax(6.5rem, 0.78fr);
   grid-template-rows: repeat(2, minmax(0, auto));
   align-items: center;
@@ -347,7 +400,7 @@
 
 .pieCreativo.captionManuscrito,
 .pieDigital.captionManuscrito {
-  color: rgba(60, 60, 59, 0.68);
+  color: rgba(60, 60, 59, 0.74);
   font-weight: var(--font-weight-regular);
 }
 
@@ -832,6 +885,10 @@
 }
 
 @media (min-width: 48rem) {
+  .navegacionCategorias {
+    display: none;
+  }
+
   .hero {
     min-height: 16.5rem;
   }
@@ -855,6 +912,16 @@
   .composicionCreativa {
     grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
     gap: clamp(2rem, 2.8vw, 2.8rem);
+  }
+
+  .listaCreativa {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .galeriaCreativa {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .seccionCreativa .introduccionSeccion {
@@ -931,14 +998,28 @@
     font-size: var(--font-size-body);
   }
 
-  .listaCreativa {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
   .moduloDigital {
     gap: 0.8rem;
   }
 
+  .tituloCta {
+    font-size: clamp(
+      1.125rem,
+      calc(7vw - 0.15rem),
+      var(--font-size-section-title-mobile)
+    );
+    white-space: nowrap;
+  }
+}
+
+@media (width < 22rem) {
+  .listaCreativa {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .galeriaMarcas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 80rem) {
