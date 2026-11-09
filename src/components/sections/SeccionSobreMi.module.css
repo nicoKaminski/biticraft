@@ -125,15 +125,6 @@
   margin: 0;
 }
 
-.titulo::after {
-  display: block;
-  width: var(--ancho-subrayado-titulo);
-  height: var(--alto-subrayado-titulo);
-  margin-top: 0.75rem;
-  background-color: var(--color-subrayado-titulo);
-  content: "";
-}
-
 @media (min-width: 48rem) {
   .titulo {
     font-size: var(--font-size-section-title);
@@ -197,6 +188,12 @@
     0 0.16rem 0.24rem color-mix(in srgb, var(--color-gris) 15%, transparent),
     0 1rem 1.45rem color-mix(in srgb, var(--color-gris) 13%, transparent);
   transform: rotate(1.8deg);
+}
+
+.polaroidReveal {
+  min-width: 0;
+  width: 100%;
+  margin-inline: auto;
 }
 
 .polaroid::before {

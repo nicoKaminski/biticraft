@@ -51,13 +51,8 @@
   margin: 0;
 }
 
-.titulo::after {
-  display: block;
-  width: var(--ancho-subrayado-titulo);
-  height: var(--alto-subrayado-titulo);
-  margin: calc(0.75rem - 0.2em) auto 0;
-  background-color: var(--color-subrayado-titulo);
-  content: "";
+.subrayado {
+  --subrayado-margen-superior: calc(0.75rem - 0.2em);
 }
 
 @media (min-width: 48rem) {

@@ -324,7 +324,7 @@
   left: 50%;
   width: clamp(4.25rem, 5vw, 5rem);
   height: 0.9rem;
-  background-color: rgba(249, 205, 204, 0.9);
+  background-color: rgba(218, 204, 229, 0.9);
   box-shadow: 0 0.08rem 0.22rem rgba(60, 60, 59, 0.04);
   content: "";
   transform: translateX(-50%) rotate(-4deg);
@@ -359,6 +359,10 @@
   transform: rotate(1.4deg) translateY(0.25rem);
 }
 
+.piezaSecundariaVertical::before {
+  background-color: rgba(205, 232, 236, 0.86);
+}
+
 .piezaSecundariaCompacta {
   grid-column: 2;
   grid-row: 2;
@@ -367,7 +371,7 @@
 
 .piezaSecundariaCompacta::before {
   left: 50%;
-  background-color: rgba(205, 232, 236, 0.86);
+  background-color: rgba(249, 205, 204, 0.86);
   transform: translateX(-50%) rotate(3deg);
 }
 

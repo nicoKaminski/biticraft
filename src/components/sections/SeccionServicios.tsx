@@ -1,5 +1,6 @@
 import { Boton } from "@/components/ui/Boton";
 import Image from "next/image";
+import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
 import styles from "./SeccionServicios.module.css";
 
 export const SeccionServicios = () => {
@@ -10,6 +11,7 @@ export const SeccionServicios = () => {
           <h2 className={styles.titulo}>
             Nuestros Servicios
           </h2>
+          <SubrayadoTitulo align="center" className={styles.subrayado} />
           <p className={styles.subtitulo}>
             Soluciones creativas para cada una de tus necesidades.
           </p>
