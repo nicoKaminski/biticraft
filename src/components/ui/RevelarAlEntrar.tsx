@@ -15,15 +15,16 @@ export function RevelarAlEntrar({
   className,
   retrasado = false,
 }: RevelarAlEntrarProps) {
-  const { ref, armed, visible } = useScrollReveal<HTMLDivElement>();
+  const ref = useScrollReveal<HTMLDivElement>(
+    styles.animable,
+    styles.visible,
+  );
 
   return (
     <div
       ref={ref}
       className={[
         styles.revelar,
-        armed && styles.animable,
-        visible && styles.visible,
         retrasado && styles.retrasado,
         className,
       ]

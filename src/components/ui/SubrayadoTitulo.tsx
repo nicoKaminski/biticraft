@@ -14,7 +14,10 @@ export function SubrayadoTitulo({
   compact = false,
   className,
 }: SubrayadoTituloProps) {
-  const { ref, armed, visible } = useScrollReveal<HTMLSpanElement>();
+  const ref = useScrollReveal<HTMLSpanElement>(
+    styles.animable,
+    styles.visible,
+  );
 
   return (
     <span
@@ -24,8 +27,6 @@ export function SubrayadoTitulo({
         styles.subrayado,
         align === "center" && styles.centrado,
         compact && styles.compacto,
-        armed && styles.animable,
-        visible && styles.visible,
         className,
       ]
         .filter(Boolean)

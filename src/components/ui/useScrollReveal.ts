@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
-export function useScrollReveal<T extends HTMLElement>() {
+export function useScrollReveal<T extends HTMLElement>(
+  animableClassName: string,
+  visibleClassName: string,
+) {
   const ref = useRef<T>(null);
-  const [armed, setArmed] = useState(false);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const element = ref.current;
@@ -21,7 +22,12 @@ export function useScrollReveal<T extends HTMLElement>() {
       return;
     }
 
-    setArmed(true);
+    element.classList.add(animableClassName);
+
+    let frame: number | undefined;
+    let observer: IntersectionObserver | undefined;
+
+    const reveal = () => element.classList.add(visibleClassName);
 
     const bounds = element.getBoundingClientRect();
     const alreadyPassed = bounds.bottom <= 0;
@@ -29,24 +35,28 @@ export function useScrollReveal<T extends HTMLElement>() {
       bounds.top < window.innerHeight * 0.92 && bounds.bottom > 0;
 
     if (alreadyPassed || initiallyVisible) {
-      const frame = window.requestAnimationFrame(() => setVisible(true));
-      return () => window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(reveal);
+    } else {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0]?.isIntersecting) {
+            reveal();
+            observer?.disconnect();
+          }
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.01 },
+      );
+
+      observer.observe(element);
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0]?.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.01 },
-    );
+    return () => {
+      observer?.disconnect();
+      if (frame !== undefined) {
+        window.cancelAnimationFrame(frame);
+      }
+    };
+  }, [animableClassName, visibleClassName]);
 
-    observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return { ref, armed, visible };
+  return ref;
 }
