@@ -119,12 +119,36 @@ const papeleriaFuncional = [
 ];
 
 const aplicacionesMarca = [
-  "Stickers / Etiquetas",
-  "Packaging",
-  "Tags",
-  "Tarjetas promocionales",
-  "Cartelería",
-  "Kits coordinados",
+  {
+    nombre: "Stickers / Etiquetas",
+    imagen: "/servicios/marcas-emprendimientos/marcas-stickers-etiquetas.webp",
+    alt: "Stickers y etiquetas personalizados para una marca",
+  },
+  {
+    nombre: "Packaging",
+    imagen: "/servicios/marcas-emprendimientos/marcas-packaging.webp",
+    alt: "Packaging personalizado para una cafetería",
+  },
+  {
+    nombre: "Tags",
+    imagen: "/servicios/marcas-emprendimientos/marcas-tags.webp",
+    alt: "Tags personalizados para una marca",
+  },
+  {
+    nombre: "Tarjetas promocionales",
+    imagen: "/servicios/marcas-emprendimientos/marcas-tarjetas-promocionales.webp",
+    alt: "Tarjetas promocionales personalizadas",
+  },
+  {
+    nombre: "Cartelería",
+    imagen: "/servicios/marcas-emprendimientos/marcas-carteleria.webp",
+    alt: "Vidriera ploteada con identidad visual de marca",
+  },
+  {
+    nombre: "Kits coordinados",
+    imagen: "/servicios/marcas-emprendimientos/marcas-kits-coordinados.webp",
+    alt: "Kit coordinado de piezas gráficas para una marca",
+  },
 ];
 
 export default function PaginaServicios() {
@@ -184,8 +208,8 @@ export default function PaginaServicios() {
               <figure className={styles.polaroidCreativa}>
                 <div className={styles.fotografiaCreativa}>
                   <Image
-                    src="/home/servicios/papeleria-creativa.webp"
-                    alt="Papelería para eventos con una letra 3D, un cartel de bienvenida, una cajita y un topper."
+                    src="/servicios/papeleria-creativa/creativa-kit-emergencia.webp"
+                    alt="Kit de emergencia para eventos con artículos de higiene y primeros auxilios."
                     fill
                     sizes="(min-width: 72rem) 31rem, (min-width: 48rem) 42vw, calc(100vw - 2rem)"
                     priority
@@ -194,18 +218,21 @@ export default function PaginaServicios() {
                 <figcaption
                   className={`${styles.pieCreativo} ${captionClass}`}
                 >
-                  Papelería para eventos
+                  Kit de emergencia
                 </figcaption>
               </figure>
 
               <figure
                 className={`${styles.piezaSecundaria} ${styles.piezaSecundariaVertical}`}
               >
-                <div
-                  className={styles.placeholderPieza}
-                  role="img"
-                  aria-label="Espacio visual reservado para una futura fotografía de piñatas"
-                />
+                <div className={styles.fotografiaPinata}>
+                  <Image
+                    src="/servicios/papeleria-creativa/creativa-pinata.webp"
+                    alt="Piñatas decorativas de tonos pastel en una mesa de celebración."
+                    fill
+                    sizes="(min-width: 64rem) 12rem, (min-width: 48rem) 16rem, 34vw"
+                  />
+                </div>
                 <figcaption
                   className={`${styles.pieCreativo} ${captionClass}`}
                 >
@@ -216,11 +243,14 @@ export default function PaginaServicios() {
               <figure
                 className={`${styles.piezaSecundaria} ${styles.piezaSecundariaCompacta}`}
               >
-                <div
-                  className={styles.placeholderPieza}
-                  role="img"
-                  aria-label="Espacio visual reservado para una futura fotografía de toppers decorativos"
-                />
+                <div className={styles.fotografiaToppers}>
+                  <Image
+                    src="/servicios/papeleria-creativa/creativa-toppers-decorativos.webp"
+                    alt="Toppers decorativos de flores, mariposa, moño y estrella en tonos pastel."
+                    fill
+                    sizes="(min-width: 64rem) 12rem, (min-width: 48rem) 16rem, 34vw"
+                  />
+                </div>
                 <figcaption
                   className={`${styles.pieCreativo} ${captionClass}`}
                 >
@@ -252,8 +282,8 @@ export default function PaginaServicios() {
             <figure className={styles.fotografiaDigital}>
               <div className={styles.marcoDigital}>
                 <Image
-                  src="/home/servicios/grafica-digital.webp"
-                  alt="Invitación digital de boda presentada en un dispositivo."
+                  src="/servicios/grafica-digital/digital-servicios.webp"
+                  alt="Invitaciones digitales para quince años y boda presentadas en dos dispositivos."
                   fill
                   sizes="(min-width: 72rem) 34rem, (min-width: 48rem) 44vw, calc(100vw - 2rem)"
                 />
@@ -304,8 +334,8 @@ export default function PaginaServicios() {
           <div className={styles.composicionFuncional}>
             <figure className={styles.fotografiaFuncional}>
               <Image
-                src="/home/servicios/papeleria-funcional.webp"
-                alt="Agenda personalizada acompañada de elementos de escritorio."
+                src="/servicios/papeleria-funcional/funcional-servicios.webp"
+                alt="Agenda docente personalizada acompañada de elementos de escritorio."
                 fill
                 sizes="(min-width: 72rem) 35rem, (min-width: 48rem) 46vw, calc(100vw - 2rem)"
               />
@@ -353,13 +383,16 @@ export default function PaginaServicios() {
 
             <div className={styles.detalleMarcas}>
               <div className={styles.galeriaMarcas}>
-                {aplicacionesMarca.map((nombre) => (
+                {aplicacionesMarca.map(({ nombre, imagen, alt }) => (
                   <figure className={styles.piezaMarca} key={nombre}>
-                    <div
-                      className={`${styles.visualMarca} ${styles.placeholderPieza}`}
-                      role="img"
-                      aria-label={`Espacio visual reservado para una futura fotografía de ${nombre}`}
-                    />
+                    <div className={styles.visualMarca}>
+                      <Image
+                        src={imagen}
+                        alt={alt}
+                        fill
+                        sizes="(min-width: 80rem) 11rem, (min-width: 64rem) 17rem, (min-width: 36rem) 16vw, 29vw"
+                      />
+                    </div>
                     <figcaption className={styles.captionMarca}>
                       {nombre}
                     </figcaption>

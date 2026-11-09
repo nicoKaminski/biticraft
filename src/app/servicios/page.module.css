@@ -297,6 +297,8 @@
 }
 
 .fotografiaCreativa,
+.fotografiaPinata,
+.fotografiaToppers,
 .fotografiaFuncional {
   position: relative;
   min-width: 0;
@@ -308,9 +310,20 @@
   aspect-ratio: 0.92 / 1;
 }
 
+.fotografiaPinata {
+  aspect-ratio: 0.82 / 1;
+}
+
+.fotografiaToppers {
+  aspect-ratio: 1.22 / 1;
+}
+
 .fotografiaCreativa :global(img),
+.fotografiaPinata :global(img),
+.fotografiaToppers :global(img),
 .fotografiaDigital :global(img),
-.fotografiaFuncional :global(img) {
+.fotografiaFuncional :global(img),
+.visualMarca :global(img) {
   object-fit: cover;
 }
 
@@ -756,40 +769,6 @@
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background-color: rgba(254, 240, 214, 0.48);
-  background-image:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.73), transparent 62%),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0,
-      transparent 1rem,
-      rgba(157, 137, 152, 0.055) 1rem,
-      rgba(157, 137, 152, 0.055) 1.05rem
-    );
-}
-
-.visualMarca::before {
-  position: absolute;
-  inset: 13% 14%;
-  border: 1px solid rgba(124, 111, 126, 0.17);
-  background-image: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.7),
-    rgba(249, 205, 204, 0.16)
-  );
-  content: "";
-  transform: rotate(-1.5deg);
-}
-
-.visualMarca::after {
-  position: absolute;
-  top: 24%;
-  right: 20%;
-  width: 0.65rem;
-  height: 0.65rem;
-  border: 1px solid rgba(145, 119, 142, 0.19);
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.52);
-  content: "";
 }
 
 .piezaMarca:nth-child(3n + 2) .visualMarca {
