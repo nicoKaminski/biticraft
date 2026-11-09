@@ -40,7 +40,7 @@ export const SeccionSobreMi = () => {
             <div className={styles.fotografia}>
               <Image
                 src="/home/quienes-somos/quienes-somos.webp"
-                alt="Manos sostienen una decoración de papel con forma de zorro y un moño rosa sobre una mesa de manualidades."
+                alt="Manos trabajando sobre papel rosa en una base de corte, rodeadas de herramientas y materiales de manualidades."
                 width={1536}
                 height={1024}
                 sizes="(min-width: 80rem) 31rem, (min-width: 64rem) 27rem, (min-width: 34.25rem) 29rem, calc(100vw - 5.25rem)"
