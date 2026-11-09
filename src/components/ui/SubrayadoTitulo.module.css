@@ -2,8 +2,9 @@
   display: block;
   width: var(--ancho-subrayado-titulo);
   height: var(--alto-subrayado-titulo);
-  margin-top: 0.75rem;
+  margin-top: var(--subrayado-margen-superior, 0.75rem);
   background-color: var(--color-subrayado-titulo);
+  transform-origin: left center;
 }
 
 .centrado {
@@ -11,5 +12,31 @@
 }
 
 .compacto {
-  margin-top: 0.375rem;
+  --subrayado-margen-superior: 0.375rem;
+}
+
+.animable {
+  opacity: 0;
+  transform: scaleX(0);
+  transition:
+    opacity 220ms ease-out,
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.centrado.animable {
+  transform-origin: center center;
+}
+
+.visible {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animable,
+  .visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

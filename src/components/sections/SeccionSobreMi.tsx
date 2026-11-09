@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { RevelarAlEntrar } from "@/components/ui/RevelarAlEntrar";
+import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
 import styles from "./SeccionSobreMi.module.css";
 
 export const SeccionSobreMi = () => {
@@ -6,8 +8,9 @@ export const SeccionSobreMi = () => {
     <section className={styles.sobreMi}>
       <div className={styles.container}>
         <div className={styles.contenido}>
-          <div className={styles.bloqueTexto}>
+          <RevelarAlEntrar className={styles.bloqueTexto}>
             <h2 className={styles.titulo}>¿Quiénes somos?</h2>
+            <SubrayadoTitulo />
 
             <div className={styles.textosIntro}>
               <p>
@@ -34,20 +37,22 @@ export const SeccionSobreMi = () => {
             <p className={styles.fraseFinal}>
               ¡Todo es 100% personalizado!
             </p>
-          </div>
+          </RevelarAlEntrar>
 
-          <figure className={styles.polaroid}>
-            <div className={styles.fotografia}>
-              <Image
-                src="/home/quienes-somos/quienes-somos.webp"
-                alt="Manos trabajando sobre papel rosa en una base de corte, rodeadas de herramientas y materiales de manualidades."
-                width={1536}
-                height={1024}
-                sizes="(min-width: 80rem) 31rem, (min-width: 64rem) 27rem, (min-width: 34.25rem) 29rem, calc(100vw - 5.25rem)"
-                className={styles.imagen}
-              />
-            </div>
-          </figure>
+          <RevelarAlEntrar className={styles.polaroidReveal} retrasado>
+            <figure className={styles.polaroid}>
+              <div className={styles.fotografia}>
+                <Image
+                  src="/home/quienes-somos/quienes-somos.webp"
+                  alt="Manos trabajando sobre papel rosa en una base de corte, rodeadas de herramientas y materiales de manualidades."
+                  width={1536}
+                  height={1024}
+                  sizes="(min-width: 80rem) 31rem, (min-width: 64rem) 27rem, (min-width: 34.25rem) 29rem, calc(100vw - 5.25rem)"
+                  className={styles.imagen}
+                />
+              </div>
+            </figure>
+          </RevelarAlEntrar>
         </div>
       </div>
     </section>

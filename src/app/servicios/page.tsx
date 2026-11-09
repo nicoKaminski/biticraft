@@ -268,24 +268,6 @@ export default function PaginaServicios() {
               >
                 <div className={styles.fotografiaPinata}>
                   <Image
-                    src="/servicios/papeleria-creativa/creativa-pinata.webp"
-                    alt="Piñatas decorativas de tonos pastel en una mesa de celebración."
-                    fill
-                    sizes="(min-width: 72rem) 12rem, (min-width: 64rem) 10rem, (min-width: 48rem) 38vw, 34vw"
-                  />
-                </div>
-                <figcaption
-                  className={`${styles.pieCreativo} ${captionClass}`}
-                >
-                  Piñatas
-                </figcaption>
-              </figure>
-
-              <figure
-                className={`${styles.piezaSecundaria} ${styles.piezaSecundariaCompacta}`}
-              >
-                <div className={styles.fotografiaToppers}>
-                  <Image
                     src="/servicios/papeleria-creativa/creativa-toppers-decorativos.webp"
                     alt="Toppers decorativos de flores, mariposa, moño y estrella en tonos pastel."
                     fill
@@ -296,6 +278,24 @@ export default function PaginaServicios() {
                   className={`${styles.pieCreativo} ${captionClass}`}
                 >
                   Toppers decorativos
+                </figcaption>
+              </figure>
+
+              <figure
+                className={`${styles.piezaSecundaria} ${styles.piezaSecundariaCompacta}`}
+              >
+                <div className={styles.fotografiaToppers}>
+                  <Image
+                    src="/servicios/papeleria-creativa/creativa-pinata.webp"
+                    alt="Piñatas decorativas de tonos pastel en una mesa de celebración."
+                    fill
+                    sizes="(min-width: 72rem) 12rem, (min-width: 64rem) 10rem, (min-width: 48rem) 38vw, 34vw"
+                  />
+                </div>
+                <figcaption
+                  className={`${styles.pieCreativo} ${captionClass}`}
+                >
+                  Piñatas
                 </figcaption>
               </figure>
             </div>
