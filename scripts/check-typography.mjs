@@ -92,28 +92,32 @@ const tokenDefinitions = new Map([
   ["font-weight-light", "300"],
   ["font-weight-regular", "400"],
   ["font-weight-medium", "500"],
-  ["font-size-body-lg", "1.25rem"],
+  ["font-size-body-lg", "1.125rem"],
   ["font-size-body", "1rem"],
   ["font-size-body-sm", "0.875rem"],
-  ["font-size-display", "4.5rem"],
-  ["font-size-display-mobile", "3rem"],
-  ["font-size-page-title", "3rem"],
-  ["font-size-page-title-mobile", "2.5rem"],
-  ["font-size-section-title", "2.75rem"],
-  ["font-size-section-title-mobile", "2.25rem"],
-  ["font-size-card-title", "2.25rem"],
-  ["font-size-card-title-mobile", "1.875rem"],
-  ["font-size-product-title", "1.5rem"],
+  ["font-size-display", "4rem"],
+  ["font-size-display-mobile", "2.5rem"],
+  ["font-size-page-title", "2.75rem"],
+  ["font-size-page-title-mobile", "2.25rem"],
+  ["font-size-section-title", "2.25rem"],
+  ["font-size-section-title-mobile", "2rem"],
+  ["font-size-card-title", "2rem"],
+  ["font-size-card-title-mobile", "1.75rem"],
+  ["font-size-product-title", "1.25rem"],
 ]);
 const tokenCounts = new Map([...tokenDefinitions.keys()].map((name) => [name, 0]));
 
 const files = (await collectSourceFiles(SOURCE_ROOT)).sort();
 let expectedDMSansImportCount = 0;
+let expectedCaveatImportCount = 0;
 let nextFontReferenceCount = 0;
 
 for (const filePath of files) {
   const relativePath = path.relative(ROOT, filePath).replaceAll(path.sep, "/");
   const rawSource = await readFile(filePath, "utf8");
+  if (/\bgabriola\b/i.test(rawSource)) {
+    report(relativePath, rawSource, rawSource.search(/\bgabriola\b/i), "Gabriola ya no está autorizada en el sistema tipográfico.");
+  }
   const legacySizes = new RegExp(`--font-size-h[1-3](?:-mobile)?(?![\\w-])`, "g");
   for (const match of rawSource.matchAll(legacySizes)) {
     report(relativePath, rawSource, match.index, `el token anterior ${match[0]} ya no está autorizado.`);
@@ -187,20 +191,25 @@ for (const filePath of files) {
 
     const nextFontReferences = [...source.matchAll(/next\/font\/(?:google|local)/g)];
     nextFontReferenceCount += nextFontReferences.length;
-    const allowedImport = [...source.matchAll(/import\s*\{\s*DM_Sans\s*\}\s*from\s*(["'])next\/font\/google\1\s*;?/g)];
-    expectedDMSansImportCount += allowedImport.length;
+    const allowedDMSansImports = [...source.matchAll(/import\s*\{\s*DM_Sans\s*\}\s*from\s*(["'])next\/font\/google\1\s*;?/g)];
+    const allowedCaveatImports = [...source.matchAll(/import\s*\{\s*Caveat\s*\}\s*from\s*(["'])next\/font\/google\1\s*;?/g)];
+    expectedDMSansImportCount += allowedDMSansImports.length;
+    expectedCaveatImportCount += allowedCaveatImports.length;
 
     for (const reference of nextFontReferences) {
-      const isAllowed = relativePath === "src/app/layout.tsx" && allowedImport.some((match) =>
+      const isAllowedDMSans = relativePath === "src/app/layout.tsx" && allowedDMSansImports.some((match) =>
         reference.index >= match.index && reference.index < match.index + match[0].length,
       );
-      if (!isAllowed) {
-        report(relativePath, source, reference.index, "solo se permite importar DM Sans desde next/font/google en src/app/layout.tsx.");
+      const isAllowedCaveat = relativePath === "src/app/servicios/page.tsx" && allowedCaveatImports.some((match) =>
+        reference.index >= match.index && reference.index < match.index + match[0].length,
+      );
+      if (!isAllowedDMSans && !isAllowedCaveat) {
+        report(relativePath, source, reference.index, "solo se permite importar DM Sans en layout.tsx y Caveat en servicios/page.tsx desde next/font/google.");
       }
     }
 
     if (relativePath === "src/app/layout.tsx") {
-      for (const match of allowedImport) {
+      for (const match of allowedDMSansImports) {
         const call = source.slice(match.index + match[0].length).match(/\bDM_Sans\s*\(\s*\{([\s\S]*?)\}\s*\)/);
         if (!call) {
           report(relativePath, source, match.index, "la configuración de DM Sans debe declarar sus opciones explícitamente.");
@@ -222,6 +231,51 @@ for (const filePath of files) {
         }
       }
     }
+
+    if (relativePath === "src/app/servicios/page.tsx") {
+      for (const match of allowedCaveatImports) {
+        const call = source.slice(match.index + match[0].length).match(/\bCaveat\s*\(\s*\{([\s\S]*?)\}\s*\)/);
+        if (!call) {
+          report(relativePath, source, match.index, "la configuración local de Caveat debe declarar sus opciones explícitamente.");
+          continue;
+        }
+
+        const configOffset = match.index + match[0].length + call.index;
+        if (/\bvariable\s*:/.test(call[1])) {
+          report(relativePath, source, configOffset, "Caveat debe usar solo su clase generada, sin exponer una variable global.");
+        }
+
+        const weight = call[1].match(/\bweight\s*:\s*(?:(["'])(.*?)\1|\[([^\]]*)\])/);
+        const configuredWeights = weight
+          ? weight[2]
+            ? [weight[2]]
+            : [...weight[3].matchAll(/["']?(\d{3})["']?/g)].map((item) => item[1])
+          : [];
+        if (configuredWeights.join(",") !== "400") {
+          report(relativePath, source, configOffset, "Caveat debe cargar únicamente el peso decorativo 400.");
+        }
+
+        if (!/\bsubsets\s*:\s*\[[^\]]*["']latin["'][^\]]*\]/.test(call[1])) {
+          report(relativePath, source, configOffset, 'Caveat debe declarar el subset "latin" explícitamente.');
+        }
+      }
+
+      const caveatCalls = [...source.matchAll(/\bCaveat\s*\(/g)];
+      if (caveatCalls.length !== 1) {
+        report(relativePath, source, 0, `se esperaba una única configuración local de Caveat; se encontraron ${caveatCalls.length}.`);
+      }
+
+      const captionClassDefinitions = [...source.matchAll(/const\s+captionClass\s*=\s*`\$\{styles\.captionManuscrito\}\s+\$\{caveat\.className\}`\s*;/g)];
+      if (captionClassDefinitions.length !== 1) {
+        report(relativePath, source, 0, "la clase generada de Caveat debe estar limitada a captionClass junto con .captionManuscrito.");
+      }
+
+      const captionClassUses = [...source.matchAll(/className=\{`\$\{styles\.pie(?:Creativo|Digital)\}\s+\$\{captionClass\}`\}/g)];
+      const allCaptionClassReferences = [...source.matchAll(/\bcaptionClass\b/g)];
+      if (captionClassUses.length !== 4 || allCaptionClassReferences.length !== 5) {
+        report(relativePath, source, 0, "Caveat debe aplicarse únicamente a los cuatro captions decorativos aprobados de Servicios.");
+      }
+    }
   }
 }
 
@@ -231,8 +285,8 @@ for (const [tokenName, count] of tokenCounts) {
   }
 }
 
-if (nextFontReferenceCount !== 1 || expectedDMSansImportCount !== 1) {
-  issues.push(`src/app/layout.tsx: se esperaba una única importación de DM Sans desde next/font/google; referencias=${nextFontReferenceCount}, importaciones DM Sans válidas=${expectedDMSansImportCount}.`);
+if (nextFontReferenceCount !== 2 || expectedDMSansImportCount !== 1 || expectedCaveatImportCount !== 1) {
+  issues.push(`next/font/google: se esperaba una importación central de DM Sans y una importación decorativa local de Caveat; referencias=${nextFontReferenceCount}, importaciones DM Sans válidas=${expectedDMSansImportCount}, importaciones Caveat válidas=${expectedCaveatImportCount}.`);
 }
 
 if (issues.length > 0) {
