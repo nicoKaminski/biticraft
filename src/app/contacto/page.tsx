@@ -11,6 +11,7 @@ import {
   useState,
 } from "react";
 import { enviarFormularioContacto } from "../actions";
+import { HeroPaperPlaneMotion } from "@/components/sections/HeroPaperPlaneMotion";
 import { Boton } from "@/components/ui/Boton";
 import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
 import { EVENT_TYPES } from "./constants";
@@ -232,6 +233,8 @@ export default function PaginaContacto() {
           }}
         />
       )}
+
+      <HeroPaperPlaneMotion />
 
       <div className={styles.tarjeta}>
         <div className={styles.encabezado}>
