@@ -13,6 +13,7 @@ import {
 import { enviarFormularioContacto } from "../actions";
 import { HeroPaperPlaneMotion } from "@/components/sections/HeroPaperPlaneMotion";
 import { Boton } from "@/components/ui/Boton";
+import { RevelarAlEntrar } from "@/components/ui/RevelarAlEntrar";
 import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
 import { EVENT_TYPES } from "./constants";
 import styles from "./page.module.css";
@@ -236,7 +237,7 @@ export default function PaginaContacto() {
 
       <HeroPaperPlaneMotion />
 
-      <div className={styles.tarjeta}>
+      <RevelarAlEntrar className={styles.tarjeta}>
         <div className={styles.encabezado}>
           <h1 className={styles.titulo}>
             Contáctanos
@@ -405,7 +406,7 @@ export default function PaginaContacto() {
             </div>
           </form>
         )}
-      </div>
+      </RevelarAlEntrar>
     </div>
   );
 }

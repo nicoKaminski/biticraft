@@ -28,6 +28,7 @@ import {
   WandSparkles,
 } from "lucide-react";
 import { Boton } from "@/components/ui/Boton";
+import { RevelarAlEntrar } from "@/components/ui/RevelarAlEntrar";
 import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
 import styles from "./page.module.css";
 
@@ -156,7 +157,7 @@ export default function PaginaServicios() {
     <div className={styles.pagina}>
       <section className={styles.hero} aria-labelledby="titulo-servicios">
         <div className={styles.container}>
-          <div className={styles.heroContenido}>
+          <RevelarAlEntrar className={styles.heroContenido}>
             <h1 className={styles.heroTitulo} id="titulo-servicios">
               Nuestros Servicios
             </h1>
@@ -169,7 +170,7 @@ export default function PaginaServicios() {
               <Send className={styles.heroPlane} />
               <span className={styles.heroDividerLine} />
             </div>
-          </div>
+          </RevelarAlEntrar>
         </div>
       </section>
 
@@ -221,20 +222,22 @@ export default function PaginaServicios() {
       >
         <div className={styles.container}>
           <header className={styles.encabezadoCategoria}>
-            <h2
-              className={`${styles.tituloSeccion} ${styles.destinoAnchor}`}
-              id="titulo-papeleria-creativa"
-            >
-              Papelería Creativa
-              <SubrayadoTitulo />
-            </h2>
-            <p className={styles.introduccionSeccion}>
-              Detalles únicos y personalizados para eventos, celebraciones y
-              momentos especiales.
-            </p>
+            <RevelarAlEntrar>
+              <h2
+                className={`${styles.tituloSeccion} ${styles.destinoAnchor}`}
+                id="titulo-papeleria-creativa"
+              >
+                Papelería Creativa
+                <SubrayadoTitulo />
+              </h2>
+              <p className={styles.introduccionSeccion}>
+                Detalles únicos y personalizados para eventos, celebraciones y
+                momentos especiales.
+              </p>
+            </RevelarAlEntrar>
           </header>
 
-          <div className={styles.composicionCreativa}>
+          <RevelarAlEntrar className={styles.composicionCreativa}>
             <ul className={styles.listaCreativa}>
               {papeleriaCreativa.map(({ nombre, Icono }) => (
                 <li className={styles.productoCreativo} key={nombre}>
@@ -269,7 +272,7 @@ export default function PaginaServicios() {
                 <div className={styles.fotografiaPinata}>
                   <Image
                     src="/servicios/papeleria-creativa/creativa-toppers-decorativos.webp"
-                    alt="Toppers decorativos de flores, mariposa, moño y estrella en tonos pastel."
+                    alt="Souvenir decorativo con diseño de flores, mariposa, moño y estrella en tonos pastel."
                     fill
                     sizes="(min-width: 72rem) 12rem, (min-width: 64rem) 10rem, (min-width: 48rem) 38vw, 34vw"
                   />
@@ -277,7 +280,7 @@ export default function PaginaServicios() {
                 <figcaption
                   className={`${styles.pieCreativo} ${captionClass}`}
                 >
-                  Toppers decorativos
+                  Souvenir
                 </figcaption>
               </figure>
 
@@ -299,7 +302,7 @@ export default function PaginaServicios() {
                 </figcaption>
               </figure>
             </div>
-          </div>
+          </RevelarAlEntrar>
         </div>
       </section>
 
@@ -309,20 +312,22 @@ export default function PaginaServicios() {
       >
         <div className={styles.container}>
           <header className={styles.encabezadoCategoria}>
-            <h2
-              className={`${styles.tituloSeccion} ${styles.destinoAnchor}`}
-              id="titulo-grafica-digital"
-            >
-              Gráfica Digital
-              <SubrayadoTitulo />
-            </h2>
-            <p className={styles.introduccionSeccion}>
-              Diseños editables y listos para usar, pensados para que
-              personalices, imprimas o compartas con practicidad.
-            </p>
+            <RevelarAlEntrar>
+              <h2
+                className={`${styles.tituloSeccion} ${styles.destinoAnchor}`}
+                id="titulo-grafica-digital"
+              >
+                Gráfica Digital
+                <SubrayadoTitulo />
+              </h2>
+              <p className={styles.introduccionSeccion}>
+                Diseños editables y listos para usar, pensados para que
+                personalices, imprimas o compartas con practicidad.
+              </p>
+            </RevelarAlEntrar>
           </header>
 
-          <div className={styles.composicionDigital}>
+          <RevelarAlEntrar className={styles.composicionDigital}>
             <figure className={styles.fotografiaDigital}>
               <div className={styles.marcoDigital}>
                 <Image
@@ -352,7 +357,7 @@ export default function PaginaServicios() {
                 </li>
               ))}
             </ul>
-          </div>
+          </RevelarAlEntrar>
         </div>
       </section>
 
@@ -362,20 +367,22 @@ export default function PaginaServicios() {
       >
         <div className={styles.container}>
           <header className={styles.encabezadoCategoria}>
-            <h2
-              className={`${styles.tituloSeccion} ${styles.destinoAnchor}`}
-              id="titulo-papeleria-funcional"
-            >
-              Papelería Funcional
-              <SubrayadoTitulo />
-            </h2>
-            <p className={styles.introduccionSeccion}>
-              Organización, planificación y herramientas prácticas para tu día
-              a día, tus estudios o tu trabajo.
-            </p>
+            <RevelarAlEntrar>
+              <h2
+                className={`${styles.tituloSeccion} ${styles.destinoAnchor}`}
+                id="titulo-papeleria-funcional"
+              >
+                Papelería Funcional
+                <SubrayadoTitulo />
+              </h2>
+              <p className={styles.introduccionSeccion}>
+                Organización, planificación y herramientas prácticas para tu día
+                a día, tus estudios o tu trabajo.
+              </p>
+            </RevelarAlEntrar>
           </header>
 
-          <div className={styles.composicionFuncional}>
+          <RevelarAlEntrar className={styles.composicionFuncional}>
             <figure className={styles.fotografiaFuncional}>
               <Image
                 src="/servicios/papeleria-funcional/funcional-servicios.webp"
@@ -401,7 +408,7 @@ export default function PaginaServicios() {
                 </li>
               ))}
             </ul>
-          </div>
+          </RevelarAlEntrar>
         </div>
       </section>
 
@@ -410,7 +417,7 @@ export default function PaginaServicios() {
         aria-labelledby="titulo-marcas-emprendimientos"
       >
         <div className={styles.container}>
-          <div className={styles.dossierMarcas}>
+          <RevelarAlEntrar className={styles.dossierMarcas}>
             <header className={styles.encabezadoMarcas}>
               <h2
                 className={`${styles.tituloSeccion} ${styles.destinoAnchor}`}
@@ -444,12 +451,12 @@ export default function PaginaServicios() {
                 ))}
               </div>
             </div>
-          </div>
+          </RevelarAlEntrar>
         </div>
       </section>
 
       <section className={styles.seccionCta} aria-labelledby="titulo-cta">
-        <div className={styles.container}>
+        <RevelarAlEntrar className={styles.container}>
           <h2 className={styles.tituloCta} id="titulo-cta">
             ¿No encontrás lo que buscás?
             <SubrayadoTitulo align="center" />
@@ -460,7 +467,7 @@ export default function PaginaServicios() {
           <Boton variant="primary" href="/contacto">
             Contactar ahora
           </Boton>
-        </div>
+        </RevelarAlEntrar>
       </section>
     </div>
   );

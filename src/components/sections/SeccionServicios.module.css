@@ -68,8 +68,11 @@
   margin-bottom: 0;
 }
 
-.grilla {
+.grillaReveal {
   margin-top: 3rem;
+}
+
+.grilla {
   display: grid;
   gap: 2rem;
 }
