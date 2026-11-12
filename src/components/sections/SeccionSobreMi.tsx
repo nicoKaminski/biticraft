@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { PolaroidConCursor } from "@/components/ui/PolaroidConCursor";
 import { RevelarAlEntrar } from "@/components/ui/RevelarAlEntrar";
 import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
 import styles from "./SeccionSobreMi.module.css";
@@ -40,7 +41,10 @@ export const SeccionSobreMi = () => {
           </RevelarAlEntrar>
 
           <RevelarAlEntrar className={styles.polaroidReveal} retrasado>
-            <figure className={styles.polaroid}>
+            <PolaroidConCursor
+              className={styles.polaroid}
+              inclinacionMaxima={7}
+            >
               <div className={styles.fotografia}>
                 <Image
                   src="/home/quienes-somos/quienes-somos.webp"
@@ -51,7 +55,7 @@ export const SeccionSobreMi = () => {
                   className={styles.imagen}
                 />
               </div>
-            </figure>
+            </PolaroidConCursor>
           </RevelarAlEntrar>
         </div>
       </div>

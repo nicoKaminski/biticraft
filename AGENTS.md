@@ -29,3 +29,13 @@
 ## Contrato tipográfico
 
 El sistema tipográfico global es un contrato de diseño. Times New Roman es la única familia autorizada para headings; `Times, serif` son fallbacks técnicos de plataforma, no familias alternativas de diseño. DM Sans es la única familia autorizada para cuerpo e interfaz. Los únicos pesos globales permitidos son 300, 400 y 500; 600, 700, 800, 900, `bold` y `bolder` están prohibidos. Excepción decorativa de `/servicios`: se autoriza Caveat únicamente para los captions manuscritos de piezas visuales tipo polaroid de `src/app/servicios/page.tsx`. Debe cargarse mediante `next/font/google`, con peso 400 y subset `latin`, utilizando únicamente la clase generada localmente, sin exponer una variable CSS global. Su uso debe quedar combinado con `.captionManuscrito`. Caveat no forma parte del sistema tipográfico global y no puede utilizarse en headings, cuerpo, navegación, botones, formularios, módulos, listas, otras páginas ni otros elementos de interfaz. Cualquier ampliación futura requiere aprobación explícita. Fuera de esta excepción, ningún agente puede incorporar otra familia, peso o archivo de fuente sin aprobación expresa del responsable, ni usar overrides tipográficos locales que evadan el sistema global. Ejecuta la validación tipográfica cuando el alcance involucre estilos o tipografía, junto con las validaciones autorizadas que correspondan.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

@@ -28,6 +28,7 @@ import {
   WandSparkles,
 } from "lucide-react";
 import { Boton } from "@/components/ui/Boton";
+import { PolaroidConCursor } from "@/components/ui/PolaroidConCursor";
 import { RevelarAlEntrar } from "@/components/ui/RevelarAlEntrar";
 import { SubrayadoTitulo } from "@/components/ui/SubrayadoTitulo";
 import styles from "./page.module.css";
@@ -250,7 +251,7 @@ export default function PaginaServicios() {
             </ul>
 
             <div className={styles.galeriaCreativa}>
-              <figure className={styles.polaroidCreativa}>
+              <PolaroidConCursor className={styles.polaroidCreativa}>
                 <div className={styles.fotografiaCreativa}>
                   <Image
                     src="/servicios/papeleria-creativa/creativa-kit-emergencia.webp"
@@ -264,9 +265,9 @@ export default function PaginaServicios() {
                 >
                   Kit de emergencia
                 </figcaption>
-              </figure>
+              </PolaroidConCursor>
 
-              <figure
+              <PolaroidConCursor
                 className={`${styles.piezaSecundaria} ${styles.piezaSecundariaVertical}`}
               >
                 <div className={styles.fotografiaPinata}>
@@ -282,9 +283,9 @@ export default function PaginaServicios() {
                 >
                   Souvenir
                 </figcaption>
-              </figure>
+              </PolaroidConCursor>
 
-              <figure
+              <PolaroidConCursor
                 className={`${styles.piezaSecundaria} ${styles.piezaSecundariaCompacta}`}
               >
                 <div className={styles.fotografiaToppers}>
@@ -300,7 +301,7 @@ export default function PaginaServicios() {
                 >
                   Piñatas
                 </figcaption>
-              </figure>
+              </PolaroidConCursor>
             </div>
           </RevelarAlEntrar>
         </div>
@@ -328,7 +329,7 @@ export default function PaginaServicios() {
           </header>
 
           <RevelarAlEntrar className={styles.composicionDigital}>
-            <figure className={styles.fotografiaDigital}>
+            <PolaroidConCursor className={styles.fotografiaDigital}>
               <div className={styles.marcoDigital}>
                 <Image
                   src="/servicios/grafica-digital/digital-servicios.webp"
@@ -342,7 +343,7 @@ export default function PaginaServicios() {
               >
                 Invitaciones digitales
               </figcaption>
-            </figure>
+            </PolaroidConCursor>
 
             <ul className={styles.modulosDigitales}>
               {graficaDigital.map(({ nombre, descripcion, Icono }) => (

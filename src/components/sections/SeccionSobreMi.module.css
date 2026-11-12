@@ -309,6 +309,41 @@
   }
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .polaroidReveal {
+    perspective: 1000px;
+  }
+
+  .polaroid {
+    transform-style: preserve-3d;
+    transform:
+      rotateX(var(--inclinacion-x, 0deg))
+      rotateY(var(--inclinacion-y, 0deg))
+      rotate(1.8deg);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (max-width: 47.999rem) {
+  .polaroid {
+    transform:
+      rotateX(var(--inclinacion-x, 0deg))
+      rotateY(var(--inclinacion-y, 0deg))
+      rotate(1.1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .polaroid {
+    transform: rotate(1.8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 47.999rem) {
+  .polaroid {
+    transform: rotate(1.1deg);
+  }
+}
+
 @media (max-width: 47.999rem) {
   .sobreMi::after {
     --ambient-dot-mask:
