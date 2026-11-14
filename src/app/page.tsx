@@ -19,7 +19,7 @@ const jsonLd = {
       url: "https://biticraft.com/",
       logo: "https://biticraft.com/logo.webp",
       description:
-        "Diseños a medida para eventos, bodas y celebraciones. Creamos cada detalle para que tu idea tenga una identidad única.",
+        "BitiCraft crea papelería creativa y productos personalizados para eventos en Mar del Plata, Argentina.",
       email: "biticraft.contacto@gmail.com",
       sameAs: ["https://www.instagram.com/biticraft/"],
     },
@@ -28,6 +28,7 @@ const jsonLd = {
       "@id": "https://biticraft.com/#website",
       url: "https://biticraft.com/",
       name: "BitiCraft",
+      alternateName: "biticraft.com",
       inLanguage: "es-AR",
       publisher: {
         "@id": "https://biticraft.com/#organization",

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Servicios personalizados para eventos",
   description:
-    "Toppers, souvenirs, cartelería, papelería digital y mucho más, con diseños a medida para acompañar cada celebración.",
+    "Conocé la papelería creativa de BitiCraft en Mar del Plata: toppers, souvenirs, invitaciones digitales y detalles personalizados para eventos.",
   openGraph: {
     type: "website",
     url: "https://biticraft.com/servicios",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     locale: "es_AR",
     title: "Servicios personalizados para eventos | BitiCraft",
     description:
-      "Toppers, souvenirs, cartelería, papelería digital y mucho más, con diseños a medida para acompañar cada celebración.",
+      "Conocé la papelería creativa de BitiCraft en Mar del Plata: toppers, souvenirs, invitaciones digitales y detalles personalizados para eventos.",
     images: [
       {
         url: "/social-preview.webp",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Servicios personalizados para eventos | BitiCraft",
     description:
-      "Toppers, souvenirs, cartelería, papelería digital y mucho más, con diseños a medida para acompañar cada celebración.",
+      "Conocé la papelería creativa de BitiCraft en Mar del Plata: toppers, souvenirs, invitaciones digitales y detalles personalizados para eventos.",
     images: ["/social-preview.webp"],
   },
   alternates: {

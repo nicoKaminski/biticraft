@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     absolute: "Contactá a BitiCraft | Contanos tu idea",
   },
   description:
-    "¿Estás preparando una celebración? Contanos qué tenés en mente y diseñemos juntos los detalles personalizados para tu evento.",
+    "Consultá a BitiCraft sobre papelería creativa y productos personalizados para eventos en Mar del Plata. Contanos tu idea desde el formulario.",
   openGraph: {
     type: "website",
     url: "https://biticraft.com/contacto",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     locale: "es_AR",
     title: "Contactá a BitiCraft | Contanos tu idea",
     description:
-      "¿Estás preparando una celebración? Contanos qué tenés en mente y diseñemos juntos los detalles personalizados para tu evento.",
+      "Consultá a BitiCraft sobre papelería creativa y productos personalizados para eventos en Mar del Plata. Contanos tu idea desde el formulario.",
     images: [
       {
         url: "/social-preview.webp",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contactá a BitiCraft | Contanos tu idea",
     description:
-      "¿Estás preparando una celebración? Contanos qué tenés en mente y diseñemos juntos los detalles personalizados para tu evento.",
+      "Consultá a BitiCraft sobre papelería creativa y productos personalizados para eventos en Mar del Plata. Contanos tu idea desde el formulario.",
     images: ["/social-preview.webp"],
   },
   alternates: {

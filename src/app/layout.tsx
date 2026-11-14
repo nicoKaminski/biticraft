@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | BitiCraft",
   },
   description:
-    "Diseños a medida para eventos, bodas y celebraciones. Creamos cada detalle para que tu idea tenga una identidad única.",
+    "Papelería creativa y detalles personalizados para cumpleaños, bodas y eventos en Mar del Plata. Conocé BitiCraft y sus productos a medida.",
   openGraph: {
     type: "website",
     url: "https://biticraft.com/",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     locale: "es_AR",
     title: "BitiCraft | Papelería creativa y detalles personalizados",
     description:
-      "Diseños a medida para eventos, bodas y celebraciones. Creamos cada detalle para que tu idea tenga una identidad única.",
+      "Papelería creativa y detalles personalizados para cumpleaños, bodas y eventos en Mar del Plata. Conocé BitiCraft y sus productos a medida.",
     images: [
       {
         url: "/social-preview.webp",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "BitiCraft | Papelería creativa y detalles personalizados",
     description:
-      "Diseños a medida para eventos, bodas y celebraciones. Creamos cada detalle para que tu idea tenga una identidad única.",
+      "Papelería creativa y detalles personalizados para cumpleaños, bodas y eventos en Mar del Plata. Conocé BitiCraft y sus productos a medida.",
     images: ["/social-preview.webp"],
   },
 };
